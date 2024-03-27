@@ -1,11 +1,11 @@
-package com.hcmute.bookingve.models;
+package com.hcmute.bookingve.Models;
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 @Entity
-@Table(name = "Account")
-public class AccountModel implements Serializable {
+@Table(name = "account")
+public class Account implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,23 +18,23 @@ public class AccountModel implements Serializable {
     private int userId;
     @Column(columnDefinition = "int")
     private int roleId;
-    @Column
-    private boolean isActive;
     @Column(columnDefinition = "int")
     private int partnerId;
+    @Column(columnDefinition = "BOOLEAN")
+    private Boolean isActive;
 
-    public AccountModel(int accountId, String username, String password,
-                        int userId, int roleId, boolean isActive, int partnerId) {
+    public Account(int accountId, String username, String password,
+                   int userId, int roleId, boolean isActive, int partnerId) {
         this.accountId = accountId;
         this.username = username;
         this.password = password;
         this.userId = userId;
         this.roleId = roleId;
-        this.isActive = isActive;
         this.partnerId = partnerId;
+        this.isActive = isActive;
     }
 
-    public AccountModel() {
+    public Account() {
 
     }
 
@@ -78,19 +78,19 @@ public class AccountModel implements Serializable {
         this.roleId = roleId;
     }
 
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
     public int getPartnerId() {
         return partnerId;
     }
 
     public void setPartnerId(int partnerId) {
         this.partnerId = partnerId;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }
