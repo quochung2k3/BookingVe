@@ -4,93 +4,92 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 @Entity
-@Table(name = "account")
+@Table(name = "Account")
 public class Account implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int accountId;
+    private int AccountId;
     @Column(columnDefinition = "varchar(255)")
-    private String username;
+    private String Username;
     @Column(columnDefinition = "varchar(255)")
-    private String password;
+    private String Password;
     @Column(columnDefinition = "int")
-    private int userId;
+    private int UserId;
     @Column(columnDefinition = "int")
-    private int roleId;
+    private int RoleId;
     @Column(columnDefinition = "int")
-    private int partnerId;
+    private int PartnerId;
     @Column(columnDefinition = "BOOLEAN")
-    private Boolean isActive;
+    private Boolean IsActive;
 
-    public Account(int accountId, String username, String password,
-                   int userId, int roleId, boolean isActive, int partnerId) {
-        this.accountId = accountId;
-        this.username = username;
-        this.password = password;
-        this.userId = userId;
-        this.roleId = roleId;
-        this.partnerId = partnerId;
-        this.isActive = isActive;
+    public int getAccountId() {
+        return AccountId;
+    }
+
+    public void setAccountId(int accountId) {
+        AccountId = accountId;
+    }
+
+    public String getUsername() {
+        return Username;
+    }
+
+    public void setUsername(String username) {
+        Username = username;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    public int getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(int userId) {
+        UserId = userId;
+    }
+
+    public int getRoleId() {
+        return RoleId;
+    }
+
+    public void setRoleId(int roleId) {
+        RoleId = roleId;
+    }
+
+    public int getPartnerId() {
+        return PartnerId;
+    }
+
+    public void setPartnerId(int partnerId) {
+        PartnerId = partnerId;
+    }
+
+    public Boolean getActive() {
+        return IsActive;
+    }
+
+    public void setActive(Boolean active) {
+        IsActive = active;
+    }
+
+    public Account(int accountId, String username, String password, int userId, int roleId, int partnerId, Boolean isActive) {
+        AccountId = accountId;
+        Username = username;
+        Password = password;
+        UserId = userId;
+        RoleId = roleId;
+        PartnerId = partnerId;
+        IsActive = isActive;
     }
 
     public Account() {
 
-    }
-
-    public int getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
-
-    public int getPartnerId() {
-        return partnerId;
-    }
-
-    public void setPartnerId(int partnerId) {
-        this.partnerId = partnerId;
-    }
-
-    public Boolean getActive() {
-        return isActive;
-    }
-
-    public void setActive(Boolean active) {
-        isActive = active;
     }
 }
