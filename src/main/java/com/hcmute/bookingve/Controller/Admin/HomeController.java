@@ -11,14 +11,14 @@ import java.util.List;
 @Controller
 public class HomeController {
     @Autowired
-    PlaceService placeService;
+    SeatService seatService;
     @RequestMapping("/")
     public String home() {
-        List<Place> places = placeService.findAll();
-        Place place = places.getFirst();
+        List<Seat> seats = seatService.findAll();
+        Seat seat = seats.getFirst();
 
-        int InvoiceId = place.getPlaceId();
-        String TotalSeat = place.getPlaceName();
+        int InvoiceId = seat.getSeatId();
+        String TotalSeat = seat.getSeatName();
 //        int ListSeatId = pickUpAndDropOff.getPlaceId();
 
         System.out.println("Account ID: " + InvoiceId);
