@@ -6,21 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
 public class HomeController {
     @Autowired
-    UserService userService;
+    VoucherService voucherService;
     @RequestMapping("/")
     public String home() {
-        List<User> userServices = userService.findAll();
-        User user = userServices.getFirst();
+        List<Voucher> vouchers = voucherService.findAll();
+        Voucher voucher = vouchers.getFirst();
 
-        int InvoiceId = user.getUserId();
-        String TotalSeat = user.getFullName();
-        String ListSeatId = user.getSDT();
-        String test = user.getAddress();
+        int InvoiceId = voucher.getVoucherId();
+        String TotalSeat = voucher.getVoucherName();
+        Date ListSeatId = voucher.getDayStart();
+        Date test = voucher.getDayEnd();
 
         System.out.println("Account ID: " + InvoiceId);
         System.out.println("Account Name: " + TotalSeat);
