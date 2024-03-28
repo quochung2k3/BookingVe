@@ -1,7 +1,8 @@
-package com.hcmute.bookingve.service;
+package com.hcmute.bookingve.service.Impl;
 
 import com.hcmute.bookingve.Repository.AccountRepository;
 import com.hcmute.bookingve.Models.Account;
+import com.hcmute.bookingve.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
