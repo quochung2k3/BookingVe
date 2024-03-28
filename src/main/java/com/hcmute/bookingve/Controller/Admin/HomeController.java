@@ -11,19 +11,21 @@ import java.util.List;
 @Controller
 public class HomeController {
     @Autowired
-    SeatService seatService;
+    UserService userService;
     @RequestMapping("/")
     public String home() {
-        List<Seat> seats = seatService.findAll();
-        Seat seat = seats.getFirst();
+        List<User> userServices = userService.findAll();
+        User user = userServices.getFirst();
 
-        int InvoiceId = seat.getSeatId();
-        String TotalSeat = seat.getSeatName();
-//        int ListSeatId = pickUpAndDropOff.getPlaceId();
+        int InvoiceId = user.getUserId();
+        String TotalSeat = user.getFullName();
+        String ListSeatId = user.getSDT();
+        String test = user.getAddress();
 
         System.out.println("Account ID: " + InvoiceId);
         System.out.println("Account Name: " + TotalSeat);
-//        System.out.println("Account Name: " + ListSeatId);
+        System.out.println("Account Name: " + ListSeatId);
+        System.out.println("Account Name: " + test);
         return "user/index";
     }
 }
