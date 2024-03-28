@@ -13,10 +13,11 @@ import java.util.List;
 public class HomeController {
     @Autowired
     VoucherService voucherService;
+    int id = 1;
     @RequestMapping("/")
     public String home() {
-        List<Voucher> vouchers = voucherService.findAll();
-        Voucher voucher = vouchers.getFirst();
+
+        Voucher voucher = voucherService.findVoucherById(id);
 
         int InvoiceId = voucher.getVoucherId();
         String TotalSeat = voucher.getVoucherName();

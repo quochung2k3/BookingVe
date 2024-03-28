@@ -15,4 +15,9 @@ public class VoucherServiceImpl implements VoucherService {
     public List<Voucher> findAll() {
         return voucherRepository.findAll();
     }
+
+    @Override
+    public Voucher findVoucherById(int id) {
+        return voucherRepository.findVoucherById(id);
+    }
 }
