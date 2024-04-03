@@ -14,16 +14,16 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain (HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests((auth)->auth.
-                        requestMatchers("/admin/**").hasAuthority("ADMIN").
                 requestMatchers("/*").permitAll().
+                requestMatchers("/admin/**").hasAuthority("ADMIN").
                 anyRequest().authenticated())
-                .formLogin(login->login.loginPage("/logon").loginProcessingUrl("/logon")
+                .formLogin(login->login.loginPage("/login").loginProcessingUrl("/login")
                         .usernameParameter("username").passwordParameter("password")
                         .defaultSuccessUrl("/admin", true));
         return http.build();
     }
     @Bean
     WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/static/**", "/assets/**");
+        return (web) -> web.ignoring().requestMatchers("/static/**", "/assets/**", "/templates/**");
     }
 }
