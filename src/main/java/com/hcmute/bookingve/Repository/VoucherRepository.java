@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VoucherRepository extends JpaRepository<Voucher, Integer> {
-    @Query("SELECT vc FROM Voucher vc")
+    @Query("SELECT vc FROM Voucher vc WHERE vc.VoucherId = :id")
     Voucher findVoucherById(int id);
 }

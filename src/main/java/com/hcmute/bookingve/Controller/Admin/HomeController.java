@@ -12,7 +12,7 @@ import java.util.Date;
 public class HomeController {
     @Autowired
     VoucherService voucherService;
-    int id = 1;
+    int id = 2;
     @RequestMapping("/")
     public String home() {
 
