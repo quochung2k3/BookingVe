@@ -1,6 +1,7 @@
 <html lang="vi-VN" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="user/fragments/head::head">
+    <script th:src="@{/assets/js/script.js}"></script>
 </head>
 
 <body>
@@ -16,8 +17,12 @@
         </div>
         <div class="right-header">
             <div class="button-header">
-                <button type="button" class="btn"><span>Đăng nhập</span></button>
-                <button type="button" class="btn"><span>Đăng ký</span></button>
+                <form class="reset_form" th:action="@{/login}" method="get">
+                    <button type="submit" class="btn"><span>Đăng nhập</span></button>
+                </form>
+                <form class="reset_form" th:action="@{/register}" method="get">
+                    <button type="submit" class="btn"><span>Đăng ký</span></button>
+                </form>
             </div>
         </div>
     </div>
@@ -53,13 +58,7 @@
                                 </div>
                                 <div class="select-menu">
                                     <ul id="from_menu_list" class="menu-item-group-list">
-                                        <li class="option-item">Bình Thuận</li>
-                                        <li class="option-item">Ninh Thuận</li>
-                                        <li class="option-item">Đắk Lắk</li>
-                                        <li class="option-item">Gia Lai</li>
-                                        <li class="option-item">Phú Yên</li>
-                                        <li class="option-item">Nha Trang</li>
-                                        <li class="option-item">Bà Rịa-Vũng Tàu</li>
+                                        <li th:each="place : ${places}" class="option-item" th:text="${place.placeName}"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -89,13 +88,7 @@
                                 </div>
                                 <div class="select-menu">
                                     <ul id="to_menu_list" class="menu-item-group-list">
-                                        <li class="option-item">Bình Thuận</li>
-                                        <li class="option-item">Ninh Thuận</li>
-                                        <li class="option-item">Đắk Lắk</li>
-                                        <li class="option-item">Gia Lai</li>
-                                        <li class="option-item">Phú Yên</li>
-                                        <li class="option-item">Nha Trang</li>
-                                        <li class="option-item">Bà Rịa-Vũng Tàu</li>
+                                        <li th:each="place : ${places}" class="option-item" th:text="${place.placeName}"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -138,9 +131,11 @@
                     </div>
                 </div>
                 <div class="seach-button">
-                    <button onclick="" type="button" class="btn search-click">
-                        <span>Tìm kiếm</span>
-                    </button>
+                    <form class="reset_form" th:action="@{/bookingPage}">
+                        <button onclick="" type="submit" class="btn search-click">
+                            <span>Tìm kiếm</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

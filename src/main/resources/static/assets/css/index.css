@@ -155,9 +155,12 @@ header {
 }
 
 .button-header {
+    display: flex;
     float: right;
     margin-top: 30px;
-    margin-right: 50px;
+    margin-right: 70px;
+    justify-content: space-between;
+    width: 250px;
 }
 .banner{
     transition: all 200ms ease 0s;
@@ -779,4 +782,12 @@ footer{
 .picture-account:hover,
 .picture-active{
     cursor: pointer;
+}
+
+.reset_form {
+    margin-left: 0;
+    width: 0;
+    padding: 0;
+    margin-bottom: 0;
+    margin-right: 30px;
 }
