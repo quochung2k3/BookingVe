@@ -15,4 +15,9 @@ public class BusServiceImpl implements BusService {
     public List<Bus> findAll() {
         return busRepository.findAll();
     }
+
+    @Override
+    public List<Bus> findBus(int placeStartId, int placeEndId) {
+        return busRepository.findBus(placeStartId, placeEndId);
+    }
 }

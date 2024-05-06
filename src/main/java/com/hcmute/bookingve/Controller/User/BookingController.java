@@ -16,7 +16,7 @@ public class BookingController {
     BusService busService;
     @RequestMapping("/bookingPage")
     public String bookingPage(Model model) {
-        List<Bus> busList = busService.findAll();
+        List<Bus> busList = busService.findBus(1, 2);
         model.addAttribute("busList", busList);
         return "user/bookingPage";
     }
