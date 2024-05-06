@@ -322,9 +322,11 @@
                                                 <div class="seat-available">Còn 10 chỗ trống</div>
                                             </div>
                                             <div class="action">
-                                                <button type="button" class="btn btn-booking">
-                                                    <span>Chọn chuyến</span>
-                                                </button>
+                                                <form class="reset_form" th:action="@{/paymentPage}" method="get">
+                                                    <button type="submit" class="btn btn-booking">
+                                                        <span>Chọn chuyến</span>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

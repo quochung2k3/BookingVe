@@ -1080,6 +1080,7 @@ input[type=checkbox], input[type=radio] {
     line-height: 24px;
     background: rgb(255, 211, 51);
     border-color: #ffffff;
+    width: 120px;
 }
 
 .btn-booking:hover{
@@ -1093,4 +1094,12 @@ input[type=checkbox], input[type=radio] {
     margin-bottom: 16px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
     background: rgb(255, 255, 255);
+}
+
+.reset_form {
+    margin-left: 0;
+    width: 0;
+    padding: 0;
+    margin-bottom: 0;
+    margin-right: 30px;
 }
