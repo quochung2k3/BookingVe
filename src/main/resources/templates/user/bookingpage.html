@@ -323,6 +323,7 @@
                                             </div>
                                             <div class="action">
                                                 <form class="reset_form" th:action="@{/paymentPage}" method="get">
+                                                    <input type="hidden" th:value="${bus.BusId}" name="busId">
                                                     <button type="submit" class="btn btn-booking">
                                                         <span>Chọn chuyến</span>
                                                     </button>
