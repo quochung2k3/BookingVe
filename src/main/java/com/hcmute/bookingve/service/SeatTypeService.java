@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface SeatTypeService {
     List<SeatType> findAll();
+
+    SeatType findById(int seatTypeId);
 }

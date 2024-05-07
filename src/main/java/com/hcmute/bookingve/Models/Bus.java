@@ -26,8 +26,9 @@ public class Bus implements Serializable {
     private int PlaceEndId;
     private String PlaceStartName;
     private String PlaceEndName;
+    private int SeatTypeId;
 
-    public Bus(int busId, int vehicleId, String vehicleName, Timestamp goingDateTime, int seatsOfBusId, int busTypeId, int placeStartId, int placeEndId, String placeStartName, String placeEndName) {
+    public Bus(int busId, int vehicleId, String vehicleName, Timestamp goingDateTime, int seatsOfBusId, int busTypeId, int placeStartId, int placeEndId, String placeStartName, String placeEndName, int seatTypeId) {
         BusId = busId;
         VehicleId = vehicleId;
         VehicleName = vehicleName;
@@ -38,6 +39,7 @@ public class Bus implements Serializable {
         PlaceEndId = placeEndId;
         PlaceStartName = placeStartName;
         PlaceEndName = placeEndName;
+        SeatTypeId = seatTypeId;
     }
 
     public Bus() {
