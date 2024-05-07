@@ -1,17 +1,29 @@
 package com.hcmute.bookingve.Models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Set;
+
 @Setter
 @Getter
 @Entity
 @Table(name = "PickUpAndDropOff")
 
 public class PickUpAndDropOff implements Serializable {
+
+    @Column(name = "PickUpAndDropId")
+    @OneToMany(mappedBy = "Reservation",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Reservation> reservations;
+    @ManyToOne
+    @JoinColumn(name = "PlaceId",nullable = false,referencedColumnName = "PlaceId")
+    @JsonManagedReference
+    private Place place;
     @Serial
     private static final long serialVersionUID = 1L;
     @Id

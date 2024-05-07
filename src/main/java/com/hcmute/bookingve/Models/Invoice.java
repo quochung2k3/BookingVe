@@ -1,16 +1,32 @@
 package com.hcmute.bookingve.Models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Set;
 
 @Setter
 @Getter
 @Entity
 @Table(name = "Invoice")
 public class Invoice implements Serializable {
+    @Column(name = "InvoiceId")
+    @OneToMany(mappedBy = "Voucher",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Voucher> vouchers;
+
+    @Column(name = "InvoiceId")
+    @OneToOne(mappedBy = "Invoice")
+    @JsonManagedReference
+    private Seat seat;
+
+    @ManyToOne
+    @JoinColumn(name = "ReservationId",nullable = false,referencedColumnName = "ReservationId")
+    @JsonManagedReference
+    private Reservation reservation;
     @Serial
     private static final long serialVersionUID = 1L;
     @Id

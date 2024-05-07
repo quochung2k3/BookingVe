@@ -1,5 +1,6 @@
 package com.hcmute.bookingve.Models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,11 +8,38 @@ import lombok.Setter;
 import java.io.Serial;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Set;
+
 @Setter
 @Getter
 @Entity
 @Table(name = "Bus")
 public class Bus implements Serializable {
+
+    @Column(name = "BusId")
+    @OneToMany(mappedBy = "reservation",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private Set<Reservation> reservations;
+
+    @ManyToOne
+    @JoinColumn(name = "PlaceId",nullable = false,referencedColumnName = "PlaceId")
+    @JsonManagedReference
+    private Place place;
+
+    @ManyToOne
+    @JoinColumn(name = "BusId",nullable = false,referencedColumnName = "BusId")
+    @JsonManagedReference
+    private BusType busType;
+
+    @ManyToOne
+    @JoinColumn(name = "BusId",nullable = false,referencedColumnName = "BusId")
+    @JsonManagedReference
+    private Vehicle vehicle;
+
+    @ManyToOne
+    @JoinColumn(name = "BusId",nullable = false,referencedColumnName = "BusId")
+    @JsonManagedReference
+    private SeatsOfBus seatsOfBus;
     @Serial
     private static final long serialVersionUID = 1L;
     @Id

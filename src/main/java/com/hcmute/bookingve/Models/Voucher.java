@@ -1,5 +1,6 @@
 package com.hcmute.bookingve.Models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +13,10 @@ import java.util.Date;
 @Entity
 @Table(name = "Voucher")
 public class Voucher implements Serializable {
+    @ManyToOne
+    @JoinColumn(name = "SeatId",nullable = false,referencedColumnName = "SeatId")
+    @JsonManagedReference
+    private Invoice invoice;
     @Serial
     private static final long serialVersionUID = 1L;
     @Id
