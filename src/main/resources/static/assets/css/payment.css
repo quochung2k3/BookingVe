@@ -800,6 +800,10 @@ footer {
     fill: rgb(242, 242, 242);
 }
 
+.fill-color-multiply{
+    fill: rgb(242, 242, 242);
+}
+
 .review-info-container .base-headline {
     font-weight: 700;
     font-size: 18px;

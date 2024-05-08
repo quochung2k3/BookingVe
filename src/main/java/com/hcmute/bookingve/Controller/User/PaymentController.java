@@ -40,7 +40,7 @@ public class PaymentController {
         SeatType seatType = seatTypeService.findById(bus.getSeatTypeId());
 
         // Lấy danh sách ghế
-        List<Object[]> seatList = seatService.findSeatEmptyByBusId(1);
+        List<Object[]> seatList = seatService.findSeatEmptyByBusId(bus.getBusId());
         List<Seat> seatsEmpty = new ArrayList<>();
         for (Object[] row : seatList) {
             Seat seat = new Seat();
