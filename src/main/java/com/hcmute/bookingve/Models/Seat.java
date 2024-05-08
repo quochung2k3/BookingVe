@@ -19,12 +19,14 @@ public class Seat implements Serializable {
     private String SeatName;
     private int BusTypeId;
     private int SeatTypeId;
+    private boolean Check;
 
-    public Seat(int seatId, String seatName, int busTypeId, int seatTypeId) {
+    public Seat(int seatId, String seatName, int busTypeId, int seatTypeId, boolean check) {
         SeatId = seatId;
         SeatName = seatName;
         BusTypeId = busTypeId;
         SeatTypeId = seatTypeId;
+        Check = check;
     }
 
     public Seat() {

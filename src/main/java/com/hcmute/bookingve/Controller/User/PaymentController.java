@@ -39,13 +39,23 @@ public class PaymentController {
         // Lấy thông tin giá theo seatTypeId
         SeatType seatType = seatTypeService.findById(bus.getSeatTypeId());
 
-        // Lấy danh sách tất cả các ghế theo busTypeId
-        List<Seat> seats = seatService.findSeatBybusTypeId(bus.getBusTypeId());
+        // Lấy danh sách ghế
+        List<Object[]> seatList = seatService.findSeatEmptyByBusId(1);
+        List<Seat> seatsEmpty = new ArrayList<>();
+        for (Object[] row : seatList) {
+            Seat seat = new Seat();
+            seat.setSeatId((Integer) row[0]);
+            seat.setSeatName((String) row[1]);
+            seat.setCheck((boolean) row[2]);
+            seatsEmpty.add(seat);
+        }
+
+        // Chia thành 2 danh sách
         List<Seat> seatsFirstHalf = new ArrayList<>();
         List<Seat> seatsSecondHalf = new ArrayList<>();
-        int halfSize = seats.size() / 2;
-        for (int i = 0; i < seats.size(); i++) {
-            Seat seat = seats.get(i);
+        int halfSize = seatsEmpty.size() / 2;
+        for (int i = 0; i < seatsEmpty.size(); i++) {
+            Seat seat = seatsEmpty.get(i);
             if (i < halfSize) {
                 seatsFirstHalf.add(seat);
             }
@@ -54,15 +64,8 @@ public class PaymentController {
             }
         }
 
-        // Lấy danh sách ghế chưa có người đặt
-        List<Object[]> seatList = seatService.findSeatEmptyByBusId(1);
-        List<Seat> seatsEmpty = new ArrayList<>();
-        for (Object[] row : seatList) {
-            Seat seat = new Seat();
-            seat.setSeatId((Integer) row[0]);
-            seat.setSeatName((String) row[1]);
-            seatsEmpty.add(seat);
-        }
+        System.out.println(seatsFirstHalf.size());
+        System.out.println(seatsSecondHalf.size());
 
         // Truyền model xuống tầng frontEnd
         model.addAttribute("bus", bus);
@@ -70,7 +73,6 @@ public class PaymentController {
         model.addAttribute("seatType", seatType);
         model.addAttribute("seatsFirstHalf", seatsFirstHalf);
         model.addAttribute("seatsSecondHalf", seatsSecondHalf);
-        model.addAttribute("seatsEmpty", seatsEmpty);
         return "user/paymentpage";
     }
 }
