@@ -15,4 +15,14 @@ public class SeatServiceImpl implements SeatService {
     public List<Seat> findAll() {
         return seatRepository.findAll();
     }
+
+    @Override
+    public List<Object[]> findSeatEmptyByBusId(int busId) {
+        return seatRepository.findSeatEmptyByBusId(busId);
+    }
+
+    @Override
+    public List<Seat> findSeatBybusTypeId(int busTypeId) {
+        return seatRepository.findSeatByBusTypeId(busTypeId);
+    }
 }
