@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -18,6 +20,8 @@ public class SeatType implements Serializable {
     private int SeatTypeId;
     private String SeatTypeName;
     private int Price;
+    @OneToMany(mappedBy = "SeatType")
+    private List<Bus> buses;
 
     public SeatType(int seatTypeId, String seatTypeName, int price) {
         SeatTypeId = seatTypeId;

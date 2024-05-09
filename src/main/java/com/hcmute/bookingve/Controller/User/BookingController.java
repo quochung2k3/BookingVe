@@ -18,6 +18,15 @@ public class BookingController {
     public String bookingPage(Model model) {
         List<Bus> busList = busService.findAll();
         model.addAttribute("busList", busList);
+        for (Bus bus : busList) {
+            System.out.println("Bus: " + bus);
+            if (bus.getBusType() != null) {
+                System.out.println("Bus Type: " + bus.getBusType().getBusTypeName());
+            }
+            else {
+                System.out.println("Bus Type is null");
+            }
+        }
         return "user/bookingPage";
     }
 }

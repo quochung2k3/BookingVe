@@ -285,9 +285,7 @@
                                     </div>
                                     <div class="right-body">
                                         <div class="bus-name" th:text="${bus.VehicleName}"></div>
-                                        <div class="seat-type">
-                                            Giuong nam limosine 50 cho
-                                        </div>
+                                        <div class="seat-type" th:text="${bus.BusType.BusTypeName}"></div>
                                         <div class="from-to">
                                             <svg class="location-route-svg" xmlns="http://www.w3.org/2000/svg"
                                                  width="14" height="74" viewBox="0 0 14 74">
@@ -307,15 +305,13 @@
                                                     <div class="place" th:text="${'• ' + bus.PlaceStartName}"></div>
                                                 </div>
                                                 <div class="content to">
-                                                    <div class="hour">??</div>
+                                                    <div class="hour" th:text="${#strings.substring(bus.ArrivalDateTime, 11, 16)}"></div>
                                                     <div class="place" th:text="${'• ' + bus.PlaceEndName}"></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="trip-fare">
-                                            <div class="fare">
-                                                650.000đ
-                                            </div>
+                                            <div class="fare" th:text="${bus.SeatType.Price + ' VNĐ'}"></div>
                                         </div>
                                         <div class="ticket-detail-action">
                                             <div class="info">

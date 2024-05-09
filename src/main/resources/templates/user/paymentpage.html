@@ -138,9 +138,10 @@
                                                     <div class="area-point-container">
                                                         <div class="date-time-container">
                                                             <div class="date-time-container-drop-off">
-                                                                <div class="base-headline">??</div>
-                                                                <p class="base-small">
-                                                                    (??/??)</p>
+                                                                <div class="base-headline"
+                                                                     th:text="${#strings.substring(bus.ArrivalDateTime, 11, 16)}"></div>
+                                                                <p class="base-small"
+                                                                   th:text="${#dates.format(bus.ArrivalDateTime, 'MM/dd')}"></p>
                                                             </div>
                                                         </div>
                                                         <div class="icon-container">
@@ -365,6 +366,7 @@
 
                         </div>
                     </div>
+                    <span id="list-seat-name">Số ghế: </span>
                     <div class="total-money">
                         Tổng cộng:
                         <div id="total">0 VNĐ</div>
@@ -405,8 +407,8 @@
             }
             var totalPriceText = document.querySelector('.total-price-text').textContent;
             var total = totalPriceText.replace(/\D/g, '');
-            console.log(total);
             var totalText = listSeat.length * parseInt(total);
+            document.getElementById('list-seat-name').innerHTML = "Số ghế: {" + listSeat.toString() + "}";
             document.getElementById('total').innerHTML = totalText + ' VNĐ';
         }
     </script>
