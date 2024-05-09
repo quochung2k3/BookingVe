@@ -1,3 +1,39 @@
+document.addEventListener("DOMContentLoaded", function() {
+    OptionMenuInput('from_input','.input-wrapper-from');
+    OptionMenuInput('to_input','.input-wrapper-to');
+    optionClick("from");
+    optionClick("to");
+    var antRadioWrappers = document.querySelectorAll('.ant-radio-wrapper');
+    antRadioWrappers.forEach(function(antRadioWrapper) {
+        antRadioWrapper.addEventListener('click', function() {
+            antRadioWrappers.forEach(function(otherRadioWrapper) {
+                otherRadioWrapper.classList.remove('checked');
+            });
+
+            antRadioWrapper.classList.add('checked');
+
+            var radioInputs = document.querySelectorAll('.ant-radio-input') ;
+            radioInputs.forEach(function(input) {
+                input.classList.remove('checked');
+            });
+
+            var currentInput = antRadioWrapper.querySelector('.ant-radio-input');
+            currentInput.classList.add('checked');
+
+            //Sắp xếp và load lại danh sách tại đây
+
+
+        });
+    });
+
+    //Load lại trang khi nhấn vào lọc
+    document.querySelector(".btn-clear").addEventListener('click',function(){
+        //Tìm kiếm và thêm url cho web để load bộ lọc
+
+
+    })
+})
+
 function OptionMenuInput(a,b){
     const inputField = document.getElementById(a);
     const inputWrapper = document.querySelector(b);
@@ -26,9 +62,5 @@ function optionClick(a){
     })
 }
 
-OptionMenuInput('from_input','.input-wrapper-from');
-OptionMenuInput('to_input','.input-wrapper-to');
-OptionMenuInput('date_input','.input-wrapper-date');
-optionClick("from");
-optionClick("to")
+
 
