@@ -315,7 +315,7 @@
                                         </div>
                                         <div class="ticket-detail-action">
                                             <div class="info">
-                                                <div class="seat-available">Còn 10 chỗ trống</div>
+                                                <div class="seat-available" th:text="${'Còn ' + bus.TotalSeatEmpty + ' chỗ trống'}"></div>
                                             </div>
                                             <div class="action">
                                                 <form class="reset_form" th:action="@{/paymentPage}" method="get">
