@@ -79,7 +79,8 @@
                                         <img class="bus-blue-icon"
                                              src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/bus_blue_24dp.svg"
                                              alt="bus_blue_icon" width="16" height="16">
-                                        <p class="base-caption">T7, 04/05/2024</p>
+                                        <p class="base-caption"
+                                           th:text="${#dates.format(bus.GoingDateTime, 'EEE MM/dd/yyyy')}"></p>
                                     </div>
                                 </div>
                                 <div class="section-ticket-content">
@@ -89,21 +90,20 @@
                                                 alt="avatar" class="image-styled">
                                         </div>
                                         <div class="section-ticket-company-info-name">
-                                            <p class="base-headline">An Anh Limousine</p>
-                                            <p class="base-description">Limousine 24 Phòng
-                                                Đôi</p>
+                                            <p class="base-headline" th:text="${bus.vehicleName}"></p>
+                                            <p class="base-description" th:text="${busType.busTypeName}"></p>
                                         </div>
                                     </div>
                                     <div class="box-ticket-route-content">
                                         <div class="section-route-info">
-                                            <div class="area-container pick-up">
+                                            <div class="area-container">
                                                 <div class="area-point-container">
                                                     <div class="date-time-container">
                                                         <div class="date-time-container-pick-up">
-                                                            <div class="base-headline">23:30
-                                                            </div>
-                                                            <p class="base-small">
-                                                                (04/05)</p>
+                                                            <div class="base-headline"
+                                                                 th:text="${#strings.substring(bus.GoingDateTime, 11, 16)}"></div>
+                                                            <p class="base-small"
+                                                               th:text="${#dates.format(bus.GoingDateTime, 'MM/dd')}"></p>
                                                         </div>
                                                     </div>
                                                     <div class="icon-container">
@@ -119,27 +119,26 @@
                                                     </div>
                                                     <div class="section-area">
                                                         <div class="section-area-picker">
-                                                            <p class="base-caption">
-                                                                Vp 526 An Dương Vương</p>
+                                                            <p class="base-caption" th:text="${bus.PlaceStartName}"></p>
                                                             <p class="base-small">
                                                                 526 An Dương Vương, Phường 09, Quận 5, Hồ Chí Minh
                                                             </p>
                                                         </div>
-                                                    </div>
-                                                    <div class="button-mobile-change">
-                                                        <p class="base-button btn-pick-up">
-                                                            Thay đổi</p>
+                                                        <div class="button-mobile-change">
+                                                            <p class="base-button btn-pick-up">
+                                                                Thay đổi</p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="area-container drop-off">
+                                            <div class="area-container">
                                                 <div class="area-point-container">
                                                     <div class="date-time-container">
                                                         <div class="date-time-container-drop-off">
-                                                            <div class="base-headline">06:30
-                                                            </div>
-                                                            <p class="base-small">
-                                                                (05/05)</p>
+                                                            <div class="base-headline"
+                                                                 th:text="${#strings.substring(bus.ArrivalDateTime, 11, 16)}"></div>
+                                                            <p class="base-small"
+                                                               th:text="${#dates.format(bus.ArrivalDateTime, 'MM/dd')}"></p>
                                                         </div>
                                                     </div>
                                                     <div class="icon-container">
@@ -155,8 +154,7 @@
                                                     </div>
                                                     <div class="section-area">
                                                         <div class="section-area-picker">
-                                                            <p class="base-caption" >
-                                                                Vp Đà Lạt </p>
+                                                            <p class="base-caption" th:text="${bus.PlaceEndName}"></p>
                                                             <p class="base-small">
                                                                 Đầu đường KQH Phạm Hồng Thái, Phường 10, Tp.Đà Lạt,
                                                                 Lâm Đồng, Phường 10, Đà Lạt, Lâm Đồng</p>
