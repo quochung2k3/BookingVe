@@ -11,6 +11,7 @@
 <div class="clearfix"></div>
 <div class="main">
     <div class="homepage">
+        <form class="reset_form" th:action="@{/bookingPage}">
         <div class="search-box">
             <div class="search-area">
                 <div class="place-from">
@@ -24,7 +25,7 @@
                                     </div>
                                     <div class="container-input2">
                                         <div class="input-section">
-                                            <input id="from_input" placeholder="" value="Đồng Tháp"
+                                            <input required id="from_input" placeholder="" th:value="${placeStart}" name="placeStartName"
                                                    class="styled-input">
                                             <label class="label-input" for="from_input">
                                                 Nơi xuất phát
@@ -35,13 +36,7 @@
                             </div>
                             <div class="select-menu">
                                 <ul id="from_menu_list" class="menu-item-group-list">
-                                    <li class="option-item">Bình Thuận</li>
-                                    <li class="option-item">Ninh Thuận</li>
-                                    <li class="option-item">Đắk Lắk</li>
-                                    <li class="option-item">Gia Lai</li>
-                                    <li class="option-item">Phú Yên</li>
-                                    <li class="option-item">Nha Trang</li>
-                                    <li class="option-item">Bà Rịa-Vũng Tàu</li>
+                                    <li th:each="place : ${places}" class="option-item" th:text="${place.placeName}"></li>
                                 </ul>
                             </div>
                         </div>
@@ -60,7 +55,7 @@
                                     </div>
                                     <div class="container-input2">
                                         <div class="input-section">
-                                            <input id="to_input" placeholder="" value="TPHCM" class="styled-input">
+                                            <input required id="to_input" placeholder="" th:value="${placeEnd}" class="styled-input" name="placeEndName">
                                             <label class="label-input" for="to_input">
                                                 Nơi đến
                                             </label>
@@ -70,13 +65,7 @@
                             </div>
                             <div class="select-menu">
                                 <ul id="to_menu_list" class="menu-item-group-list">
-                                    <li class="option-item">Bình Thuận</li>
-                                    <li class="option-item">Ninh Thuận</li>
-                                    <li class="option-item">Đắk Lắk</li>
-                                    <li class="option-item">Gia Lai</li>
-                                    <li class="option-item">Phú Yên</li>
-                                    <li class="option-item">Nha Trang</li>
-                                    <li class="option-item">Bà Rịa-Vũng Tàu</li>
+                                    <li th:each="place : ${places}" class="option-item" th:text="${place.placeName}"></li>
                                 </ul>
                             </div>
                         </div>
@@ -107,7 +96,7 @@
                                         <div class="input-section">
                                             <div class="date-input">
                                                 <p class="heading-date-text">Ngày đi</p>
-                                                <input id="date_input" class="styled-input" type = "date"> </input>
+                                                <input required id="date_input" class="styled-input" type = "date" name="goingDate" th:value="${goingDate}">
                                             </div>
                                         </div>
                                     </div>
@@ -119,11 +108,12 @@
                 </div>
             </div>
             <div class="seach-button">
-                <button onclick="" type="button" class="btn search-click">
+                <button onclick="" type="submit" class="btn search-click">
                     <span>Tìm kiếm</span>
                 </button>
             </div>
         </div>
+        </form>
         <div class="route-row">
             <div class="col-left">
                 <div id="route_fix_left" style="position:absolute; top:auto">
@@ -222,14 +212,8 @@
                                         </div>
                                     </div>
                                     <div class="groupKind">
-                                        <label class="checkBoxGroup ant-checkbox-wrapper">
-                                                <span class="ant-checkbox">Phuong Trang
-                                                    <input type="checkbox" class="ant-checkbox-input" value="">
-                                                    <span class="checkmark"></span>
-                                                </span>
-                                        </label>
-                                        <label class="checkBoxGroup ant-checkbox-wrapper">
-                                                <span class="ant-checkbox">Quoc Hung
+                                        <label class="checkBoxGroup ant-checkbox-wrapper" th:each="partner : ${partners}">
+                                                <span class="ant-checkbox" th:text="${partner.partnerName}">
                                                     <input type="checkbox" class="ant-checkbox-input" value="">
                                                     <span class="checkmark"></span>
                                                 </span>

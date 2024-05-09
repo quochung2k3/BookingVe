@@ -15,4 +15,14 @@ public class PickUpAndDropOffServiceImpl implements PickUpAndDropOffService {
     public List<PickUpAndDropOff> findAll() {
         return pickUpAndDropOffRepository.findAll();
     }
+
+    @Override
+    public List<PickUpAndDropOff> findByStartId(int placeStartId) {
+        return pickUpAndDropOffRepository.findByStartId(placeStartId);
+    }
+
+    @Override
+    public List<PickUpAndDropOff> findByEndId(int placeEndId) {
+        return pickUpAndDropOffRepository.findByEndId(placeEndId);
+    }
 }

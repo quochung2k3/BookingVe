@@ -57,7 +57,6 @@ function change(a){
     console.log(baseHeadlineElement);
     console.log(baseSmallElement);
     // Thay đổi nội dung của phần tử
-    baseHeadlineElement.textContent = baseChange.querySelector('.time').textContent;
     baseSmallElement.textContent = baseChange.querySelector('.address').textContent;
 }
 

@@ -170,6 +170,7 @@ section {
     display: flex;
     position: absolute;
     top: 15%;
+    left: 17%;
     height: 100px;
     border-radius: 10px;
     padding: 20px 40px;

@@ -1297,3 +1297,6 @@ input[type=checkbox], input[type=radio] {
     cursor: pointer;
 }
 
+.seat-container-true {
+    cursor: pointer;
+}

@@ -1,13 +1,7 @@
 package com.hcmute.bookingve.Controller.User;
 
-import com.hcmute.bookingve.Models.Bus;
-import com.hcmute.bookingve.Models.BusType;
-import com.hcmute.bookingve.Models.Seat;
-import com.hcmute.bookingve.Models.SeatType;
-import com.hcmute.bookingve.service.BusService;
-import com.hcmute.bookingve.service.BusTypeService;
-import com.hcmute.bookingve.service.SeatService;
-import com.hcmute.bookingve.service.SeatTypeService;
+import com.hcmute.bookingve.Models.*;
+import com.hcmute.bookingve.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +22,8 @@ public class PaymentController {
     SeatTypeService seatTypeService;
     @Autowired
     SeatService seatService;
+    @Autowired
+    PickUpAndDropOffService pickUpAndDropOffService;
     @RequestMapping("/paymentPage")
     public String paymentPage(@RequestParam("busId") int busId, Model model) {
         // Lấy thông tin của chuyến đi theo busId
@@ -64,8 +60,11 @@ public class PaymentController {
             }
         }
 
-        System.out.println(seatsFirstHalf.size());
-        System.out.println(seatsSecondHalf.size());
+        List<PickUpAndDropOff> pickUp = pickUpAndDropOffService.findByStartId(bus.getPlaceStartId());
+        List<PickUpAndDropOff> dropOff = pickUpAndDropOffService.findByEndId(bus.getPlaceEndId());
+
+        String pickUpName = pickUp.getFirst().getPickUpAndDropName();
+        String dropOffName = dropOff.getFirst().getPickUpAndDropName();
 
         // Truyền model xuống tầng frontEnd
         model.addAttribute("bus", bus);
@@ -73,6 +72,10 @@ public class PaymentController {
         model.addAttribute("seatType", seatType);
         model.addAttribute("seatsFirstHalf", seatsFirstHalf);
         model.addAttribute("seatsSecondHalf", seatsSecondHalf);
+        model.addAttribute("pickUp", pickUp);
+        model.addAttribute("dropOff", dropOff);
+        model.addAttribute("pickUpName", pickUpName);
+        model.addAttribute("dropOffName", dropOffName);
         return "user/paymentpage";
     }
 }

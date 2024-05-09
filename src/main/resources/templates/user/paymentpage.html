@@ -11,11 +11,6 @@
 <div class="clearfix"></div>
 <div class="main">
     <div class="booking-body-container">
-        <div tabindex="0" role="button" class="button-back"><img
-                src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/chevron_left_gray.svg" width="20" height="20"
-                alt="">
-            <p class="back-content">Quay lại</p>
-        </div>
         <div class="booking-wrap-container">
             <div class="wrap-left">
                 <div class="customer-info-container">
@@ -120,9 +115,7 @@
                                                     <div class="section-area">
                                                         <div class="section-area-picker">
                                                             <p class="base-caption" th:text="${bus.PlaceStartName}"></p>
-                                                            <p class="base-small">
-                                                                526 An Dương Vương, Phường 09, Quận 5, Hồ Chí Minh
-                                                            </p>
+                                                            <p class="base-small" th:text="${pickUpName}"></p>
                                                         </div>
                                                         <div class="button-mobile-change">
                                                             <p class="base-button btn-pick-up">
@@ -155,9 +148,7 @@
                                                     <div class="section-area">
                                                         <div class="section-area-picker">
                                                             <p class="base-caption" th:text="${bus.PlaceEndName}"></p>
-                                                            <p class="base-small">
-                                                                Đầu đường KQH Phạm Hồng Thái, Phường 10, Tp.Đà Lạt,
-                                                                Lâm Đồng, Phường 10, Đà Lạt, Lâm Đồng</p>
+                                                            <p class="base-small" th:text="${dropOffName}"></p>
                                                         </div>
                                                         <div class="button-mobile-change">
                                                             <p class="base-button btn-drop-off">
@@ -382,7 +373,7 @@
                                     <p class="base-headline">Thay đổi điểm đón</p>
                                 </div>
                                 <div class="area-point-container-change">
-                                    <div class="ant-radio-group outline">
+                                    <div class="ant-radio-group outline" th:each="pickUp : ${pickUp}">
                                         <label class="ant-radio-wrapper checked">
                                                 <span class="ant-radio">
                                                     <input type="radio" class="ant-radio-input checked" value="" checked="">
@@ -393,62 +384,7 @@
                                                         <div class="info-container">
                                                             <div class="info-group">
                                                                 <div class="info-line">
-                                                                    <p class="time">
-                                                                        22:00</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                       MinLun
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
-                                        <label class="ant-radio-wrapper">
-                                                <span class="ant-radio ">
-                                                    <input type="radio" class="ant-radio-input " value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time">
-                                                                        02:15</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                        Vi vu
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
-                                        <label class="ant-radio-wrapper">
-                                                <span class="ant-radio">
-                                                    <input type="radio" class="ant-radio-input" value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time">
-                                                                        05:20</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                        Anh ba
-                                                                    </p>
+                                                                    <p class="address" th:text="${pickUp.pickUpAndDropName}"></p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -456,11 +392,8 @@
                                                 </span>
                                         </label>
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
                         <div class="area-footer">
                             <button type="button" class="ant-btn submit-area-btn">
@@ -475,14 +408,13 @@
                             <div class="ant-drawer-body">
                                 <div class="drawer-header">
                                     <div class="material-icons-wrapper">
-
                                             <span class="material-symbols-outlined back-btn-drop">
                                             arrow_back
                                             </span></div>
                                     <p class="base-headline">Thay đổi điểm trả</p>
                                 </div>
                                 <div class="area-point-container-change">
-                                    <div class="ant-radio-group outline">
+                                    <div class="ant-radio-group outline" th:each="dropOff : ${dropOff}">
                                         <label class="ant-radio-wrapper checked">
                                                 <span class="ant-radio">
                                                     <input type="radio" class="ant-radio-input checked" value="" checked="">
@@ -493,58 +425,7 @@
                                                         <div class="info-container">
                                                             <div class="info-group">
                                                                 <div class="info-line">
-                                                                    <p class="time">
-                                                                        22:15</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                        526 An Dương Vương, Phường 09, Quận 5, Hồ Chí Minh
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
-                                        <label class="ant-radio-wrapper">
-                                                <span class="ant-radio ">
-                                                    <input type="radio" class="ant-radio-input " value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time"> 22:30</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p class="address">Thu Duc </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
-                                        <label class="ant-radio-wrapper">
-                                                <span class="ant-radio">
-                                                    <input type="radio" class="ant-radio-input" value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time">
-                                                                        22:40</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                        MinhHiu
-                                                                    </p>
+                                                                    <p class="address" th:text="${dropOff.pickUpAndDropName}"></p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -562,10 +443,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
     <footer>
         <p>
@@ -576,5 +455,4 @@
 </div>
 <script th:src="@{/assets/js/paymentscript.js}"></script>
 </body>
-
 </html>

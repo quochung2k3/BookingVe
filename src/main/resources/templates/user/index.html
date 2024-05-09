@@ -10,7 +10,7 @@
 <header>
     <div class="header-fix">
         <div class="left-header">
-            <a href="#"><img class="logo" th:src="@{/assets/img/logo.png}" alt="logo"></a>
+            <a th:href="@{/}"><img class="logo" th:src="@{/assets/img/logo.png}" alt="logo"></a>
             <ul class="main-nav">
                 <li><a href="#">Trang chủ</a></li>
                 <li><a href="#about">Về chúng tôi</a></li>
@@ -36,110 +36,113 @@
                     XIN CHÀO MỌI NGƯỜI
                 </h1>
             </div>
-            <div class="search-box">
-                <div class="search-area">
-                    <div class="place-from">
-                        <div class="input-wrapper-from">
-                            <div class="info-input">
-                                <div class="select-cotainer">
-                                    <div class="container-input">
-                                        <div class="icon-container">
-                                            <img src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
-                                                 width="24" height="24" alt="">
-                                        </div>
-                                        <div class="container-input2">
-                                            <div class="input-section">
-                                                <input id="from_input" placeholder="" value="Đồng Tháp"
-                                                       class="styled-input">
-                                                <label class="label-input" for="from_input">
-                                                    Nơi xuất phát
-                                                </label>
+            <form class="reset_form" th:action="@{/bookingPage}">
+                <div class="search-box">
+                    <div class="search-area">
+                        <div class="place-from">
+                            <div class="input-wrapper-from">
+                                <div class="info-input">
+                                    <div class="select-cotainer">
+                                        <div class="container-input">
+                                            <div class="icon-container">
+                                                <img src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
+                                                     width="24" height="24" alt="">
+                                            </div>
+                                            <div class="container-input2">
+                                                <div class="input-section">
+                                                    <input required id="from_input" placeholder="" value="Đồng Tháp"
+                                                           class="styled-input" name="placeStartName">
+                                                    <label class="label-input" for="from_input">
+                                                        Nơi xuất phát
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="select-menu">
+                                        <ul id="from_menu_list" class="menu-item-group-list">
+                                            <li th:each="place : ${places}" class="option-item"
+                                                th:text="${place.placeName}"></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="select-menu">
-                                    <ul id="from_menu_list" class="menu-item-group-list">
-                                        <li th:each="place : ${places}" class="option-item" th:text="${place.placeName}"></li>
-                                    </ul>
-                                </div>
+                                <div class="search-divider"></div>
+                                <div class="line-focus"></div>
                             </div>
-                            <div class="search-divider"></div>
-                            <div class="line-focus"></div>
                         </div>
-                    </div>
-                    <div class="place-to">
-                        <div class="input-wrapper-to">
-                            <div class="info-input">
-                                <div class="select-cotainer">
-                                    <div class="to-container container-input">
-                                        <div class="icon-container">
-                                            <img src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_new_24dp.svg"
-                                                 width="24" height="24" alt="">
-                                        </div>
-                                        <div class="container-input2">
-                                            <div class="input-section">
-                                                <input id="to_input" placeholder="" value="TPHCM"
-                                                       class="styled-input">
-                                                <label class="label-input" for="to_input">
-                                                    Nơi đến
-                                                </label>
+                        <div class="place-to">
+                            <div class="input-wrapper-to">
+                                <div class="info-input">
+                                    <div class="select-cotainer">
+                                        <div class="to-container container-input">
+                                            <div class="icon-container">
+                                                <img src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_new_24dp.svg"
+                                                     width="24" height="24" alt="">
+                                            </div>
+                                            <div class="container-input2">
+                                                <div class="input-section">
+                                                    <input required id="to_input" placeholder="" value="TP. HCM"
+                                                           class="styled-input" name="placeEndName">
+                                                    <label class="label-input" for="to_input">
+                                                        Nơi đến
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="select-menu">
+                                        <ul id="to_menu_list" class="menu-item-group-list">
+                                            <li th:each="place : ${places}" class="option-item"
+                                                th:text="${place.placeName}"></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="select-menu">
-                                    <ul id="to_menu_list" class="menu-item-group-list">
-                                        <li th:each="place : ${places}" class="option-item" th:text="${place.placeName}"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="swap-container">
-                                <div class="switch-icon-container">
-                                    <div class="switch-icon-wrapper">
+                                <div class="swap-container">
+                                    <div class="switch-icon-container">
+                                        <div class="switch-icon-wrapper">
                                             <span class="material-symbols-outlined" onclick="SwapClick()">
                                                 swap_horiz
                                             </span>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="search-divider"></div>
+                                <div class="line-focus"></div>
                             </div>
-                            <div class="search-divider"></div>
-                            <div class="line-focus"></div>
                         </div>
-                    </div>
 
-                    <div class="date-go">
-                        <div class="input-wrapper-date">
-                            <div class="info-input">
-                                <div class="select-cotainer">
-                                    <div class="container-input">
-                                        <div class="icon-container">
-                                            <img src="https://storage.googleapis.com/fe-production/svgIcon/event_vex_blue_24dp.svg"
-                                                 alt="trip-date-icon" width="24" height="24">
-                                        </div>
-                                        <div class="container-input2">
-                                            <div class="input-section">
-                                                <div class="date-input">
-                                                    <p class="heading-date-text">Ngày đi</p>
-                                                    <input id="date_input" class="styled-input" type = "date"> </input>
+                        <div class="date-go">
+                            <div class="input-wrapper-date">
+                                <div class="info-input">
+                                    <div class="select-cotainer">
+                                        <div class="container-input">
+                                            <div class="icon-container">
+                                                <img src="https://storage.googleapis.com/fe-production/svgIcon/event_vex_blue_24dp.svg"
+                                                     alt="trip-date-icon" width="24" height="24">
+                                            </div>
+                                            <div class="container-input2">
+                                                <div class="input-section">
+                                                    <div class="date-input">
+                                                        <p class="heading-date-text">Ngày đi</p>
+                                                        <input required id="date_input" class="styled-input"
+                                                               type="date" name="goingDate"> </input>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="line-focus"></div>
                             </div>
-                            <div class="line-focus"></div>
                         </div>
                     </div>
-                </div>
-                <div class="seach-button">
-                    <form class="reset_form" th:action="@{/bookingPage}">
+                    <div class="seach-button">
                         <button onclick="" type="submit" class="btn search-click">
                             <span>Tìm kiếm</span>
                         </button>
-                    </form>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <div class="bottom-header">
@@ -207,9 +210,9 @@
         <div class="row">
             <div class="col span-1-of-3">
                 <ul class="information">
-                    <li><a class="small-icon fas fa-map-marker-alt"></a>Address: </li>
-                    <li><a class="small-icon fas fa-envelope"></a>Email: </li>
-                    <li><a class="small-icon fas fa-phone"></a>SĐT: </li>
+                    <li><a class="small-icon fas fa-map-marker-alt"></a>Address:</li>
+                    <li><a class="small-icon fas fa-envelope"></a>Email:</li>
+                    <li><a class="small-icon fas fa-phone"></a>SĐT:</li>
                 </ul>
                 <ul class="social-icons">
                     <li><a class="fab fa-facebook" href="https://www.facebook.com/pqhung.2905"></a></li>

@@ -14,8 +14,8 @@ public class BusServiceImpl implements BusService {
     @Autowired
     BusRepository busRepository;
     @Override
-    public List<Bus> findAll() {
-        return busRepository.findAll();
+    public List<Bus> findAllByStartAndEnd(String placeStartName, String placeEndName, String goingDate) {
+        return busRepository.findAllByStartAndEnd(placeStartName, placeEndName, goingDate);
     }
 
     @Override
