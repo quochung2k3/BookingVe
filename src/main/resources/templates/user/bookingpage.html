@@ -7,112 +7,117 @@
 </head>
 
 <body>
-<header th:replace = "user/fragments/header::header"></header>
+<header th:replace="user/fragments/header::header"></header>
 <div class="clearfix"></div>
 <div class="main">
     <div class="homepage">
         <form class="reset_form" th:action="@{/bookingPage}">
-        <div class="search-box">
-            <div class="search-area">
-                <div class="place-from">
-                    <div class="input-wrapper-from">
-                        <div class="info-input">
-                            <div class="select-cotainer">
-                                <div class="container-input">
-                                    <div class="icon-container">
-                                        <img src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
-                                             width="24" height="24" alt="">
-                                    </div>
-                                    <div class="container-input2">
-                                        <div class="input-section">
-                                            <input required id="from_input" placeholder="" th:value="${placeStart}" name="placeStartName"
-                                                   class="styled-input">
-                                            <label class="label-input" for="from_input">
-                                                Nơi xuất phát
-                                            </label>
+            <div class="search-box">
+                <div class="search-area">
+                    <div class="place-from">
+                        <div class="input-wrapper-from">
+                            <div class="info-input">
+                                <div class="select-cotainer">
+                                    <div class="container-input">
+                                        <div class="icon-container">
+                                            <img src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
+                                                 width="24" height="24" alt="">
+                                        </div>
+                                        <div class="container-input2">
+                                            <div class="input-section">
+                                                <input required id="from_input" placeholder="" th:value="${placeStart}"
+                                                       name="placeStartName"
+                                                       class="styled-input">
+                                                <label class="label-input" for="from_input">
+                                                    Nơi xuất phát
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="select-menu">
+                                    <ul id="from_menu_list" class="menu-item-group-list">
+                                        <li th:each="place : ${places}" class="option-item"
+                                            th:text="${place.placeName}"></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="select-menu">
-                                <ul id="from_menu_list" class="menu-item-group-list">
-                                    <li th:each="place : ${places}" class="option-item" th:text="${place.placeName}"></li>
-                                </ul>
-                            </div>
+                            <div class="search-divider"></div>
+                            <div class="line-focus"></div>
                         </div>
-                        <div class="search-divider"></div>
-                        <div class="line-focus"></div>
                     </div>
-                </div>
-                <div class="place-to">
-                    <div class="input-wrapper-to">
-                        <div class="info-input">
-                            <div class="select-cotainer">
-                                <div class="to-container container-input">
-                                    <div class="icon-container">
-                                        <img src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_new_24dp.svg"
-                                             width="24" height="24" alt="">
-                                    </div>
-                                    <div class="container-input2">
-                                        <div class="input-section">
-                                            <input required id="to_input" placeholder="" th:value="${placeEnd}" class="styled-input" name="placeEndName">
-                                            <label class="label-input" for="to_input">
-                                                Nơi đến
-                                            </label>
+                    <div class="place-to">
+                        <div class="input-wrapper-to">
+                            <div class="info-input">
+                                <div class="select-cotainer">
+                                    <div class="to-container container-input">
+                                        <div class="icon-container">
+                                            <img src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_new_24dp.svg"
+                                                 width="24" height="24" alt="">
+                                        </div>
+                                        <div class="container-input2">
+                                            <div class="input-section">
+                                                <input required id="to_input" placeholder="" th:value="${placeEnd}"
+                                                       class="styled-input" name="placeEndName">
+                                                <label class="label-input" for="to_input">
+                                                    Nơi đến
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="select-menu">
+                                    <ul id="to_menu_list" class="menu-item-group-list">
+                                        <li th:each="place : ${places}" class="option-item"
+                                            th:text="${place.placeName}"></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="select-menu">
-                                <ul id="to_menu_list" class="menu-item-group-list">
-                                    <li th:each="place : ${places}" class="option-item" th:text="${place.placeName}"></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="swap-container">
-                            <div class="switch-icon-container">
-                                <div class="switch-icon-wrapper">
+                            <div class="swap-container">
+                                <div class="switch-icon-container">
+                                    <div class="switch-icon-wrapper">
                                         <span class="material-symbols-outlined" onclick="SwapClick()">
                                             swap_horiz
                                         </span>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="search-divider"></div>
+                            <div class="line-focus"></div>
                         </div>
-                        <div class="search-divider"></div>
-                        <div class="line-focus"></div>
                     </div>
-                </div>
 
-                <div class="date-go">
-                    <div class="input-wrapper-date">
-                        <div class="info-input">
-                            <div class="select-cotainer">
-                                <div class="container-input">
-                                    <div class="icon-container">
-                                        <img src="https://storage.googleapis.com/fe-production/svgIcon/event_vex_blue_24dp.svg"
-                                             alt="trip-date-icon" width="24" height="24">
-                                    </div>
-                                    <div class="container-input2">
-                                        <div class="input-section">
-                                            <div class="date-input">
-                                                <p class="heading-date-text">Ngày đi</p>
-                                                <input required id="date_input" class="styled-input" type = "date" name="goingDate" th:value="${goingDate}">
+                    <div class="date-go">
+                        <div class="input-wrapper-date">
+                            <div class="info-input">
+                                <div class="select-cotainer">
+                                    <div class="container-input">
+                                        <div class="icon-container">
+                                            <img src="https://storage.googleapis.com/fe-production/svgIcon/event_vex_blue_24dp.svg"
+                                                 alt="trip-date-icon" width="24" height="24">
+                                        </div>
+                                        <div class="container-input2">
+                                            <div class="input-section">
+                                                <div class="date-input">
+                                                    <p class="heading-date-text">Ngày đi</p>
+                                                    <input required id="date_input" class="styled-input" type="date"
+                                                           name="goingDate" th:value="${goingDate}">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="line-focus"></div>
                         </div>
-                        <div class="line-focus"></div>
                     </div>
                 </div>
+                <div class="seach-button">
+                    <button onclick="" type="submit" class="btn search-click">
+                        <span>Tìm kiếm</span>
+                    </button>
+                </div>
             </div>
-            <div class="seach-button">
-                <button onclick="" type="submit" class="btn search-click">
-                    <span>Tìm kiếm</span>
-                </button>
-            </div>
-        </div>
         </form>
         <div class="route-row">
             <div class="col-left">
@@ -212,8 +217,10 @@
                                         </div>
                                     </div>
                                     <div class="groupKind">
-                                        <label class="checkBoxGroup ant-checkbox-wrapper" th:each="partner : ${partners}">
-                                                <span class="ant-checkbox" th:text="${partner.partnerName}">
+                                        <label class="checkBoxGroup ant-checkbox-wrapper"
+                                               th:each="partner : ${partners}">
+                                                <span class="ant-checkbox">
+                                                    <span th:text="${partner.partnerName}"></span>
                                                     <input type="checkbox" class="ant-checkbox-input" value="">
                                                     <span class="checkmark"></span>
                                                 </span>
@@ -255,7 +262,7 @@
             </div>
             <div class="col-right">
                 <div class="infinity-scroll">
-                    <div th:each="bus : ${busList}" class ="wrap-ticket-container">
+                    <div th:each="bus : ${busList}" class="wrap-ticket-container">
                         <div class="container">
                             <div class="ticket-container">
                                 <div class="body-flex">
@@ -282,11 +289,13 @@
                                             </svg>
                                             <div class="from-to-content">
                                                 <div class="content from">
-                                                    <div class="hour" th:text="${#strings.substring(bus.GoingDateTime, 11, 16)}"></div>
+                                                    <div class="hour"
+                                                         th:text="${#strings.substring(bus.GoingDateTime, 11, 16)}"></div>
                                                     <div class="place" th:text="${'• ' + bus.PlaceStartName}"></div>
                                                 </div>
                                                 <div class="content to">
-                                                    <div class="hour" th:text="${#strings.substring(bus.ArrivalDateTime, 11, 16)}"></div>
+                                                    <div class="hour"
+                                                         th:text="${#strings.substring(bus.ArrivalDateTime, 11, 16)}"></div>
                                                     <div class="place" th:text="${'• ' + bus.PlaceEndName}"></div>
                                                 </div>
                                             </div>
@@ -296,7 +305,8 @@
                                         </div>
                                         <div class="ticket-detail-action">
                                             <div class="info">
-                                                <div class="seat-available" th:text="${'Còn ' + bus.TotalSeatEmpty + ' chỗ trống'}"></div>
+                                                <div class="seat-available"
+                                                     th:text="${'Còn ' + bus.TotalSeatEmpty + ' chỗ trống'}"></div>
                                             </div>
                                             <div class="action">
                                                 <form class="reset_form" th:action="@{/paymentPage}" method="get">

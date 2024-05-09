@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<header th:replace = "user/fragments/header::header"></header>
+<header th:replace="user/fragments/header::header"></header>
 <div class="clearfix"></div>
 <div class="main">
     <div class="booking-body-container">
@@ -54,8 +54,9 @@
                                 <div class="ant-col ant-form-item-control-wrapper">
                                     <div class="ant-form-item-control"><span class="ant-form-item-children">
                                                 <div class="input-container"><input type="text" id="email"
-                                                                                    class="styled-input" placeholder=" " value=""><label for="email"
-                                                                                                                                         class="base-caption"><span>Email để nhận
+                                                                                    class="styled-input" placeholder=" "
+                                                                                    value=""><label for="email"
+                                                                                                    class="base-caption"><span>Email để nhận
                                                             thông tin đặt chỗ <span
                                                             style="color: #EB5757;">*</span></span></label></div>
                                             </span></div>
@@ -257,7 +258,9 @@
                                                     <p th:text="${seatsFirstHalf[2*item - item2].seatName}"></p>
                                                     <svg width="32" height="40" viewBox="0 0 28 40" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg"
-                                                         style="width: 27px; height: 40px;" th:classappend="${seatsFirstHalf[2*item - item2].seatName}" onclick="changeRectColor(this.classList)">
+                                                         style="width: 27px; height: 40px;"
+                                                         th:classappend="${seatsFirstHalf[2*item - item2].seatName}"
+                                                         onclick="changeRectColor(this.classList)">
                                                         <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25"
                                                               fill="#FFF" stroke="#B8B8B8" stroke-width="1.5"
                                                               stroke-linejoin="round"></rect>
@@ -316,7 +319,9 @@
                                                     <p th:text="${seatsSecondHalf[2*item - item2].seatName}"></p>
                                                     <svg width="32" height="40" viewBox="0 0 28 40" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg"
-                                                         style="width: 27px; height: 40px;" th:classappend="${seatsSecondHalf[2*item - item2].seatName}" onclick="changeRectColor(this.classList)">
+                                                         style="width: 27px; height: 40px;"
+                                                         th:classappend="${seatsSecondHalf[2*item - item2].seatName}"
+                                                         onclick="changeRectColor(this.classList)">
                                                         <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25"
                                                               fill="#FFF" stroke="#B8B8B8" stroke-width="1.5"
                                                               stroke-linejoin="round"></rect>
@@ -367,7 +372,8 @@
                         <div class="ant-drawer-wrapper-body" style="overflow: auto; height: 250px;">
                             <div class="ant-drawer-body">
                                 <div class="drawer-header">
-                                    <div class="material-icons-wrapper"><span class="material-symbols-outlined back-btn-pick">
+                                    <div class="material-icons-wrapper"><span
+                                            class="material-symbols-outlined back-btn-pick">
                                             arrow_back
                                             </span></div>
                                     <p class="base-headline">Thay đổi điểm đón</p>
@@ -376,7 +382,8 @@
                                     <div class="ant-radio-group outline" th:each="pickUp : ${pickUp}">
                                         <label class="ant-radio-wrapper checked">
                                                 <span class="ant-radio">
-                                                    <input type="radio" class="ant-radio-input checked" value="" checked="">
+                                                    <input type="radio" class="ant-radio-input checked" value=""
+                                                           checked="">
                                                     <span class="ant-radio-inner"></span>
                                                 </span>
                                             <span>
@@ -384,7 +391,8 @@
                                                         <div class="info-container">
                                                             <div class="info-group">
                                                                 <div class="info-line">
-                                                                    <p class="address" th:text="${pickUp.pickUpAndDropName}"></p>
+                                                                    <p class="address"
+                                                                       th:text="${pickUp.pickUpAndDropName}"></p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -397,7 +405,7 @@
                         </div>
                         <div class="area-footer">
                             <button type="button" class="ant-btn submit-area-btn">
-                                <p class="base-button" onclick = "change('pick-up')">Cập nhật</p>
+                                <p class="base-button" onclick="change('pick-up')">Cập nhật</p>
                             </button>
                         </div>
                     </div>
@@ -417,7 +425,8 @@
                                     <div class="ant-radio-group outline" th:each="dropOff : ${dropOff}">
                                         <label class="ant-radio-wrapper checked">
                                                 <span class="ant-radio">
-                                                    <input type="radio" class="ant-radio-input checked" value="" checked="">
+                                                    <input type="radio" class="ant-radio-input checked" value=""
+                                                           checked="">
                                                     <span class="ant-radio-inner"></span>
                                                 </span>
                                             <span>
@@ -425,7 +434,8 @@
                                                         <div class="info-container">
                                                             <div class="info-group">
                                                                 <div class="info-line">
-                                                                    <p class="address" th:text="${dropOff.pickUpAndDropName}"></p>
+                                                                    <p class="address"
+                                                                       th:text="${dropOff.pickUpAndDropName}"></p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -438,7 +448,7 @@
                         </div>
                         <div class="area-footer">
                             <button type="button" class="ant-btn submit-area-btn">
-                                <p class="base-button submit-btn" onclick = "change('drop-off')">Cập nhật</p>
+                                <p class="base-button submit-btn" onclick="change('drop-off')">Cập nhật</p>
                             </button>
                         </div>
                     </div>
