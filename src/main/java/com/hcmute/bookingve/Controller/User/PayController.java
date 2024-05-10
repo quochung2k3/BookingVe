@@ -33,7 +33,9 @@ public class PayController {
                           @RequestParam("userName") String userName,
                           @RequestParam("sdt") String sdt,
                           @RequestParam("userEmail") String userEmail,
-                          @RequestParam("totalCost") String totalCost) {
+                          @RequestParam("totalCost") String totalCost,
+                          @RequestParam("listSeatName") String listSeatName,
+                          @RequestParam("listSeatId") String listSeatId) {
         Reservation reservation = new Reservation();
         reservation.setBusId(busId);
         reservation.setPickUpId(pickUpId);
@@ -61,6 +63,8 @@ public class PayController {
         model.addAttribute("sdt", sdt);
         model.addAttribute("userName", userName);
         model.addAttribute("totalCost", totalCost);
+        model.addAttribute("listSeatName", listSeatName);
+        model.addAttribute("listSeatId", listSeatId);
         return "user/pay";
     }
 
@@ -72,7 +76,7 @@ public class PayController {
         Voucher voucher = voucherService.findById(couponCode);
         if (voucher == null || voucher.getQuantity() == 0) {
             responseData.put("discount", "Voucher Not Found");
-            responseData.put("totalAfterDiscount", totalCost + " VNĐ");
+            responseData.put("totalAfterDiscount", totalCost);
         }
         else {
             int total = Integer.parseInt(totalCost.replace(" VNĐ", ""));
@@ -84,5 +88,11 @@ public class PayController {
             responseData.put("totalAfterDiscount", totalAfterDiscount + " VNĐ");
         }
         return responseData;
+    }
+
+    @PostMapping("/invoice")
+    public String invoice(@RequestParam("listSeatName") String listSeatName) {
+        System.out.println(listSeatName);
+        return "user/historyBooking";
     }
 }

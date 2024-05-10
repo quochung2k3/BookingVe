@@ -70,8 +70,11 @@ function AddHeight(){
 }
 
 var listSeat = [];
+var listSeatId = [];
 function changeRectColor(classList, money) {
     var newClass = classList[classList.length - 1];
+    console.log(newClass.toString());
+    var parts = newClass.split('_');
     var elementWithNewClass = document.querySelector('.' + newClass);
     var rects = elementWithNewClass.querySelectorAll('rect');
 
@@ -88,17 +91,21 @@ function changeRectColor(classList, money) {
             rect.setAttribute('stroke', '#27AE60');
         }
     });
-    var index = listSeat.indexOf(newClass);
+    var index = listSeat.indexOf(parts[0]);
     if(index === -1) {
-        listSeat.push(newClass);
+        listSeat.push(parts[0]);
+        listSeatId.push(parts[1]);
     }
     else {
         listSeat.splice(index, 1);
+        listSeatId.splice(index, 1);
     }
     var totalPriceText = document.querySelector('.total-price-text').textContent;
     var total = totalPriceText.replace(/\D/g, '');
     var totalText = listSeat.length * parseInt(total);
     document.getElementById('list-seat-name').innerHTML = "Số ghế: {" + listSeat.toString() + "}";
+    document.getElementById('list-seat-name-value').value = "{" + listSeat.toString() + "}";
+    document.getElementById('list-seat-id-value').value = "{" + listSeatId.toString() + "}";
     document.getElementById('total').innerHTML = totalText + ' VNĐ';
     document.getElementById('totalCost').value = totalText + ' VNĐ';
 }

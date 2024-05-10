@@ -13,84 +13,77 @@
 <header th:replace="user/fragments/header::header"></header>
 <div class="clearfix"></div>
 <div class="main">
+    <form th:action="invoice" method="post">
+        <div class="booking-body-container">
+            <div class="booking-wrap-container">
+                <div class="wrap-left">
 
-    <div class="booking-body-container">
-
-        <div tabindex="0" role="button" class="button-back"><img
-                src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/chevron_left_gray.svg" width="20" height="20"
-                alt="">
-            <p class="back-content">Quay lại</p>
-        </div>
-        <div class="booking-wrap-container">
-            <div class="wrap-left">
-
-                <div class="customer-info-container">
-                    <div class="base-headline">Phương thức
-                        thanh toán
-                    </div>
-                    <div class="ant-radio-group ant-radio-group-outline payment-group">
-                        <div class=" ant-row payment-method-detail undefined">
-                            <label class="QR ant-radio-wrapper">
+                    <div class="customer-info-container">
+                        <div class="base-headline">Phương thức
+                            thanh toán
+                        </div>
+                        <div class="ant-radio-group ant-radio-group-outline payment-group">
+                            <div class=" ant-row payment-method-detail undefined">
+                                <label class="QR ant-radio-wrapper">
                                     <span class="ant-radio">
                                         <input type="radio" class="ant-radio-input" value="">
                                         <span class="ant-radio-inner"></span>
                                     </span>
-                                <span>
+                                    <span>
                                         <img src="https://229a2c9fe669f7b.cmccloud.com.vn/httpImage/transfer_va.svg"
                                              alt="" class="payment-icon">
                                         <p class="base-body title">QR chuyển khoản/ Ví điện tử
                                         </p>
                                     </span>
-                            </label>
-                        </div>
-                        <div class="ant-row payment-method-detail undefined">
-                            <label class="VISA ant-radio-wrapper">
+                                </label>
+                            </div>
+                            <div class="ant-row payment-method-detail undefined">
+                                <label class="VISA ant-radio-wrapper">
                                     <span class="ant-radio">
                                         <input type="radio" class="ant-radio-input" value="VISA">
                                         <span class="ant-radio-inner"></span>
                                     </span>
-                                <span>
+                                    <span>
                                         <img src="https://229a2c9fe669f7b.cmccloud.com.vn/httpImage/credit_card.svg"
                                              alt="VISA" class="payment-icon">
                                         <p class="base-body title">Thẻ thanh toán quốc tế
                                         </p>
                                     </span>
-                            </label>
+                                </label>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="payment-method QR hidden">
-                    <div class="customer-info-form">
-                        <div class="head">
-                            <div class="material-icons-wrapper">
+                    <div class="payment-method QR hidden">
+                        <div class="customer-info-form">
+                            <div class="head">
+                                <div class="material-icons-wrapper">
                                     <span class="material-symbols-outlined btn-back-QR">
                                     arrow_back
                                     </span>
+                                </div>
+                                <div class="base-headline">QR Code</div>
                             </div>
-                            <div class="base-headline">QR Code</div>
+                            <div class="img-">
+                                <img th:src="@{/assets/img/qr.png}" style="height: 400px; width: 400px">
+                            </div>
                         </div>
-                        <div class="img-">
-                            <img th:src="@{/assets/img/qr.png}" style="height: 400px; width: 400px">
-                        </div>
-
+                        <button type="submit" class="btn" style="width:100%;">Xác nhận</button>
                     </div>
-                    <button type="submit" class="btn" style="width:100%;">Xác nhận</button>
-                </div>
-                <div class="payment-method VISA hidden">
-                    <div class="customer-info-form">
-                        <div class="head">
-                            <div class="material-icons-wrapper">
+                    <div class="payment-method VISA hidden">
+                        <div class="customer-info-form">
+                            <div class="head">
+                                <div class="material-icons-wrapper">
                                     <span class="material-symbols-outlined btn-back-VISA">
                                     arrow_back
                                     </span>
+                                </div>
+                                <div class="base-headline">Credit Card</div>
                             </div>
-                            <div class="base-headline">Credit Card</div>
-                        </div>
-                        <form class="ant-form ant-form-horizontal">
-                            <div class="ant-row ant-form-item flex-percent">
-                                <div class="ant-col ant-form-item-control-wrapper">
-                                    <div class="ant-form-item-control">
+                            <form class="ant-form ant-form-horizontal">
+                                <div class="ant-row ant-form-item flex-percent">
+                                    <div class="ant-col ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control">
                                             <span class="ant-form-item-children">
                                                 <div class="input-container">
                                                     <input type="text" id="userName" class="styled-input"
@@ -100,12 +93,12 @@
                                                             <span style="color: #EB5757;">*</span></span></label>
                                                 </div>
                                             </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="ant-row ant-form-item">
-                                <div class="ant-col ant-form-item-control-wrapper">
-                                    <div class="ant-form-item-control"><span class="ant-form-item-children">
+                                <div class="ant-row ant-form-item">
+                                    <div class="ant-col ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control"><span class="ant-form-item-children">
                                                 <div class="phone-input-container">
                                                     <div class="input-container">
                                                         <div class="input-section">
@@ -119,11 +112,11 @@
                                                     </div>
                                                 </div>
                                             </span></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="ant-row ant-form-item">
-                                <div class="ant-col ant-form-item-control-wrapper">
-                                    <div class="ant-form-item-control">
+                                <div class="ant-row ant-form-item">
+                                    <div class="ant-col ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control">
                                             <span class="ant-form-item-children">
                                                 <div class="input-container">
                                                         <input type="month" id="date" class="styled-input"
@@ -143,106 +136,140 @@
                                                         </label>
                                                 </div>
                                             </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <button type="submit" class="btn">Xác nhận</button>
-                        </form>
+                                <button type="submit" class="btn">Xác nhận</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="review-info-container">
-                    <div class="section">
-                        <div class="base-headline">Thông tin chuyến đi</div>
-                        <div class="info-ticket">
-                            <div class="box-review-container">
-                                <div class="section-ticket-header">
-                                    <div class="section-ticket-header-left">
-                                        <img class="bus-blue-icon"
-                                             src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/bus_blue_24dp.svg"
-                                             alt="bus_blue_icon" width="16" height="16">
-                                        <p class="base-caption"
-                                           th:text="${#dates.format(bus.GoingDateTime, 'EEE MM/dd/yyyy')}"></p>
-                                    </div>
-                                </div>
-                                <div class="section-ticket-content">
-                                    <div class="section-ticket-company-info pointer">
-                                        <div><img
-                                                src="https://static.vexere.com/production/images/1647850188321.jpeg"
-                                                alt="avatar" class="image-styled">
-                                        </div>
-                                        <div class="section-ticket-company-info-name">
-                                            <input hidden name="busId" th:value="${bus.busId}">
-                                            <p class="base-headline" th:text="${bus.vehicleName}"></p>
-                                            <p class="base-description" th:text="${busType.busTypeName}"></p>
+                    <div class="review-info-container">
+                        <div class="section">
+                            <div class="base-headline">Thông tin chuyến đi</div>
+                            <div class="info-ticket">
+                                <div class="box-review-container">
+                                    <div class="section-ticket-header">
+                                        <div class="section-ticket-header-left">
+                                            <img class="bus-blue-icon"
+                                                 src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/bus_blue_24dp.svg"
+                                                 alt="bus_blue_icon" width="16" height="16">
+                                            <p class="base-caption"
+                                               th:text="${#dates.format(bus.GoingDateTime, 'EEE MM/dd/yyyy')}"></p>
                                         </div>
                                     </div>
-                                    <div class="box-ticket-route-content">
-                                        <div class="section-route-info">
-                                            <div class="area-container pick-up">
-                                                <div class="area-point-container">
-                                                    <div class="date-time-container">
-                                                        <div class="date-time-container-pick-up">
-                                                            <div class="base-headline"
-                                                                 th:text="${#strings.substring(bus.GoingDateTime, 11, 16)}"></div>
-                                                            <p class="base-small"
-                                                               th:text="${#dates.format(bus.GoingDateTime, 'MM/dd')}"></p>
+                                    <div class="section-ticket-content">
+                                        <div class="section-ticket-company-info pointer">
+                                            <div><img
+                                                    src="https://static.vexere.com/production/images/1647850188321.jpeg"
+                                                    alt="avatar" class="image-styled">
+                                            </div>
+                                            <div class="section-ticket-company-info-name">
+                                                <input hidden name="busId" th:value="${bus.busId}">
+                                                <p class="base-headline" th:text="${bus.vehicleName}"></p>
+                                                <p class="base-description" th:text="${busType.busTypeName}"></p>
+                                            </div>
+                                        </div>
+                                        <div class="box-ticket-route-content">
+                                            <div class="section-route-info">
+                                                <div class="area-container pick-up">
+                                                    <div class="area-point-container">
+                                                        <div class="date-time-container">
+                                                            <div class="date-time-container-pick-up">
+                                                                <div class="base-headline"
+                                                                     th:text="${#strings.substring(bus.GoingDateTime, 11, 16)}"></div>
+                                                                <p class="base-small"
+                                                                   th:text="${#dates.format(bus.GoingDateTime, 'MM/dd')}"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="icon-container">
+                                                            <div class="icon-container-top"><img
+                                                                    class="pickup-icon ls-is-cached lazyloaded"
+                                                                    data-src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
+                                                                    src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
+                                                                    alt="pickup-icon" width="12" height="12"></div>
+                                                            <div class="icon-container-divider">
+                                                                <div class="icon-container-divider-border-right"></div>
+                                                                <div class="icon-container-divider-border-left"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="section-area">
+                                                            <div class="section-area-picker">
+                                                                <p class="base-caption"
+                                                                   th:text="${bus.PlaceStartName}"></p>
+                                                                <p class="base-small"
+                                                                   th:text="${pickUpModel.PickUpAndDropName}"></p>
+                                                                <input hidden class="pickUpAndDropIdChange"
+                                                                       name="pickUpId"
+                                                                       th:value="${pickUpModel.PickUpAndDropId}">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="icon-container">
-                                                        <div class="icon-container-top"><img
-                                                                class="pickup-icon ls-is-cached lazyloaded"
-                                                                data-src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
-                                                                src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
-                                                                alt="pickup-icon" width="12" height="12"></div>
-                                                        <div class="icon-container-divider">
-                                                            <div class="icon-container-divider-border-right"></div>
-                                                            <div class="icon-container-divider-border-left"></div>
+                                                </div>
+                                                <div class="area-container drop-off">
+                                                    <div class="area-point-container">
+                                                        <div class="date-time-container">
+                                                            <div class="date-time-container-drop-off">
+                                                                <div class="base-headline"
+                                                                     th:text="${#strings.substring(bus.ArrivalDateTime, 11, 16)}"></div>
+                                                                <p class="base-small"
+                                                                   th:text="${#dates.format(bus.ArrivalDateTime, 'MM/dd')}"></p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="section-area">
-                                                        <div class="section-area-picker">
-                                                            <p class="base-caption"
-                                                               th:text="${bus.PlaceStartName}"></p>
-                                                            <p class="base-small"
-                                                               th:text="${pickUpModel.PickUpAndDropName}"></p>
-                                                            <input hidden class="pickUpAndDropIdChange" name="pickUpId"
-                                                                   th:value="${pickUpModel.PickUpAndDropId}">
+                                                        <div class="icon-container">
+                                                            <div class="icon-container-divider">
+                                                                <div class="icon-container-divider-border-right"></div>
+                                                                <div class="icon-container-divider-border-left"></div>
+                                                            </div>
+                                                            <div class="icon-container-bottom"><img
+                                                                    class="dropoff-icon lazyloaded"
+                                                                    data-src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_semantic_negative_12dp.svg"
+                                                                    src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_semantic_negative_12dp.svg"
+                                                                    alt="dropoff-icon" width="12" height="12"></div>
+                                                        </div>
+                                                        <div class="section-area">
+                                                            <div class="section-area-picker">
+                                                                <p class="base-caption"
+                                                                   th:text="${bus.PlaceEndName}"></p>
+                                                                <p class="base-small"
+                                                                   th:text="${dropOffModel.PickUpAndDropName}"></p>
+                                                                <input hidden class="pickUpAndDropIdChange"
+                                                                       name="dropOffId"
+                                                                       th:value="${dropOffModel.PickUpAndDropId}">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="area-container drop-off">
-                                                <div class="area-point-container">
-                                                    <div class="date-time-container">
-                                                        <div class="date-time-container-drop-off">
-                                                            <div class="base-headline"
-                                                                 th:text="${#strings.substring(bus.ArrivalDateTime, 11, 16)}"></div>
-                                                            <p class="base-small"
-                                                               th:text="${#dates.format(bus.ArrivalDateTime, 'MM/dd')}"></p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="icon-container">
-                                                        <div class="icon-container-divider">
-                                                            <div class="icon-container-divider-border-right"></div>
-                                                            <div class="icon-container-divider-border-left"></div>
-                                                        </div>
-                                                        <div class="icon-container-bottom"><img
-                                                                class="dropoff-icon lazyloaded"
-                                                                data-src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_semantic_negative_12dp.svg"
-                                                                src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_semantic_negative_12dp.svg"
-                                                                alt="dropoff-icon" width="12" height="12"></div>
-                                                    </div>
-                                                    <div class="section-area">
-                                                        <div class="section-area-picker">
-                                                            <p class="base-caption"
-                                                               th:text="${bus.PlaceEndName}"></p>
-                                                            <p class="base-small"
-                                                               th:text="${dropOffModel.PickUpAndDropName}"></p>
-                                                            <input hidden class="pickUpAndDropIdChange" name="dropOffId"
-                                                                   th:value="${dropOffModel.PickUpAndDropId}">
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrap-right">
+                    <div class="padding-0">
+                        <div class="booking-info-wrapper">
+                            <div class=" ticket-info-body">
+                                <div class="table-info">
+                                    <div class="ticket-info">
+                                        <div class="base-heading">
+                                            <div class="base-headline">Thông tin
+                                                liên hệ
+                                            </div>
+                                        </div>
+                                        <div class="ticket-info-styled">
+                                            <div class="base-hstack">
+                                                <article class="ant-typography">Hành khách</article>
+                                                <p class="base-body" th:text="${userName}"></p>
+                                            </div>
+                                            <div class="base-hstack">
+                                                <article class="ant-typography">Số điện thoại</article>
+                                                <p class="base-body" th:text="${sdt}"></p>
+                                            </div>
+                                            <div class="base-hstack">
+                                                <article class="ant-typography color--darkness">Email</article>
+                                                <p class="base-body" th:text="${userEmail}"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -250,78 +277,47 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="wrap-right">
-                <div class="padding-0">
-                    <div class="booking-info-wrapper">
-                        <div class=" ticket-info-body">
-                            <div class="table-info">
-                                <div class="ticket-info">
-                                    <div class="base-heading">
-                                        <div class="base-headline">Thông tin
-                                            liên hệ
-                                        </div>
+                    <input hidden name="listSeatName" th:value="${listSeatName}">
+                    <input hidden name="listSeatId" th:value="${listSeatId}">
+                    <span style="color: red" th:text="${'Số ghế: ' + listSeatName}"></span>
+                    <div class="total-money-pay">
+                        Tổng cộng:
+                        <div hidden id="totalDefault" th:text="${totalCost}"></div>
+                        <div id="total" th:text="${totalCost}"></div>
+                    </div>
+                    <form class="reset_form voucher_form" th:action="@{/checkVoucher}" method="post">
+                        <div class="coupon-wrapper">
+                            <div class="coupon-container undefined">
+                                <div class="coupon-code">
+                                    <p class="base-headline">Mã giảm giá:</p>
+                                    <div class="coupon-input">
+                                        <input type="text" class="text-input">
+                                        <button type="submit" class="btn submit">Áp dụng</button>
                                     </div>
-                                    <div class="ticket-info-styled">
-                                        <div class="base-hstack">
-                                            <article class="ant-typography">Hành khách</article>
-                                            <p class="base-body" th:text="${userName}"></p>
-                                        </div>
-                                        <div class="base-hstack">
-                                            <article class="ant-typography">Số điện thoại</article>
-                                            <p class="base-body" th:text="${sdt}"></p>
-                                        </div>
-                                        <div class="base-hstack">
-                                            <article class="ant-typography color--darkness">Email</article>
-                                            <p class="base-body" th:text="${userEmail}"></p>
-                                        </div>
+                                </div>
+                                <div class="coupon-discount">
+                                    <div class="base-body">Giảm giá:</div>
+                                    <div class="coupon-discount-value"></div>
+                                </div>
+                                <div class="real-total-money">
+                                    <div class="base-body">Số tiền cần phải thanh toán:
                                     </div>
+                                    <div class="discount" id="total-discount" th:text="${totalCost}"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+                    <button class="pay btn" type="button" onclick="payMethod()">Thanh toán</button>
                 </div>
-                <div class="total-money-pay">
-                    Tổng cộng:
-                    <div hidden id="totalDefault" th:text="${totalCost}"></div>
-                    <div id="total" th:text="${totalCost}"></div>
-                </div>
-                <form class="reset_form voucher_form" th:action="@{/checkVoucher}" method="post">
-                    <div class="coupon-wrapper">
-                        <div class="coupon-container undefined">
-                            <div class="coupon-code">
-                                <p class="base-headline">Mã giảm giá:</p>
-                                <div class="coupon-input">
-                                    <input type="text" class="text-input">
-                                    <button type="submit" class="btn submit">Áp dụng</button>
-                                </div>
-                            </div>
-                            <div class="coupon-discount">
-                                <div class="base-body">Giảm giá:</div>
-                                <div class="coupon-discount-value"></div>
-                            </div>
-                            <div class="real-total-money">
-                                <div class="base-body">Số tiền cần phải thanh toán:
-                                </div>
-                                <div class="discount" id="total-discount" th:text="${totalCost}"></div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <button class="pay btn" onclick="payMethod()">Thanh toán</button>
             </div>
         </div>
-    </div>
+    </form>
     <footer th:include="user/fragments/footer::footer"></footer>
 </div>
 <div class="ant-drawer-mask hidden"></div>
 <script th:src="@{/assets/js/pay.js}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-Sử dụng AJAX để gửi yêu cầu POST và cập nhật dữ liệu của form mà không cần tải lại trang:
-html
-Copy code
 <script>
     $(document).ready(function () {
         $('.voucher_form').submit(function (e) {
