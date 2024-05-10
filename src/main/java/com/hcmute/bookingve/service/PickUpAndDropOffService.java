@@ -10,4 +10,6 @@ public interface PickUpAndDropOffService {
     List<PickUpAndDropOff> findByStartId(int placeStartId);
 
     List<PickUpAndDropOff> findByEndId(int placeEndId);
+
+    PickUpAndDropOff findById(int dropOffId);
 }

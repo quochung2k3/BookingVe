@@ -63,8 +63,8 @@ public class PaymentController {
         List<PickUpAndDropOff> pickUp = pickUpAndDropOffService.findByStartId(bus.getPlaceStartId());
         List<PickUpAndDropOff> dropOff = pickUpAndDropOffService.findByEndId(bus.getPlaceEndId());
 
-        String pickUpName = pickUp.getFirst().getPickUpAndDropName();
-        String dropOffName = dropOff.getFirst().getPickUpAndDropName();
+        PickUpAndDropOff pickUpModel = pickUp.getFirst();
+        PickUpAndDropOff dropOffModel = dropOff.getFirst();
 
         // Truyền model xuống tầng frontEnd
         model.addAttribute("bus", bus);
@@ -74,8 +74,8 @@ public class PaymentController {
         model.addAttribute("seatsSecondHalf", seatsSecondHalf);
         model.addAttribute("pickUp", pickUp);
         model.addAttribute("dropOff", dropOff);
-        model.addAttribute("pickUpName", pickUpName);
-        model.addAttribute("dropOffName", dropOffName);
+        model.addAttribute("pickUpModel", pickUpModel);
+        model.addAttribute("dropOffModel", dropOffModel);
         return "user/paymentpage";
     }
 }

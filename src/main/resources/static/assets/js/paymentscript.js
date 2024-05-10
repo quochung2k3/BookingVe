@@ -52,12 +52,15 @@ function change(a){
     document.querySelector("."+a+"-point").classList.add("hidden");
     var baseHeadlineElement = document.querySelector('.'+a+' .base-headline');
     var baseSmallElement = document.querySelector('.'+a+' .section-area .base-small');
+    var pickUpAndDropIdChange = document.querySelector('.'+a+' .section-area .pickUpAndDropIdChange');
     var baseChange = document.querySelector('.ant-radio-wrapper.checked')
     console.log(baseChange);
     console.log(baseHeadlineElement);
     console.log(baseSmallElement);
     // Thay đổi nội dung của phần tử
+    // pickUpAndDropIdChange
     baseSmallElement.textContent = baseChange.querySelector('.address').textContent;
+    pickUpAndDropIdChange.value = baseChange.querySelector('.pickUpAndDropIdChange').value;
 }
 
 function AddHeight(){
@@ -97,4 +100,5 @@ function changeRectColor(classList, money) {
     var totalText = listSeat.length * parseInt(total);
     document.getElementById('list-seat-name').innerHTML = "Số ghế: {" + listSeat.toString() + "}";
     document.getElementById('total').innerHTML = totalText + ' VNĐ';
+    document.getElementById('totalCost').value = totalText + ' VNĐ';
 }

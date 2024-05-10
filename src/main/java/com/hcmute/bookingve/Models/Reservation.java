@@ -18,20 +18,24 @@ public class Reservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ReservationId;
     private int BusId;
-    private int UserId;
     private int PickUpId;
     private int DropOffId;
     private Timestamp CreatedDate;
     private Boolean IsConfirmed;
+    private String UserEmail;
+    private String SDT;
+    private String UserName;
 
-    public Reservation(int reservationId, int busId, int userId, int pickUpId, int dropOffId, Timestamp createdDate, Boolean isConfirmed) {
+    public Reservation(int reservationId, int busId,int pickUpId, int dropOffId, Timestamp createdDate, Boolean isConfirmed, String userEmail, String sDT, String userName) {
         ReservationId = reservationId;
         BusId = busId;
-        UserId = userId;
         PickUpId = pickUpId;
         DropOffId = dropOffId;
         CreatedDate = createdDate;
         IsConfirmed = isConfirmed;
+        UserEmail = userEmail;
+        SDT = sDT;
+        UserName = userName;
     }
 
     public Reservation() {

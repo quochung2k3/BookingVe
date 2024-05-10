@@ -385,9 +385,9 @@ section {
     cursor: pointer;
 }
 
-.search-button {
-    position: flex;
-}
+/*.search-button {*/
+/*    position: flex;*/
+/*}*/
 
 .search-click {
     transform: translate(10%);
@@ -770,6 +770,7 @@ footer {
 .seat-template .coach-container {
     margin-right: 16px;
     text-align: center;
+    cursor: pointer;
 }
 
 .seat-template .coach {
@@ -1021,7 +1022,7 @@ footer {
 }
 
 .ant-drawer-mask {
-    z-index: 10;
+    /*z-index: 10;*/
     position: absolute;
     top: 0;
     left: 0;
@@ -1467,4 +1468,10 @@ input[type=checkbox], input[type=radio] {
     font-size: 1.5rem;
     font-weight: bold;
     margin: 0;
+}
+
+.reset_form {
+    margin-left: 0;
+    padding: 0;
+    margin-bottom: 0;
 }

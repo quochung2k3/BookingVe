@@ -10,7 +10,7 @@
 <div id="timeoutHeader">
     <p>Trang web sẽ tự động timeout sau <span id="timeoutCounter">10:00</span> phút.</p>
 </div>
-<header th:replace = "user/fragments/header::header"></header>
+<header th:replace="user/fragments/header::header"></header>
 <div class="clearfix"></div>
 <div class="main">
 
@@ -26,7 +26,8 @@
 
                 <div class="customer-info-container">
                     <div class="base-headline">Phương thức
-                        thanh toán</div>
+                        thanh toán
+                    </div>
                     <div class="ant-radio-group ant-radio-group-outline payment-group">
                         <div class=" ant-row payment-method-detail undefined">
                             <label class="QR ant-radio-wrapper">
@@ -133,7 +134,8 @@
                                                         </label>
                                                 </div>
                                                 <div class="input-container">
-                                                        <input type="password" id="cvv" class="styled-input" minlength="1" maxlength="6"
+                                                        <input type="password" id="cvv" class="styled-input"
+                                                               minlength="1" maxlength="6"
                                                                placeholder=" " value="">
                                                         <label for="cvv" class="base-caption">
                                                             <span>CVV<span style="color: #EB5757;">*</span>
@@ -158,7 +160,8 @@
                                         <img class="bus-blue-icon"
                                              src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/bus_blue_24dp.svg"
                                              alt="bus_blue_icon" width="16" height="16">
-                                        <p class="base-caption">T7, 04/05/2024</p>
+                                        <p class="base-caption"
+                                           th:text="${#dates.format(bus.GoingDateTime, 'EEE MM/dd/yyyy')}"></p>
                                     </div>
                                 </div>
                                 <div class="section-ticket-content">
@@ -168,9 +171,9 @@
                                                 alt="avatar" class="image-styled">
                                         </div>
                                         <div class="section-ticket-company-info-name">
-                                            <p class="base-headline">An Anh Limousine</p>
-                                            <p class="base-description">Limousine 24 Phòng
-                                                Đôi</p>
+                                            <input hidden name="busId" th:value="${bus.busId}">
+                                            <p class="base-headline" th:text="${bus.vehicleName}"></p>
+                                            <p class="base-description" th:text="${busType.busTypeName}"></p>
                                         </div>
                                     </div>
                                     <div class="box-ticket-route-content">
@@ -179,10 +182,10 @@
                                                 <div class="area-point-container">
                                                     <div class="date-time-container">
                                                         <div class="date-time-container-pick-up">
-                                                            <div class="base-headline">23:30
-                                                            </div>
-                                                            <p class="base-small">
-                                                                (04/05)</p>
+                                                            <div class="base-headline"
+                                                                 th:text="${#strings.substring(bus.GoingDateTime, 11, 16)}"></div>
+                                                            <p class="base-small"
+                                                               th:text="${#dates.format(bus.GoingDateTime, 'MM/dd')}"></p>
                                                         </div>
                                                     </div>
                                                     <div class="icon-container">
@@ -198,11 +201,12 @@
                                                     </div>
                                                     <div class="section-area">
                                                         <div class="section-area-picker">
-                                                            <p class="base-caption">
-                                                                Vp 526 An Dương Vương</p>
-                                                            <p class="base-small">
-                                                                526 An Dương Vương, Phường 09, Quận 5, Hồ Chí Minh
-                                                            </p>
+                                                            <p class="base-caption"
+                                                               th:text="${bus.PlaceStartName}"></p>
+                                                            <p class="base-small"
+                                                               th:text="${pickUpModel.PickUpAndDropName}"></p>
+                                                            <input hidden class="pickUpAndDropIdChange" name="pickUpId"
+                                                                   th:value="${pickUpModel.PickUpAndDropId}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -211,10 +215,10 @@
                                                 <div class="area-point-container">
                                                     <div class="date-time-container">
                                                         <div class="date-time-container-drop-off">
-                                                            <div class="base-headline">06:30
-                                                            </div>
-                                                            <p class="base-small">
-                                                                (05/05)</p>
+                                                            <div class="base-headline"
+                                                                 th:text="${#strings.substring(bus.ArrivalDateTime, 11, 16)}"></div>
+                                                            <p class="base-small"
+                                                               th:text="${#dates.format(bus.ArrivalDateTime, 'MM/dd')}"></p>
                                                         </div>
                                                     </div>
                                                     <div class="icon-container">
@@ -230,11 +234,12 @@
                                                     </div>
                                                     <div class="section-area">
                                                         <div class="section-area-picker">
-                                                            <p class="base-caption">
-                                                                Vp Đà Lạt </p>
-                                                            <p class="base-small">
-                                                                Đầu đường KQH Phạm Hồng Thái, Phường 10, Tp.Đà Lạt,
-                                                                Lâm Đồng, Phường 10, Đà Lạt, Lâm Đồng</p>
+                                                            <p class="base-caption"
+                                                               th:text="${bus.PlaceEndName}"></p>
+                                                            <p class="base-small"
+                                                               th:text="${dropOffModel.PickUpAndDropName}"></p>
+                                                            <input hidden class="pickUpAndDropIdChange" name="dropOffId"
+                                                                   th:value="${dropOffModel.PickUpAndDropId}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -255,23 +260,21 @@
                                 <div class="ticket-info">
                                     <div class="base-heading">
                                         <div class="base-headline">Thông tin
-                                            liên hệ</div>
+                                            liên hệ
+                                        </div>
                                     </div>
                                     <div class="ticket-info-styled">
                                         <div class="base-hstack">
                                             <article class="ant-typography">Hành khách</article>
-                                            <p class="base-body">
-                                                Vi Vũ</p>
+                                            <p class="base-body" th:text="${userName}"></p>
                                         </div>
                                         <div class="base-hstack">
                                             <article class="ant-typography">Số điện thoại</article>
-                                            <p class="base-body">
-                                                0568098880</p>
+                                            <p class="base-body" th:text="${sdt}"></p>
                                         </div>
                                         <div class="base-hstack">
                                             <article class="ant-typography color--darkness">Email</article>
-                                            <p class="base-body">
-                                                nml@gmail.com</p>
+                                            <p class="base-body" th:text="${userEmail}"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -280,34 +283,32 @@
                     </div>
                 </div>
                 <div class="total-money-pay">
-                    Tổng cộng: <div id="total">0đ</div>
+                    Tổng cộng:
+                    <div hidden id="totalDefault" th:text="${totalCost}"></div>
+                    <div id="total" th:text="${totalCost}"></div>
                 </div>
-                <div class="coupon-wrapper">
-                    <div class="coupon-container undefined">
-                        <div class="coupon-code">
-                            <p class="base-headline">Mã giảm giá:</p>
-                            <div class="coupon-input">
-                                <input type="text" class="text-input">
-                                <button class="btn submit">Áp dụng</button>
+                <form class="reset_form voucher_form" th:action="@{/checkVoucher}" method="post">
+                    <div class="coupon-wrapper">
+                        <div class="coupon-container undefined">
+                            <div class="coupon-code">
+                                <p class="base-headline">Mã giảm giá:</p>
+                                <div class="coupon-input">
+                                    <input type="text" class="text-input">
+                                    <button type="submit" class="btn submit">Áp dụng</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="coupon-discount">
-                            <div class="base-body">Giảm giá:
+                            <div class="coupon-discount">
+                                <div class="base-body">Giảm giá:</div>
+                                <div class="coupon-discount-value"></div>
                             </div>
-                            <div class="discount">
-                                - 100.000đ
-                            </div>
-                        </div>
-                        <div class="real-total-money">
-                            <div class="base-body">Số tiền cần phải thanh toán:
-                            </div>
-                            <div class="discount" id="total-discount">
-                                0
+                            <div class="real-total-money">
+                                <div class="base-body">Số tiền cần phải thanh toán:
+                                </div>
+                                <div class="discount" id="total-discount" th:text="${totalCost}"></div>
                             </div>
                         </div>
                     </div>
-
-                </div>
+                </form>
                 <button class="pay btn" onclick="payMethod()">Thanh toán</button>
             </div>
         </div>
@@ -316,6 +317,36 @@
 </div>
 <div class="ant-drawer-mask hidden"></div>
 <script th:src="@{/assets/js/pay.js}"></script>
-</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+Sử dụng AJAX để gửi yêu cầu POST và cập nhật dữ liệu của form mà không cần tải lại trang:
+html
+Copy code
+<script>
+    $(document).ready(function () {
+        $('.voucher_form').submit(function (e) {
+            e.preventDefault();
 
+            // Lấy giá trị của input coupon-code
+            var couponCode = $('.text-input').val();
+            var totalCost = $('#totalDefault').text();
+            // Gửi yêu cầu AJAX
+            $.ajax({
+                type: 'POST',
+                url: '/checkVoucher', // Đường dẫn của controller
+                data: {couponCode: couponCode, totalCost: totalCost}, // Dữ liệu gửi đi (nếu cần)
+                success: function (response) {
+                    // Cập nhật dữ liệu của form
+                    $('.coupon-discount-value').text(response.discount); // Giảm giá
+                    $('#total').text(response.totalAfterDiscount);
+                    $('#total-discount').text(response.totalAfterDiscount);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>
+</body>
 </html>

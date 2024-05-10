@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface ReservationService {
     List<Reservation> findAll();
+
+    void saveAs(Reservation reservation);
 }

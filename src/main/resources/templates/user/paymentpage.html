@@ -23,7 +23,7 @@
                                         <div class="ant-form-item-control">
                                             <span class="ant-form-item-children">
                                                 <div class="input-container">
-                                                    <input required type="text" id="userName" class="styled-input"
+                                                    <input name="userName" required type="text" id="userName" class="styled-input"
                                                            placeholder=" " value=""><label for="userName"
                                                                                            class="base-caption"><span>Tên người đi
                                                             <span style="color: #EB5757;">*</span></span></label>
@@ -40,7 +40,7 @@
                                                         <p class="base-body">🇻🇳 +84</p>
                                                     </div>
                                                     <div class="input-container">
-                                                        <div class="input-section"><input required id="phone"
+                                                        <div class="input-section"><input name="sdt" required id="phone"
                                                                                           placeholder=" "
                                                                                           class="styled-input" value=""><label
                                                                 class="base-caption" for="phone"><span>Số điện thoại
@@ -55,7 +55,7 @@
                                 <div class="ant-row ant-form-item">
                                     <div class="ant-col ant-form-item-control-wrapper">
                                         <div class="ant-form-item-control"><span class="ant-form-item-children">
-                                                <div class="input-container"><input required type="text" id="email"
+                                                <div class="input-container"><input name="userEmail" required type="text" id="email"
                                                                                     class="styled-input" placeholder=" "
                                                                                     value=""><label for="email"
                                                                                                     class="base-caption"><span>Email để nhận
@@ -88,6 +88,7 @@
                                                     alt="avatar" class="image-styled">
                                             </div>
                                             <div class="section-ticket-company-info-name">
+                                                <input hidden name="busId" th:value="${bus.busId}">
                                                 <p class="base-headline" th:text="${bus.vehicleName}"></p>
                                                 <p class="base-description" th:text="${busType.busTypeName}"></p>
                                             </div>
@@ -119,7 +120,10 @@
                                                             <div class="section-area-picker">
                                                                 <p class="base-caption"
                                                                    th:text="${bus.PlaceStartName}"></p>
-                                                                <p class="base-small" th:text="${pickUpName}"></p>
+                                                                <p class="base-small"
+                                                                   th:text="${pickUpModel.PickUpAndDropName}"></p>
+                                                                <input hidden class="pickUpAndDropIdChange" name="pickUpId"
+                                                                   th:value="${pickUpModel.PickUpAndDropId}">
                                                             </div>
                                                             <div class="button-mobile-change">
                                                                 <p class="base-button btn-pick-up">
@@ -153,7 +157,10 @@
                                                             <div class="section-area-picker">
                                                                 <p class="base-caption"
                                                                    th:text="${bus.PlaceEndName}"></p>
-                                                                <p class="base-small" th:text="${dropOffName}"></p>
+                                                                <p class="base-small"
+                                                                   th:text="${dropOffModel.PickUpAndDropName}"></p>
+                                                                <input hidden class="pickUpAndDropIdChange" name="dropOffId"
+                                                                   th:value="${dropOffModel.PickUpAndDropId}">
                                                             </div>
                                                             <div class="button-mobile-change">
                                                                 <p class="base-button btn-drop-off">
@@ -369,6 +376,7 @@
                     <span id="list-seat-name">Số ghế: </span>
                     <div class="total-money">
                         Tổng cộng:
+                        <input hidden id="totalCost" name="totalCost">
                         <div id="total">0 VNĐ</div>
                         <button type="submit" class="ant-btn next-btn ant-btn-primary"><span>Tiếp tục</span></button>
                     </div>
@@ -398,6 +406,8 @@
                                                                 <div class="info-line">
                                                                     <p class="address"
                                                                        th:text="${pickUp.pickUpAndDropName}"></p>
+                                                                    <input hidden class="pickUpAndDropIdChange"
+                                                                       th:value="${pickUp.pickUpAndDropId}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -441,6 +451,8 @@
                                                                 <div class="info-line">
                                                                     <p class="address"
                                                                        th:text="${dropOff.pickUpAndDropName}"></p>
+                                                                    <input hidden class="pickUpAndDropIdChange"
+                                                                       th:value="${dropOff.pickUpAndDropId}">
                                                                 </div>
                                                             </div>
                                                         </div>

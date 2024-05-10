@@ -25,4 +25,9 @@ public class PickUpAndDropOffServiceImpl implements PickUpAndDropOffService {
     public List<PickUpAndDropOff> findByEndId(int placeEndId) {
         return pickUpAndDropOffRepository.findByEndId(placeEndId);
     }
+
+    @Override
+    public PickUpAndDropOff findById(int id) {
+        return pickUpAndDropOffRepository.findById(id).get();
+    }
 }
