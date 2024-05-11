@@ -15,4 +15,9 @@ public class PartnerServiceImpl implements PartnerService {
     public List<Partner> findAll() {
         return partnerRepository.findAll();
     }
+
+    @Override
+    public List<Partner> findAllExcept() {
+        return partnerRepository.findAllExcept();
+    }
 }

@@ -17,4 +17,9 @@ public class SeatTypeServiceImpl implements SeatTypeService {
     public List<SeatType> findAll() {
         return seatTypeRepository.findAll();
     }
+
+    @Override
+    public SeatType findById(int seatTypeId) {
+        return seatTypeRepository.findById(seatTypeId).get();
+    }
 }

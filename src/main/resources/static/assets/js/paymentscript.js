@@ -52,17 +52,60 @@ function change(a){
     document.querySelector("."+a+"-point").classList.add("hidden");
     var baseHeadlineElement = document.querySelector('.'+a+' .base-headline');
     var baseSmallElement = document.querySelector('.'+a+' .section-area .base-small');
+    var pickUpAndDropIdChange = document.querySelector('.'+a+' .section-area .pickUpAndDropIdChange');
     var baseChange = document.querySelector('.ant-radio-wrapper.checked')
     console.log(baseChange);
     console.log(baseHeadlineElement);
     console.log(baseSmallElement);
     // Thay đổi nội dung của phần tử
-    baseHeadlineElement.textContent = baseChange.querySelector('.time').textContent;
+    // pickUpAndDropIdChange
     baseSmallElement.textContent = baseChange.querySelector('.address').textContent;
+    pickUpAndDropIdChange.value = baseChange.querySelector('.pickUpAndDropIdChange').value;
 }
 
 function AddHeight(){
     var pageHeight = document.body.scrollHeight;
     var element = document.querySelector(".ant-drawer-mask");
     element.style.height = pageHeight + "px";
+}
+
+var listSeat = [];
+var listSeatId = [];
+function changeRectColor(classList, money) {
+    var newClass = classList[classList.length - 1];
+    console.log(newClass.toString());
+    var parts = newClass.split('_');
+    var elementWithNewClass = document.querySelector('.' + newClass);
+    var rects = elementWithNewClass.querySelectorAll('rect');
+
+    rects.forEach(function(rect) {
+        var currentFill = rect.getAttribute('fill');
+        var currentStroke = rect.getAttribute('stroke');
+
+        if (currentFill === '#8BE5B0' && currentStroke === '#27AE60') {
+            rect.setAttribute('fill', '#FFF');
+            rect.setAttribute('stroke', '#B8B8B8');
+        }
+        else {
+            rect.setAttribute('fill', '#8BE5B0');
+            rect.setAttribute('stroke', '#27AE60');
+        }
+    });
+    var index = listSeat.indexOf(parts[0]);
+    if(index === -1) {
+        listSeat.push(parts[0]);
+        listSeatId.push(parts[1]);
+    }
+    else {
+        listSeat.splice(index, 1);
+        listSeatId.splice(index, 1);
+    }
+    var totalPriceText = document.querySelector('.total-price-text').textContent;
+    var total = totalPriceText.replace(/\D/g, '');
+    var totalText = listSeat.length * parseInt(total);
+    document.getElementById('list-seat-name').innerHTML = "Số ghế: {" + listSeat.toString() + "}";
+    document.getElementById('list-seat-name-value').value = "{" + listSeat.toString() + "}";
+    document.getElementById('list-seat-id-value').value = "{" + listSeatId.toString() + "}";
+    document.getElementById('total').innerHTML = totalText + ' VNĐ';
+    document.getElementById('totalCost').value = totalText + ' VNĐ';
 }

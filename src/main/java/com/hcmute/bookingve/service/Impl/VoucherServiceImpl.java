@@ -20,4 +20,9 @@ public class VoucherServiceImpl implements VoucherService {
     public Voucher findVoucherById(int id) {
         return voucherRepository.findVoucherById(id);
     }
+
+    @Override
+    public Voucher findById(int couponCode) {
+        return voucherRepository.findVoucherById(couponCode);
+    }
 }

@@ -155,9 +155,12 @@ header {
 }
 
 .button-header {
+    display: flex;
     float: right;
     margin-top: 30px;
-    margin-right: 50px;
+    margin-right: 70px;
+    justify-content: space-between;
+    width: 250px;
 }
 .banner{
     transition: all 200ms ease 0s;
@@ -239,6 +242,7 @@ header {
     display: flex;
     position: absolute;
     top: 60%;
+    left: 5%;
     height: 100px;
     border-radius: 10px;
     padding: 20px 40px;
@@ -781,37 +785,10 @@ footer{
     cursor: pointer;
 }
 
-/***********************Option-Account*************/
-.account-header{
-    height: 70px;
-}
-
-.option-account{
-    position: absolute;
-    right: 10%;
-    text-align: right;
-    top: 90%;
-    border: 1px solid rgb(20,20,20,0.4);
-    background-color: #fff;
-}
-
-.option-account ul{
-    list-style-type: none;
-}
-
-.option-account ul li{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 30px;
-    padding: 0px 10px;
-    cursor: pointer;
-    color: rgb(20, 20, 20);
-}
-
-.option-account ul li:hover{
-    background-color: rgb(0, 96, 196,0.3);
-}
-
-.hidden{
-    display: none;
+.reset_form {
+    margin-left: 0;
+    width: 0;
+    padding: 0;
+    margin-bottom: 0;
+    margin-right: 30px;
 }

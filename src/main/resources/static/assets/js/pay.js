@@ -82,3 +82,27 @@ function payMethod(){
     else
         alert("Vui lòng chọn phương thức thanh toán ")
 }
+
+$(document).ready(function () {
+    $('#form_voucher').submit(function (e) {
+        e.preventDefault();
+
+        var couponCode = $('.text-input').val();
+        var totalCost = $('#totalDefault').text();
+        // Gửi yêu cầu AJAX
+        $.ajax({
+            type: 'POST',
+            url: '/checkVoucher', // Đường dẫn của controller
+            data: {couponCode: couponCode, totalCost: totalCost}, // Dữ liệu gửi đi (nếu cần)
+            success: function (response) {
+                // Cập nhật dữ liệu của form
+                $('.coupon-discount-value').text(response.discount); // Giảm giá
+                $('#total').text(response.totalAfterDiscount);
+                $('#total-discount').text(response.totalAfterDiscount);
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
+});

@@ -61,6 +61,3 @@ function optionClick(a){
         });
     })
 }
-
-
-

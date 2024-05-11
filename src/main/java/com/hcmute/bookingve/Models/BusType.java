@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Setter
 @Getter
@@ -18,6 +19,8 @@ public class BusType implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BusTypeId;
     private String BusTypeName;
+    @OneToMany(mappedBy = "BusType")
+    private List<Bus> buses;
 
     public BusType(int busTypeId, String busTypeName) {
         BusTypeId = busTypeId;

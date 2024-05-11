@@ -7,44 +7,41 @@
 </head>
 
 <body>
-<header th:replace = "user/fragments/header::header"></header>
+<header th:replace="user/fragments/header::header"></header>
 <div class="clearfix"></div>
-<div class="main">
-    <div class="booking-body-container">
-        <div tabindex="0" role="button" class="button-back"><img
-                src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/chevron_left_gray.svg" width="20" height="20"
-                alt="">
-            <p class="back-content">Quay lại</p>
-        </div>
-        <div class="booking-wrap-container">
-            <div class="wrap-left">
-                <div class="customer-info-container">
-                    <div class="base-headline">Thông tin liên hệ</div>
-                    <div class="customer-info-form">
-                        <form class="ant-form ant-form-horizontal">
-                            <div class="ant-row ant-form-item flex-percent">
-                                <div class="ant-col ant-form-item-control-wrapper">
-                                    <div class="ant-form-item-control">
+<form th:action="@{/payPage}" method="get">
+    <div class="main">
+        <div class="booking-body-container">
+            <div class="booking-wrap-container">
+                <div class="wrap-left">
+                    <div class="customer-info-container">
+                        <div class="base-headline">Thông tin liên hệ</div>
+                        <div class="customer-info-form">
+                            <form class="ant-form ant-form-horizontal">
+                                <div class="ant-row ant-form-item flex-percent">
+                                    <div class="ant-col ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control">
                                             <span class="ant-form-item-children">
                                                 <div class="input-container">
-                                                    <input type="text" id="userName" class="styled-input"
+                                                    <input name="userName" required type="text" id="userName" class="styled-input"
                                                            placeholder=" " value=""><label for="userName"
                                                                                            class="base-caption"><span>Tên người đi
                                                             <span style="color: #EB5757;">*</span></span></label>
                                                 </div>
                                             </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="ant-row ant-form-item">
-                                <div class="ant-col ant-form-item-control-wrapper">
-                                    <div class="ant-form-item-control"><span class="ant-form-item-children">
+                                <div class="ant-row ant-form-item">
+                                    <div class="ant-col ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control"><span class="ant-form-item-children">
                                                 <div class="phone-input-container">
                                                     <div class="input-prefix">
                                                         <p class="base-body">🇻🇳 +84</p>
                                                     </div>
                                                     <div class="input-container">
-                                                        <div class="input-section"><input id="phone" placeholder=" "
+                                                        <div class="input-section"><input name="sdt" required id="phone"
+                                                                                          placeholder=" "
                                                                                           class="styled-input" value=""><label
                                                                 class="base-caption" for="phone"><span>Số điện thoại
                                                                     <span
@@ -53,121 +50,126 @@
                                                     </div>
                                                 </div>
                                             </span></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="ant-row ant-form-item">
-                                <div class="ant-col ant-form-item-control-wrapper">
-                                    <div class="ant-form-item-control"><span class="ant-form-item-children">
-                                                <div class="input-container"><input type="text" id="email"
-                                                                                    class="styled-input" placeholder=" " value=""><label for="email"
-                                                                                                                                         class="base-caption"><span>Email để nhận
+                                <div class="ant-row ant-form-item">
+                                    <div class="ant-col ant-form-item-control-wrapper">
+                                        <div class="ant-form-item-control"><span class="ant-form-item-children">
+                                                <div class="input-container"><input name="userEmail" required type="text" id="email"
+                                                                                    class="styled-input" placeholder=" "
+                                                                                    value=""><label for="email"
+                                                                                                    class="base-caption"><span>Email để nhận
                                                             thông tin đặt chỗ <span
                                                             style="color: #EB5757;">*</span></span></label></div>
                                             </span></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="review-info-container">
-                    <div class="section">
-                        <div class="base-headline">Thông tin chuyến đi</div>
-                        <div class="info-ticket">
-                            <div class="box-review-container">
-                                <div class="section-ticket-header">
-                                    <div class="section-ticket-header-left">
-                                        <img class="bus-blue-icon"
-                                             src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/bus_blue_24dp.svg"
-                                             alt="bus_blue_icon" width="16" height="16">
-                                        <p class="base-caption">T7, 04/05/2024</p>
-                                    </div>
-                                </div>
-                                <div class="section-ticket-content">
-                                    <div class="section-ticket-company-info pointer">
-                                        <div><img
-                                                src="https://static.vexere.com/production/images/1647850188321.jpeg"
-                                                alt="avatar" class="image-styled">
-                                        </div>
-                                        <div class="section-ticket-company-info-name">
-                                            <p class="base-headline">An Anh Limousine</p>
-                                            <p class="base-description">Limousine 24 Phòng
-                                                Đôi</p>
+                    <div class="review-info-container">
+                        <div class="section">
+                            <div class="base-headline">Thông tin chuyến đi</div>
+                            <div class="info-ticket">
+                                <div class="box-review-container">
+                                    <div class="section-ticket-header">
+                                        <div class="section-ticket-header-left">
+                                            <img class="bus-blue-icon"
+                                                 src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/bus_blue_24dp.svg"
+                                                 alt="bus_blue_icon" width="16" height="16">
+                                            <p class="base-caption"
+                                               th:text="${#dates.format(bus.GoingDateTime, 'EEE MM/dd/yyyy')}"></p>
                                         </div>
                                     </div>
-                                    <div class="box-ticket-route-content">
-                                        <div class="section-route-info">
-                                            <div class="area-container pick-up">
-                                                <div class="area-point-container">
-                                                    <div class="date-time-container">
-                                                        <div class="date-time-container-pick-up">
-                                                            <div class="base-headline">23:30
+                                    <div class="section-ticket-content">
+                                        <div class="section-ticket-company-info pointer">
+                                            <div><img
+                                                    src="https://static.vexere.com/production/images/1647850188321.jpeg"
+                                                    alt="avatar" class="image-styled">
+                                            </div>
+                                            <div class="section-ticket-company-info-name">
+                                                <input hidden name="busId" th:value="${bus.busId}">
+                                                <p class="base-headline" th:text="${bus.vehicleName}"></p>
+                                                <p class="base-description" th:text="${busType.busTypeName}"></p>
+                                            </div>
+                                        </div>
+                                        <div class="box-ticket-route-content">
+                                            <div class="section-route-info">
+                                                <div class="area-container pick-up">
+                                                    <div class="area-point-container">
+                                                        <div class="date-time-container">
+                                                            <div class="date-time-container-pick-up">
+                                                                <div class="base-headline"
+                                                                     th:text="${#strings.substring(bus.GoingDateTime, 11, 16)}"></div>
+                                                                <p class="base-small"
+                                                                   th:text="${#dates.format(bus.GoingDateTime, 'MM/dd')}"></p>
                                                             </div>
-                                                            <p class="base-small">
-                                                                (04/05)</p>
+                                                        </div>
+                                                        <div class="icon-container">
+                                                            <div class="icon-container-top"><img
+                                                                    class="pickup-icon ls-is-cached lazyloaded"
+                                                                    data-src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
+                                                                    src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
+                                                                    alt="pickup-icon" width="12" height="12"></div>
+                                                            <div class="icon-container-divider">
+                                                                <div class="icon-container-divider-border-right"></div>
+                                                                <div class="icon-container-divider-border-left"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="section-area">
+                                                            <div class="section-area-picker">
+                                                                <p class="base-caption"
+                                                                   th:text="${bus.PlaceStartName}"></p>
+                                                                <p class="base-small"
+                                                                   th:text="${pickUpModel.PickUpAndDropName}"></p>
+                                                                <input hidden class="pickUpAndDropIdChange" name="pickUpId"
+                                                                   th:value="${pickUpModel.PickUpAndDropId}">
+                                                            </div>
+                                                            <div class="button-mobile-change">
+                                                                <p class="base-button btn-pick-up">
+                                                                    Thay đổi</p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="icon-container">
-                                                        <div class="icon-container-top"><img
-                                                                class="pickup-icon ls-is-cached lazyloaded"
-                                                                data-src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
-                                                                src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/pickup_vex_blue_24dp.svg"
-                                                                alt="pickup-icon" width="12" height="12"></div>
-                                                        <div class="icon-container-divider">
-                                                            <div class="icon-container-divider-border-right"></div>
-                                                            <div class="icon-container-divider-border-left"></div>
+                                                </div>
+                                                <div class="area-container drop-off">
+                                                    <div class="area-point-container">
+                                                        <div class="date-time-container">
+                                                            <div class="date-time-container-drop-off">
+                                                                <div class="base-headline"
+                                                                     th:text="${#strings.substring(bus.ArrivalDateTime, 11, 16)}"></div>
+                                                                <p class="base-small"
+                                                                   th:text="${#dates.format(bus.ArrivalDateTime, 'MM/dd')}"></p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="section-area">
-                                                        <div class="section-area-picker">
-                                                            <p class="base-caption">
-                                                                Vp 526 An Dương Vương</p>
-                                                            <p class="base-small">
-                                                                526 An Dương Vương, Phường 09, Quận 5, Hồ Chí Minh
-                                                            </p>
+                                                        <div class="icon-container">
+                                                            <div class="icon-container-divider">
+                                                                <div class="icon-container-divider-border-right"></div>
+                                                                <div class="icon-container-divider-border-left"></div>
+                                                            </div>
+                                                            <div class="icon-container-bottom"><img
+                                                                    class="dropoff-icon lazyloaded"
+                                                                    data-src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_semantic_negative_12dp.svg"
+                                                                    src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_semantic_negative_12dp.svg"
+                                                                    alt="dropoff-icon" width="12" height="12"></div>
                                                         </div>
-                                                    </div>
-                                                    <div class="button-mobile-change">
-                                                        <p class="base-button btn-pick-up">
-                                                            Thay đổi</p>
+                                                        <div class="section-area">
+                                                            <div class="section-area-picker">
+                                                                <p class="base-caption"
+                                                                   th:text="${bus.PlaceEndName}"></p>
+                                                                <p class="base-small"
+                                                                   th:text="${dropOffModel.PickUpAndDropName}"></p>
+                                                                <input hidden class="pickUpAndDropIdChange" name="dropOffId"
+                                                                   th:value="${dropOffModel.PickUpAndDropId}">
+                                                            </div>
+                                                            <div class="button-mobile-change">
+                                                                <p class="base-button btn-drop-off">
+                                                                    Thay đổi</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="area-container drop-off">
-                                                <div class="area-point-container">
-                                                    <div class="date-time-container">
-                                                        <div class="date-time-container-drop-off">
-                                                            <div class="base-headline">06:30
-                                                            </div>
-                                                            <p class="base-small">
-                                                                (05/05)</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="icon-container">
-                                                        <div class="icon-container-divider">
-                                                            <div class="icon-container-divider-border-right"></div>
-                                                            <div class="icon-container-divider-border-left"></div>
-                                                        </div>
-                                                        <div class="icon-container-bottom"><img
-                                                                class="dropoff-icon lazyloaded"
-                                                                data-src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_semantic_negative_12dp.svg"
-                                                                src="https://229a2c9fe669f7b.cmccloud.com.vn/svgIcon/dropoff_semantic_negative_12dp.svg"
-                                                                alt="dropoff-icon" width="12" height="12"></div>
-                                                    </div>
-                                                    <div class="section-area">
-                                                        <div class="section-area-picker">
-                                                            <p class="base-caption" >
-                                                                Vp Đà Lạt </p>
-                                                            <p class="base-small">
-                                                                Đầu đường KQH Phạm Hồng Thái, Phường 10, Tp.Đà Lạt,
-                                                                Lâm Đồng, Phường 10, Đà Lạt, Lâm Đồng</p>
-                                                        </div>
-                                                        <div class="button-mobile-change">
-                                                            <p class="base-button btn-drop-off">
-                                                                Thay đổi</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -175,788 +177,312 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="wrap-right">
-                <div class="content">
-                    <div class="seat-selection">
-                        <div class="seat-groups">
-                            <div class="note">Chú thích</div>
-                            <div class="seat-info">
-                                <div class="seat-thumbnail" disabled="">
-                                    <svg width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25" fill="#FFF"
-                                              stroke="#B8B8B8" stroke-width="1.5" stroke-linejoin="round"></rect>
-                                        <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25" fill="#FFF"
-                                              stroke="#B8B8B8" stroke-width="1.5" stroke-linejoin="round"></rect>
-                                        <path class="icon-selected"
-                                              d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                              fill="transparent"></path>
-                                        <path class="icon-disabled"
-                                              d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                              fill="transparent"></path>
-                                    </svg>
-                                </div><span class="seat-name">Ghế không bán</span>
-                            </div>
-                            <div class="seat-info">
-                                <div class="SeatThumbnail__SeatContainer-sc-1ooosi9-0 dLgsTe seat-thumbnail"><svg
-                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25" fill="#FFF"
-                                          stroke="#B8B8B8" stroke-width="1.5" stroke-linejoin="round"></rect>
-                                    <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25" fill="#FFF"
-                                          stroke="#B8B8B8" stroke-width="1.5" stroke-linejoin="round"></rect>
-                                    <path class="icon-selected"
-                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                          fill="transparent"></path>
-                                    <path class="icon-disabled"
-                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                          fill="transparent"></path>
-                                </svg></div><span class="seat-name">Đang chọn</span>
-                            </div>
-                            <div class="seat-info">
-                                <div class="SeatThumbnail__SeatContainer-sc-1ooosi9-0 ezApQI seat-thumbnail"
-                                     color="#6bd600"><svg width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                          xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25" fill="#FFF"
-                                          stroke="#B8B8B8" stroke-width="1.5" stroke-linejoin="round"></rect>
-                                    <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25" fill="#FFF"
-                                          stroke="#B8B8B8" stroke-width="1.5" stroke-linejoin="round"></rect>
-                                    <path class="icon-selected"
-                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                          fill="transparent"></path>
-                                    <path class="icon-disabled"
-                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                          fill="transparent"></path>
-                                </svg></div>
-                                <div class="seat-group"><span class="seat-name">
-                                            <div class="seat-name-group">Phòng còn trống</div>
-                                            <div class="seat-original"><strong>350,000đ</strong></div>
-                                        </span></div>
-                            </div>
-                        </div>
-                        <div class="seat-template">
-                            <div class="coach-container"><span>Tầng dưới</span>
-                                <div class="coach">
-                                    <table>
-                                        <tbody>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="seat-container" data-disabled="true" disabled="">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                         xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                                d="M12.305 24h-.61c-.035-.004-.07-.01-.105-.012a11.783 11.783 0 0 1-2.117-.261 12.027 12.027 0 0 1-6.958-4.394A11.933 11.933 0 0 1 .027 12.78L0 12.411v-.822c.005-.042.013-.084.014-.127a11.845 11.845 0 0 1 1.102-4.508 12.007 12.007 0 0 1 2.847-3.852A11.935 11.935 0 0 1 11.728.003c.947-.022 1.883.07 2.81.27 1.22.265 2.369.71 3.447 1.335a11.991 11.991 0 0 1 3.579 3.164 11.876 11.876 0 0 1 2.073 4.317c.178.712.292 1.434.334 2.168.008.146.02.292.029.439v.609c-.004.03-.011.06-.012.089a11.81 11.81 0 0 1-1.05 4.521 12.02 12.02 0 0 1-1.92 2.979 12.046 12.046 0 0 1-6.395 3.812c-.616.139-1.24.23-1.872.265-.149.008-.297.02-.446.03zm8.799-13.416c-.527-3.976-4.078-7.808-9.1-7.811-5.02-.003-8.583 3.823-9.11 7.809h.09c.64-.035 1.278-.092 1.912-.195.815-.131 1.614-.326 2.378-.639.625-.255 1.239-.54 1.855-.816.82-.368 1.673-.593 2.575-.62a7.123 7.123 0 0 1 1.947.187c.585.146 1.136.382 1.68.634.57.264 1.14.526 1.733.736 1.2.424 2.442.62 3.706.7.11.006.222.01.334.015zm-10.95 10.471v-.094c0-1.437 0-2.873-.002-4.31 0-.141-.011-.284-.035-.423a2.787 2.787 0 0 0-.775-1.495c-.564-.582-1.244-.896-2.067-.892-1.414.007-2.827.002-4.24.002h-.09a9.153 9.153 0 0 0 3.125 5.256 9.15 9.15 0 0 0 4.083 1.956zm3.689.001c1.738-.36 3.25-1.137 4.528-2.355 1.4-1.334 2.287-2.956 2.685-4.855l-.077-.003h-4.362c-.237 0-.47.038-.695.112-.667.22-1.188.635-1.588 1.206a2.673 2.673 0 0 0-.494 1.59c.008 1.4.003 2.801.003 4.202v.103zM12.05 14.22c1.215-.035 2.204-1.083 2.165-2.275-.039-1.223-1.095-2.215-2.29-2.166-1.211.05-2.2 1.108-2.15 2.302.051 1.191 1.108 2.186 2.275 2.139z"
-                                                                fill="#858585"></path>
-                                                    </svg>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container"
-                                                     data-disabled="true" disabled="" color="#ae70ff"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container"
-                                                     data-disabled="true" disabled="" color="#ae70ff"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 gJPPiB seat-container"
-                                                     data-disabled="false" color="#fba442"><svg width="32"
-                                                                                                height="40" viewBox="0 0 28 40" fill="none"
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 gJPPiB seat-container"
-                                                     data-disabled="false" color="#fba442"><svg width="32"
-                                                                                                height="40" viewBox="0 0 28 40" fill="none"
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 fVFQZi seat-container"
-                                                     data-disabled="true" disabled="" color="#6bd600"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 buebkj seat-container"
-                                                     data-disabled="true" disabled=""></div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                <div class="wrap-right">
+                    <div class="content">
+                        <div class="seat-selection">
+                            <div class="seat-groups">
+                                <div class="note">Chú thích</div>
+                                <div class="seat-info">
+                                    <div class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container"
+                                         data-disabled="true"
+                                         color="#ae70ff">
+                                        <svg width="32" height="40" viewBox="0 0 28 40" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25" fill="#CCC"
+                                                  stroke="#B8B8B8" stroke-width="1.5" stroke-linejoin="round"></rect>
+                                            <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25" fill="#CCC"
+                                                  stroke="#FFF" stroke-width="1.5" stroke-linejoin="round"></rect>
+                                            <path class="icon-selected"
+                                                  d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
+                                                  fill="transparent"></path>
+                                            <path class="icon-disabled fill-color-multiply"
+                                                  d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
+                                                  fill="transparent"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="seat-name">Ghế không bán</span>
+                                </div>
+                                <div class="seat-info">
+                                    <div class="SeatThumbnail__SeatContainer-sc-1ooosi9-0 dLgsTe seat-thumbnail">
+                                        <svg
+                                                width="32" height="40" viewBox="0 0 28 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25" fill="#8BE5B0"
+                                                  stroke="#27AE60" stroke-width="1.5" stroke-linejoin="round"></rect>
+                                            <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25" fill="#8BE5B0"
+                                                  stroke="#27AE60" stroke-width="1.5" stroke-linejoin="round"></rect>
+                                            <path class="icon-selected"
+                                                  d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
+                                                  fill="transparent"></path>
+                                            <path class="icon-disabled"
+                                                  d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
+                                                  fill="transparent"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="seat-name">Đang chọn</span>
+                                </div>
+                                <div class="seat-info">
+                                    <div class="SeatThumbnail__SeatContainer-sc-1ooosi9-0 ezApQI seat-thumbnail"
+                                         color="#6bd600">
+                                        <svg width="32" height="40" viewBox="0 0 28 40" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25" fill="#FFF"
+                                                  stroke="#B8B8B8" stroke-width="1.5" stroke-linejoin="round"></rect>
+                                            <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25" fill="#FFF"
+                                                  stroke="#B8B8B8" stroke-width="1.5" stroke-linejoin="round"></rect>
+                                            <path class="icon-selected"
+                                                  d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
+                                                  fill="transparent"></path>
+                                            <path class="icon-disabled"
+                                                  d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
+                                                  fill="transparent"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="seat-group"><span class="seat-name">
+                                                <div class="seat-name-group">Phòng còn trống</div>
+                                                <div class="seat-original total-price-text"><strong
+                                                        th:text="${seatType.price + ' VNĐ'}"></strong></div>
+                                            </span></div>
                                 </div>
                             </div>
-                            <div class="coach-container"><span>Tầng trên</span>
-                                <div class="coach">
-                                    <table>
-                                        <tbody>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 buebkj seat-container"
-                                                     data-disabled="true" disabled=""></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 buebkj seat-container"
-                                                     data-disabled="true" disabled=""></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container"
-                                                     data-disabled="true" disabled="" color="#ae70ff"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container"
-                                                     data-disabled="true" disabled="" color="#ae70ff"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 gJPPiB seat-container"
-                                                     data-disabled="false" color="#fba442"><svg width="32"
-                                                                                                height="40" viewBox="0 0 28 40" fill="none"
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 gJPPiB seat-container"
-                                                     data-disabled="false" color="#fba442"><svg width="32"
-                                                                                                height="40" viewBox="0 0 28 40" fill="none"
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 gJPPiB seat-container"
-                                                     data-disabled="false" color="#fba442"><svg width="32"
-                                                                                                height="40" viewBox="0 0 28 40" fill="none"
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 jXjrlq seat-container"
-                                                     data-disabled="true" color="#fba442"><svg width="32"
-                                                                                               height="40" viewBox="0 0 28 40" fill="none"
-                                                                                               xmlns="http://www.w3.org/2000/svg"
-                                                                                               style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 bPuHXr seat-container"
-                                                     data-disabled="true" disabled="" color="#fba442"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                        </tr>
-                                        <tr class="coach-row">
-                                            <td class="seat">
-                                                <div class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container"
-                                                     data-disabled="true" disabled="" color="#ae70ff"><svg
-                                                        width="32" height="40" viewBox="0 0 28 40" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        style="width: 27px; height: 40px;">
-                                                    <rect x="2.75" y="2.75" width="22.5" height="34.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <rect x="5.75" y="27.75" width="16.5" height="6.5"
-                                                          rx="2.25" fill="#FFF" stroke="#B8B8B8"
-                                                          stroke-width="1.5" stroke-linejoin="round"></rect>
-                                                    <path class="icon-selected"
-                                                          d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
-                                                          fill="transparent"></path>
-                                                    <path class="icon-disabled"
-                                                          d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
-                                                          fill="transparent"></path>
-                                                </svg></div>
-                                            </td>
-                                            <td class="seat">
-                                                <div class="seat-container" data-disabled="true" disabled="">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="seat-template">
+                                <div class="coach-container"><span>Tầng dưới</span>
+                                    <div class="coach">
+                                        <table>
+                                            <tbody>
+                                            <tr class="coach-row">
+                                                <td class="seat">
+                                                    <div class="seat-container" data-disabled="true" disabled="">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                    d="M12.305 24h-.61c-.035-.004-.07-.01-.105-.012a11.783 11.783 0 0 1-2.117-.261 12.027 12.027 0 0 1-6.958-4.394A11.933 11.933 0 0 1 .027 12.78L0 12.411v-.822c.005-.042.013-.084.014-.127a11.845 11.845 0 0 1 1.102-4.508 12.007 12.007 0 0 1 2.847-3.852A11.935 11.935 0 0 1 11.728.003c.947-.022 1.883.07 2.81.27 1.22.265 2.369.71 3.447 1.335a11.991 11.991 0 0 1 3.579 3.164 11.876 11.876 0 0 1 2.073 4.317c.178.712.292 1.434.334 2.168.008.146.02.292.029.439v.609c-.004.03-.011.06-.012.089a11.81 11.81 0 0 1-1.05 4.521 12.02 12.02 0 0 1-1.92 2.979 12.046 12.046 0 0 1-6.395 3.812c-.616.139-1.24.23-1.872.265-.149.008-.297.02-.446.03zm8.799-13.416c-.527-3.976-4.078-7.808-9.1-7.811-5.02-.003-8.583 3.823-9.11 7.809h.09c.64-.035 1.278-.092 1.912-.195.815-.131 1.614-.326 2.378-.639.625-.255 1.239-.54 1.855-.816.82-.368 1.673-.593 2.575-.62a7.123 7.123 0 0 1 1.947.187c.585.146 1.136.382 1.68.634.57.264 1.14.526 1.733.736 1.2.424 2.442.62 3.706.7.11.006.222.01.334.015zm-10.95 10.471v-.094c0-1.437 0-2.873-.002-4.31 0-.141-.011-.284-.035-.423a2.787 2.787 0 0 0-.775-1.495c-.564-.582-1.244-.896-2.067-.892-1.414.007-2.827.002-4.24.002h-.09a9.153 9.153 0 0 0 3.125 5.256 9.15 9.15 0 0 0 4.083 1.956zm3.689.001c1.738-.36 3.25-1.137 4.528-2.355 1.4-1.334 2.287-2.956 2.685-4.855l-.077-.003h-4.362c-.237 0-.47.038-.695.112-.667.22-1.188.635-1.588 1.206a2.673 2.673 0 0 0-.494 1.59c.008 1.4.003 2.801.003 4.202v.103zM12.05 14.22c1.215-.035 2.204-1.083 2.165-2.275-.039-1.223-1.095-2.215-2.29-2.166-1.211.05-2.2 1.108-2.15 2.302.051 1.191 1.108 2.186 2.275 2.139z"
+                                                                    fill="#858585"></path>
+                                                        </svg>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr th:each="item : ${#numbers.sequence(1, 6)}">
+                                                <td class="seat" th:each="item2 : ${#numbers.sequence(2, 1)}">
+                                                    <div th:if="${seatsFirstHalf[2*item - item2].check == false}"
+                                                         class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container-true change-color"
+                                                         color="#ae70ff">
+                                                        <p th:text="${seatsFirstHalf[2*item - item2].seatName}"></p>
+                                                        <svg width="32" height="40" viewBox="0 0 28 40" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg"
+                                                             style="width: 27px; height: 40px;"
+                                                             th:classappend="${seatsFirstHalf[2*item - item2].seatName + '_' + seatsFirstHalf[2*item - item2].seatId}"
+                                                             onclick="changeRectColor(this.classList)">
+                                                            <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25"
+                                                                  fill="#FFF" stroke="#B8B8B8" stroke-width="1.5"
+                                                                  stroke-linejoin="round"></rect>
+                                                            <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25"
+                                                                  fill="#FFF" stroke="#B8B8B8" stroke-width="1.5"
+                                                                  stroke-linejoin="round"></rect>
+                                                        </svg>
+                                                    </div>
+                                                    <div th:if="${seatsFirstHalf[2*item - item2].check == true}"
+                                                         class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container"
+                                                         color="#ae70ff">
+                                                        <p th:text="${seatsFirstHalf[2*item - item2].seatName}"></p>
+                                                        <svg width="32" height="40" viewBox="0 0 28 40" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25"
+                                                                  fill="#CCC"
+                                                                  stroke="#B8B8B8" stroke-width="1.5"
+                                                                  stroke-linejoin="round"></rect>
+                                                            <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25"
+                                                                  fill="#CCC"
+                                                                  stroke="#FFF" stroke-width="1.5"
+                                                                  stroke-linejoin="round"></rect>
+                                                            <path class="icon-selected"
+                                                                  d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
+                                                                  fill="transparent"></path>
+                                                            <path class="icon-disabled"
+                                                                  d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
+                                                                  fill="transparent"></path>
+                                                        </svg>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="coach-container"><span>Tầng trên</span>
+                                    <div class="coach">
+                                        <table>
+                                            <tbody>
+                                            <tr class="coach-row">
+                                                <td class="seat">
+                                                    <div class="Seat__SeatContainer-sc-6hr0u8-0 buebkj seat-container"
+                                                         data-disabled="true" disabled=""></div>
+                                                </td>
+                                                <td class="seat">
+                                                    <div class="Seat__SeatContainer-sc-6hr0u8-0 buebkj seat-container"
+                                                         data-disabled="true" disabled=""></div>
+                                                </td>
+                                            </tr>
+                                            <tr th:each="item : ${#numbers.sequence(1, 6)}">
+                                                <td class="seat" th:each="item2 : ${#numbers.sequence(2, 1)}">
+                                                    <div th:if="${seatsSecondHalf[2*item - item2].check == false}"
+                                                         class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container-true"
+                                                         color="#ae70ff">
+                                                        <p th:text="${seatsSecondHalf[2*item - item2].seatName}"></p>
+                                                        <svg width="32" height="40" viewBox="0 0 28 40" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg"
+                                                             style="width: 27px; height: 40px;"
+                                                             th:classappend="${seatsSecondHalf[2*item - item2].seatName + '_' + seatsSecondHalf[2*item - item2].seatId}"
+                                                             onclick="changeRectColor(this.classList)">
+                                                            <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25"
+                                                                  fill="#FFF" stroke="#B8B8B8" stroke-width="1.5"
+                                                                  stroke-linejoin="round"></rect>
+                                                            <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25"
+                                                                  fill="#FFF" stroke="#B8B8B8" stroke-width="1.5"
+                                                                  stroke-linejoin="round"></rect>
+                                                        </svg>
+                                                    </div>
+                                                    <div th:if="${seatsSecondHalf[2*item - item2].check == true}"
+                                                         class="Seat__SeatContainer-sc-6hr0u8-0 enUigP seat-container"
+                                                         data-disabled="true" color="#ae70ff">
+                                                        <p th:text="${seatsSecondHalf[2*item - item2].seatName}"></p>
+                                                        <svg width="32" height="40" viewBox="0 0 28 40" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <rect x="2.75" y="2.75" width="22.5" height="34.5" rx="2.25"
+                                                                  fill="#CCC"
+                                                                  stroke="#B8B8B8" stroke-width="1.5"
+                                                                  stroke-linejoin="round"></rect>
+                                                            <rect x="5.75" y="27.75" width="16.5" height="6.5" rx="2.25"
+                                                                  fill="#CCC"
+                                                                  stroke="#FFF" stroke-width="1.5"
+                                                                  stroke-linejoin="round"></rect>
+                                                            <path class="icon-selected"
+                                                                  d="M14 8.333A6.67 6.67 0 0 0 7.333 15 6.67 6.67 0 0 0 14 21.667 6.67 6.67 0 0 0 20.667 15 6.669 6.669 0 0 0 14 8.333zm-1.333 10L9.334 15l.94-.94 2.393 2.387 5.06-5.06.94.946-6 6z"
+                                                                  fill="transparent"></path>
+                                                            <path class="icon-disabled"
+                                                                  d="M18.96 11.46l-1.42-1.42L14 13.59l-3.54-3.55-1.42 1.42L12.59 15l-3.55 3.54 1.42 1.42L14 16.41l3.54 3.55 1.42-1.42L15.41 15l3.55-3.54z"
+                                                                  fill="transparent"></path>
+                                                        </svg>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
-                <div class="total-money">
-                    Tổng cộng: <div id="total">0đ</div>
-                    <button type="button" class="ant-btn next-btn ant-btn-primary"><span>Tiếp tục</span></button>
-                </div>
-                <div class="ant-drawer-content-wrapper hidden pick-up-point">
-                    <div class="ant-drawer-content">
-                        <div class="ant-drawer-wrapper-body" style="overflow: auto; height: 250px;">
-                            <div class="ant-drawer-body">
-                                <div class="drawer-header">
-                                    <div class="material-icons-wrapper"><span class="material-symbols-outlined back-btn-pick">
+                    <input hidden id="list-seat-name-value" name="listSeatName">
+                    <input hidden id="list-seat-id-value" name="listSeatId">
+                    <span id="list-seat-name">Số ghế: </span>
+                    <div class="total-money">
+                        Tổng cộng:
+                        <input hidden id="totalCost" name="totalCost">
+                        <div id="total">0 VNĐ</div>
+                        <button type="submit" class="ant-btn next-btn ant-btn-primary"><span>Tiếp tục</span></button>
+                    </div>
+                    <div class="ant-drawer-content-wrapper hidden pick-up-point">
+                        <div class="ant-drawer-content">
+                            <div class="ant-drawer-wrapper-body" style="overflow: auto; height: 250px;">
+                                <div class="ant-drawer-body">
+                                    <div class="drawer-header">
+                                        <div class="material-icons-wrapper"><span
+                                                class="material-symbols-outlined back-btn-pick">
                                             arrow_back
                                             </span></div>
-                                    <p class="base-headline">Thay đổi điểm đón</p>
-                                </div>
-                                <div class="area-point-container-change">
-                                    <div class="ant-radio-group outline">
-                                        <label class="ant-radio-wrapper checked">
-                                                <span class="ant-radio">
-                                                    <input type="radio" class="ant-radio-input checked" value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time">
-                                                                        22:00</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                       MinLun
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
-                                        <label class="ant-radio-wrapper">
-                                                <span class="ant-radio ">
-                                                    <input type="radio" class="ant-radio-input " value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time">
-                                                                        02:15</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                        Vi vu
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
-                                        <label class="ant-radio-wrapper">
-                                                <span class="ant-radio">
-                                                    <input type="radio" class="ant-radio-input" value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time">
-                                                                        05:20</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                        Anh ba
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
+                                        <p class="base-headline">Thay đổi điểm đón</p>
                                     </div>
-
+                                    <div class="area-point-container-change">
+                                        <div class="ant-radio-group outline" th:each="pickUp : ${pickUp}">
+                                            <label class="ant-radio-wrapper checked">
+                                                <span class="ant-radio">
+                                                    <input type="radio" class="ant-radio-input checked" value=""
+                                                           checked="">
+                                                    <span class="ant-radio-inner"></span>
+                                                </span>
+                                                <span>
+                                                    <div class="point-container">
+                                                        <div class="info-container">
+                                                            <div class="info-group">
+                                                                <div class="info-line">
+                                                                    <p class="address"
+                                                                       th:text="${pickUp.pickUpAndDropName}"></p>
+                                                                    <input hidden class="pickUpAndDropIdChange"
+                                                                       th:value="${pickUp.pickUpAndDropId}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
-
-                        </div>
-                        <div class="area-footer">
-                            <button type="button" class="ant-btn submit-area-btn">
-                                <p class="base-button" onclick = "change('pick-up')">Cập nhật</p>
-                            </button>
+                            <div class="area-footer">
+                                <button type="button" class="ant-btn submit-area-btn">
+                                    <p class="base-button" onclick="change('pick-up')">Cập nhật</p>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="ant-drawer-content-wrapper hidden drop-off-point">
-                    <div class="ant-drawer-content">
-                        <div class="ant-drawer-wrapper-body" style="overflow: auto; height: 250px;">
-                            <div class="ant-drawer-body">
-                                <div class="drawer-header">
-                                    <div class="material-icons-wrapper">
-
+                    <div class="ant-drawer-content-wrapper hidden drop-off-point">
+                        <div class="ant-drawer-content">
+                            <div class="ant-drawer-wrapper-body" style="overflow: auto; height: 250px;">
+                                <div class="ant-drawer-body">
+                                    <div class="drawer-header">
+                                        <div class="material-icons-wrapper">
                                             <span class="material-symbols-outlined back-btn-drop">
                                             arrow_back
                                             </span></div>
-                                    <p class="base-headline">Thay đổi điểm trả</p>
-                                </div>
-                                <div class="area-point-container-change">
-                                    <div class="ant-radio-group outline">
-                                        <label class="ant-radio-wrapper checked">
-                                                <span class="ant-radio">
-                                                    <input type="radio" class="ant-radio-input checked" value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time">
-                                                                        22:15</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                        526 An Dương Vương, Phường 09, Quận 5, Hồ Chí Minh
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
-                                        <label class="ant-radio-wrapper">
-                                                <span class="ant-radio ">
-                                                    <input type="radio" class="ant-radio-input " value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time"> 22:30</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p class="address">Thu Duc </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
-                                        <label class="ant-radio-wrapper">
-                                                <span class="ant-radio">
-                                                    <input type="radio" class="ant-radio-input" value="" checked="">
-                                                    <span class="ant-radio-inner"></span>
-                                                </span>
-                                            <span>
-                                                    <div class="point-container">
-                                                        <div class="info-container">
-                                                            <div class="info-group">
-                                                                <div class="info-line">
-                                                                    <p class="time">
-                                                                        22:40</p>
-                                                                </div>
-                                                                <div class="info-line">
-                                                                    <p
-                                                                            class="address">
-                                                                        MinhHiu
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </span>
-                                        </label>
+                                        <p class="base-headline">Thay đổi điểm trả</p>
                                     </div>
-
+                                    <div class="area-point-container-change">
+                                        <div class="ant-radio-group outline" th:each="dropOff : ${dropOff}">
+                                            <label class="ant-radio-wrapper checked">
+                                                <span class="ant-radio">
+                                                    <input type="radio" class="ant-radio-input checked" value=""
+                                                           checked="">
+                                                    <span class="ant-radio-inner"></span>
+                                                </span>
+                                                <span>
+                                                    <div class="point-container">
+                                                        <div class="info-container">
+                                                            <div class="info-group">
+                                                                <div class="info-line">
+                                                                    <p class="address"
+                                                                       th:text="${dropOff.pickUpAndDropName}"></p>
+                                                                    <input hidden class="pickUpAndDropIdChange"
+                                                                       th:value="${dropOff.pickUpAndDropId}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
-
                             </div>
-
-                        </div>
-                        <div class="area-footer">
-                            <button type="button" class="ant-btn submit-area-btn">
-                                <p class="base-button submit-btn" onclick = "change('drop-off')">Cập nhật</p>
-                            </button>
+                            <div class="area-footer">
+                                <button type="button" class="ant-btn submit-area-btn">
+                                    <p class="base-button submit-btn" onclick="change('drop-off')">Cập nhật</p>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
+        <footer>
+            <p>
+                Copyright &copy; 2024 by ABATEAM
+            </p>
+        </footer>
+        <div class="ant-drawer-mask hidden"></div>
     </div>
-    <footer th:include="user/fragments/footer::footer"></footer>
-    <div class="ant-drawer-mask hidden"></div>
-</div>
+</form>
 <script th:src="@{/assets/js/paymentscript.js}"></script>
 </body>
-
 </html>

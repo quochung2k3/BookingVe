@@ -385,9 +385,9 @@ section {
     cursor: pointer;
 }
 
-.search-button {
-    position: flex;
-}
+/*.search-button {*/
+/*    position: flex;*/
+/*}*/
 
 .search-click {
     transform: translate(10%);
@@ -770,6 +770,7 @@ footer {
 .seat-template .coach-container {
     margin-right: 16px;
     text-align: center;
+    cursor: pointer;
 }
 
 .seat-template .coach {
@@ -1021,7 +1022,7 @@ footer {
 }
 
 .ant-drawer-mask {
-    z-index: 10;
+    /*z-index: 10;*/
     position: absolute;
     top: 0;
     left: 0;
@@ -1433,6 +1434,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 .payment-method{
+    width: 400px;
     position:absolute;
     z-index: 50;
     left: 40%;
@@ -1469,33 +1471,8 @@ input[type=checkbox], input[type=radio] {
     margin: 0;
 }
 
-/***********************Option-Account*************/
-.account-header{
-    height: 70px;
-}
-
-.option-account{
-    position: absolute;
-    right: 10%;
-    text-align: right;
-    top: 90%;
-    border: 1px solid rgb(20,20,20,0.4);
-    background-color: #fff;
-}
-
-.option-account ul{
-    list-style-type: none;
-}
-
-.option-account ul li{
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 30px;
-    padding: 0px 10px;
-    cursor: pointer;
-    color: rgb(20, 20, 20);
-}
-
-.option-account ul li:hover{
-    background-color: rgb(0, 96, 196,0.3);
+.reset_form {
+    margin-left: 0;
+    padding: 0;
+    margin-bottom: 0;
 }

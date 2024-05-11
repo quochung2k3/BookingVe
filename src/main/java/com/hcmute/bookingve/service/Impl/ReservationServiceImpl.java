@@ -15,4 +15,9 @@ public class ReservationServiceImpl implements ReservationService {
     public List<Reservation> findAll() {
         return reservationRepository.findAll();
     }
+
+    @Override
+    public void saveAs(Reservation reservation) {
+        reservationRepository.save(reservation);
+    }
 }

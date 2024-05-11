@@ -6,4 +6,10 @@ import java.util.List;
 
 public interface PickUpAndDropOffService {
     List<PickUpAndDropOff> findAll();
+
+    List<PickUpAndDropOff> findByStartId(int placeStartId);
+
+    List<PickUpAndDropOff> findByEndId(int placeEndId);
+
+    PickUpAndDropOff findById(int dropOffId);
 }

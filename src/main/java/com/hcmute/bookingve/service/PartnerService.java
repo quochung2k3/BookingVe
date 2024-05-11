@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PartnerService {
     List<Partner> findAll();
+
+    List<Partner> findAllExcept();
 }
