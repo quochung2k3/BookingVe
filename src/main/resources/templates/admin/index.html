@@ -2,6 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="admin/fragments/head::head"></head>
 <body>
-    <h1>Xin chào các bạn</h1>
+<!-- Menu -->
+<div id="wrapper">
+    <div th:include="templates/admin/fragments/menu::menu"></div>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <!-- header -->
+            <div th:include="admin/fragments/header::header"></div>
+            <div class="container">
+                <!-- Thymeleaf fragment for body content -->
+                <div th:fragment="body"></div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div th:include="admin/fragments/footer::footer"></div>
+        <a class="scroll-to-top rounded" href="#page-top" style="display: inline;">
+            <i class="fas fa-angle-up"></i>
+        </a>
+    </div>
+</div>
+<!-- End Menu -->
+
+<!-- Include JavaScript files here -->
+<script th:src="@{/admin/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/admin/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/admin/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+<!-- Custom scripts for all pages -->
+<script th:src="@{/assets/js/sb-admin-2.min.js}"></script>
+
+<!-- Page level plugins -->
+<script th:src="@{/admin/vendor/chart.js/Chart.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script th:src="@{/assets/js/demo/chart-area-demo.js}"></script>
+<script th:src="@{/assets/js/demo/chart-pie-demo.js}"></script>
+<script th:src="@{/assets/js/openModal.js}"></script>
+
+<!-- MDB -->
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
+></script>
 </body>
 </html>

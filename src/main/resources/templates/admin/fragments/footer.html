@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <!-- Include CSS and JS files here -->
+</head>
+<body>
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span th:text="${'Copyright &copy; ' + #dates.createNow().year + ' Your Website'}"></span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
+</body>
+</html>

@@ -1,0 +1,24 @@
+<header th:fragment="header">
+    <div class="header-fix">
+        <div class="left-header">
+            <a href="#"><img class="logo" th:src="@{/assets/img/logo.png}" alt="logo"></a>
+            <ul class="main-nav">
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#about">Về chúng tôi</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </div>
+        <div class="right-header">
+            <div class="account_header">
+                <div class="picture-account">
+                    <img id="img_account" th:src="@{/assets/img/avatar_df.png}"  alt="Avatar">
+                </div>
+                <div class="name-account">
+                    <p id="fullname_account" value="">Phạm Quốc Hưng</p>
+                    <p id="sdt_account" value="">0944372456</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
