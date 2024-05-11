@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:include="user/fragments/head::head">
+</head>
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/payment.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/info.css}">
+</head>
+<body>
+<header th:replace = "user/fragments/header::header"></header>
+<div class="container">
+    <div class="left">
+        <div class="head">
+            <div class="avatar">
+                <div class="avatar-placeholder">
+                    <svg class="icon-headshot">
+                        <g>
+                            <circle cx="7.5" cy="4.5" fill="none" r="3.8" stroke-miterlimit="10"></circle>
+                            <path d="m1.5 14.2c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke-linecap="round"
+                                  stroke-miterlimit="10"></path>
+                        </g>
+                    </svg>
+                </div>
+                <img class="avatar-img" th:src="@{/assets/img/avatar_df.png}">
+            </div>
+            <div class="base-descript">
+                <div class="name">Vi Vũ</div>
+                <div class="change-profile">
+                    <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"
+                         style="margin-right: 4px;">
+                        <path d="M8.54 0L6.987 1.56l3.46 3.48L12 3.48M0 8.52l.073 3.428L3.46 12l6.21-6.18-3.46-3.48"
+                              fill="#9B9B9B" fill-rule="evenodd"></path>
+                    </svg>Sửa hồ sơ
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-group">
+            <div class="stardust-dropdown">
+                <div class="item-header">
+                    <div class="item-container">
+                        <div class="img">
+                            <img src="https://down-vn.img.susercontent.com/file/ba61750a46794d8847c3f463c5e71cc4">
+                        </div>
+                        <div class="content">
+                            <span class="base-text">Hồ sơ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stardust-dropdown">
+                <div class="item-header">
+                    <a class="link history" href="/user/purchase">
+                        <div class="img"><img
+                                src="https://down-vn.img.susercontent.com/file/f0049e9df4e536bc3e7f140d071e9078">
+                        </div>
+                        <div class="content">
+                            <span class="base-text ">Lịch sử</span></div>
+                    </a>
+                </div>
+            </div>
+            <div class="stardust-dropdown">
+                <div class="item-header">
+                    <a class="link voucher" href="/user/voucher-wallet">
+                        <div class="img"><img src="https://down-vn.img.susercontent.com/file/84feaa363ce325071c0a66d3c9a88748">
+                        </div>
+                        <div class="content"><span class="base-text blue">Kho Voucher</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="wrapper">
+            <div style="display: contents;">
+                <div class="voucher-container">
+                    <table class="table-view">
+                        <tr>
+                            <th>STT</th>
+                            <th>Tên voucher</th>
+                            <th>Mã voucher</th>
+                            <th>Số lượng</th>
+                            <th>Ngày bắt đầu</th>
+                            <th>Ngày kết thúc</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Vé tham quan</td>
+                            <td>ABC Travel</td>
+                            <td>2024-05-01</td>
+                            <td>10:00</td>
+                            <td><a href="#">Xem chi tiết</a></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Vé phim</td>
+                            <td>XYZ Bus</td>
+                            <td>2024-05-05</td>
+                            <td>15:30</td>
+                            <td><a href="#">Xem chi tiết</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Vé sự kiện</td>
+                            <td>PQR Transport</td>
+                            <td>2024-05-08</td>
+                            <td>18:00</td>
+                            <td><a href="#">Xem chi tiết</a></td>
+                        </tr>
+                        <!-- Thêm các dòng tiếp theo tương ứng với các lịch sử đặt vé khác -->
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:include="user/fragments/footer::footer"></footer>
+</body>
+</html>

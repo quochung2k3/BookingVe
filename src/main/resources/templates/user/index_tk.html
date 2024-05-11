@@ -19,13 +19,19 @@
         <div class="right-header">
             <div class="account_header">
                 <div class="picture-account">
-                    <img id="img_account" th:src="@{/assets/img/avatar_df.png}" alt="Avatar">
+                    <img id="img_account" th:src="@{/assets/img/avatar_df.png}"  alt="Avatar">
                 </div>
                 <div class="name-account">
                     <p id="fullname_account" value="">Phạm Quốc Hưng</p>
                     <p id="sdt_account" value="">0944372456</p>
                 </div>
-
+                <div class="option-account hidden">
+                    <ul>
+                        <li href="">Hồ sơ của tôi</li>
+                        <li href="">Lịch sử đặt vé</li>
+                        <li href="">Đăng xuất</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -263,6 +269,7 @@
         </div>
     </section>
     <footer th:include="user/fragments/footer::footer"></footer>
+    <script th:src="@{/assets/js/header.js}"></script>
 </div>
 </body>
 
