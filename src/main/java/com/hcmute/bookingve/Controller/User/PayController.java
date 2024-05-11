@@ -130,6 +130,7 @@ public class PayController {
                 invoice.setIsPayed(true);
                 invoice.setReservationId(reservation.getReservationId());
                 invoice.setTotalSeat(elements.length);
+                invoice.setCardNumber(cardNumber);
                 if(total != totalAfter) {
                     invoice.setVoucherId(Integer.parseInt(voucherCode));
                 }
