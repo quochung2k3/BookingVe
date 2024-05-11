@@ -16,7 +16,7 @@ BEGIN
         S."SeatName",
         CASE
             WHEN S."SeatId" IN (
-                SELECT UNNEST("ListSeatId")
+                SELECT UNNEST("ListSeatId"::INT[])
                 FROM "Invoice" I 
                 INNER JOIN "Reservation" R ON I."ReservationId" = R."ReservationId"
                 WHERE "IsPayed" = TRUE

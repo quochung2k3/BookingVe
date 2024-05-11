@@ -15,4 +15,9 @@ public class InvoiceServiceImpl implements InvoiceService {
     public List<Invoice> findAll() {
         return invoiceRepository.findAll();
     }
+
+    @Override
+    public void saveAs(Invoice invoice) {
+        invoiceRepository.save(invoice);
+    }
 }

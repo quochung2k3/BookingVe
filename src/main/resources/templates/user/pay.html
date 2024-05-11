@@ -13,7 +13,7 @@
 <header th:replace="user/fragments/header::header"></header>
 <div class="clearfix"></div>
 <div class="main">
-    <form th:action="invoice" method="post">
+    <form class="invoice_form" th:action="@{/invoice}" method="post">
         <div class="booking-body-container">
             <div class="booking-wrap-container">
                 <div class="wrap-left">
@@ -86,7 +86,7 @@
                                         <div class="ant-form-item-control">
                                             <span class="ant-form-item-children">
                                                 <div class="input-container">
-                                                    <input type="text" id="userName" class="styled-input"
+                                                    <input name="cardName" required type="text" id="userName" class="styled-input"
                                                            placeholder=" " value="">
                                                     <label for="userName" class="base-caption">
                                                         <span>Cardholder Name
@@ -102,9 +102,9 @@
                                                 <div class="phone-input-container">
                                                     <div class="input-container">
                                                         <div class="input-section">
-                                                            <input id="phone" placeholder=" " class="styled-input"
+                                                            <input name="cardNumber" required id="cardNumber" placeholder=" " class="styled-input"
                                                                    value="">
-                                                            <label class="base-caption" for="phone">
+                                                            <label class="base-caption" for="cardNumber">
                                                                 <span>Card Number
                                                                     <span style="color: #EB5757;">*</span>
                                                                 </span></label>
@@ -119,18 +119,18 @@
                                         <div class="ant-form-item-control">
                                             <span class="ant-form-item-children">
                                                 <div class="input-container">
-                                                        <input type="month" id="date" class="styled-input"
+                                                        <input name="expirationDate" required type="month" id="expirationDate" class="styled-input"
                                                                placeholder=" " value="">
-                                                        <label for="date" class="base-caption">
+                                                        <label for="expirationDate" class="base-caption">
                                                             <span>Expiration Date<span style="color: #EB5757;">*</span>
                                                             </span>
                                                         </label>
                                                 </div>
                                                 <div class="input-container">
-                                                        <input type="password" id="cvv" class="styled-input"
+                                                        <input name="CVV" required type="password" id="CVV" class="styled-input"
                                                                minlength="1" maxlength="6"
                                                                placeholder=" " value="">
-                                                        <label for="cvv" class="base-caption">
+                                                        <label for="CVV" class="base-caption">
                                                             <span>CVV<span style="color: #EB5757;">*</span>
                                                             </span>
                                                         </label>
@@ -140,6 +140,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn">Xác nhận</button>
+                                <span id="announcement" style="margin-left: 20px; color: red"></span>
                             </form>
                         </div>
                     </div>
@@ -270,6 +271,7 @@
                                             <div class="base-hstack">
                                                 <article class="ant-typography color--darkness">Email</article>
                                                 <p class="base-body" th:text="${userEmail}"></p>
+                                                <input hidden th:value="${userEmail}" id="userEmail">
                                             </div>
                                         </div>
                                     </div>
@@ -277,8 +279,8 @@
                             </div>
                         </div>
                     </div>
-                    <input hidden name="listSeatName" th:value="${listSeatName}">
-                    <input hidden name="listSeatId" th:value="${listSeatId}">
+                    <input hidden name="listSeatName" id="listSeatName" th:value="${listSeatName}">
+                    <input hidden name="listSeatId" id="listSeatId" th:value="${listSeatId}">
                     <span style="color: red" th:text="${'Số ghế: ' + listSeatName}"></span>
                     <div class="total-money-pay">
                         Tổng cộng:
@@ -291,7 +293,7 @@
                                 <div class="coupon-code">
                                     <p class="base-headline">Mã giảm giá:</p>
                                     <div class="coupon-input">
-                                        <input type="text" class="text-input">
+                                        <input id="voucherCode" type="text" class="text-input">
                                         <button type="submit" class="btn submit">Áp dụng</button>
                                     </div>
                                 </div>
@@ -336,6 +338,42 @@
                     $('.coupon-discount-value').text(response.discount); // Giảm giá
                     $('#total').text(response.totalAfterDiscount);
                     $('#total-discount').text(response.totalAfterDiscount);
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $('.invoice_form').submit(function (e) {
+            e.preventDefault();
+
+            // Lấy giá trị của input coupon-code
+            var userEmail = $('#userEmail').val();
+            var cardNumber = $('#cardNumber').val();
+            var CVV = $('#CVV').val();
+            var expirationDate = $('#expirationDate').val();
+            var totalCost = $('#totalDefault').text();
+            var totalAfterDiscount = $('#total-discount').text();
+            var listSeatName = $('#listSeatName').val();
+            var listSeatId = $('#listSeatId').val();
+            var voucherCode = $('#voucherCode').val();
+            // Gửi yêu cầu AJAX
+            $.ajax({
+                type: 'POST',
+                url: '/invoice', // Đường dẫn của controller
+                data: {userEmail: userEmail, cardNumber: cardNumber, CVV: CVV, expirationDate: expirationDate,
+                        totalCost: totalCost, totalAfterDiscount: totalAfterDiscount, listSeatName: listSeatName,
+                        listSeatId: listSeatId, voucherCode: voucherCode}, // Dữ liệu gửi đi (nếu cần)
+                success: function (response) {
+                    if (response.announcement) {
+                        $('#announcement').text(response.announcement);
+                    }
+                    else if (response.success) {
+                        window.location.href = response.redirectUrl;
+                    }
                 },
                 error: function (xhr, status, error) {
                     console.error(error);
