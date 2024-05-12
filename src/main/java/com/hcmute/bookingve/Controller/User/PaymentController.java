@@ -23,11 +23,14 @@ public class PaymentController {
     SeatService seatService;
     @Autowired
     PickUpAndDropOffService pickUpAndDropOffService;
+    @Autowired
+    UserService userService;
     @RequestMapping("/paymentPage")
-    public String paymentPage(@RequestParam("busId") int busId, Model model) {
+    public String paymentPage(@RequestParam("userId") int userId,
+            @RequestParam("busId") int busId, Model model) {
         // Lấy thông tin của chuyến đi theo busId
         Bus bus = busService.findById(busId);
-
+        User user = userService.findUserByUserId(userId);
         // Lấy thông tin loại xe theo busId
         BusType busType = busTypeService.findById(bus.getBusTypeId());
 
@@ -72,6 +75,7 @@ public class PaymentController {
         model.addAttribute("seatsSecondHalf", seatsSecondHalf);
         model.addAttribute("pickUp", pickUp);
         model.addAttribute("dropOff", dropOff);
+        model.addAttribute("user",user);
         //model.addAttribute("pickUpModel", pickUpModel);
         //model.addAttribute("dropOffModel", dropOffModel);
         return "user/paymentpage";

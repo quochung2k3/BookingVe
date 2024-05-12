@@ -48,6 +48,6 @@ public class BookingController {
         model.addAttribute("busList", busList);
         model.addAttribute("partners", partners);
         model.addAttribute("user",user);
-        return "user/bookingPage";
+        return "user/bookingpage";
     }
 }

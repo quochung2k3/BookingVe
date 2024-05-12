@@ -1,3 +1,11 @@
+p{
+    margin-bottom: 0;
+}
+
+ul{
+    margin-bottom: 0;
+    padding-left: 0;
+}
 .account-header{
     height: 70px;
 }

@@ -31,7 +31,7 @@ public class Bus implements Serializable {
     private int SeatTypeId;
     private Timestamp ArrivalDateTime;
     private int TotalSeatEmpty;
-
+    private String VehicleName;
     @ManyToOne
     @JoinColumn(name = "BusTypeId", referencedColumnName = "BusTypeId")
     private BusType BusType;
@@ -41,7 +41,7 @@ public class Bus implements Serializable {
     @ManyToOne
     @JoinColumn(name = "VehicleId", referencedColumnName = "VehicleId")
     private Vehicle vehicle;
-    public Bus(int busId, int vehicleId, Timestamp goingDateTime, int seatsOfBusId, int busTypeId, int placeStartId, int placeEndId, String placeStartName, String placeEndName, int seatTypeId, Timestamp arrivalDateTime, int totalSeatEmpty) {
+    public Bus(int busId, int vehicleId, Timestamp goingDateTime, int seatsOfBusId, int busTypeId, int placeStartId, int placeEndId, String placeStartName, String placeEndName, int seatTypeId, Timestamp arrivalDateTime, int totalSeatEmpty,String vehicleName) {
         BusId = busId;
         VehicleId = vehicleId;
         GoingDateTime = goingDateTime;
@@ -54,6 +54,7 @@ public class Bus implements Serializable {
         SeatTypeId = seatTypeId;
         ArrivalDateTime = arrivalDateTime;
         TotalSeatEmpty = totalSeatEmpty;
+        VehicleName = vehicleName;
     }
     public Bus() {
 

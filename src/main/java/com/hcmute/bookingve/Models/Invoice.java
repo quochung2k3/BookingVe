@@ -34,10 +34,9 @@ public class Invoice implements Serializable {
     @JoinColumn(name = "ReservationId", referencedColumnName = "ReservationId")
     private  Reservation reservation;
 
-    public Invoice(int invoiceId, int totalPrice, int totalSeat, String listSeatName, Boolean isPayed, int voucherId, int totalDiscount, int reservationId, String listSeatId,int userId) {
     private String CardNumber;
 
-    public Invoice(int invoiceId, int totalPrice, int totalSeat, String listSeatName, Boolean isPayed, int voucherId, int totalDiscount, int reservationId, String listSeatId, String cardNumber) {
+    public Invoice(int invoiceId, int totalPrice, int totalSeat, String listSeatName, Boolean isPayed, int voucherId, int totalDiscount, int reservationId, String listSeatId, String cardNumber,int userId) {
         InvoiceId = invoiceId;
         TotalPrice = totalPrice;
         TotalSeat = totalSeat;

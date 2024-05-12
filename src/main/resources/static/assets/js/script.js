@@ -20,18 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
             var currentInput = antRadioWrapper.querySelector('.ant-radio-input');
             currentInput.classList.add('checked');
 
-            //Sắp xếp và load lại danh sách tại đây
-
-
         });
     });
 
-    //Load lại trang khi nhấn vào lọc
-    document.querySelector(".btn-clear").addEventListener('click',function(){
-        //Tìm kiếm và thêm url cho web để load bộ lọc
-
-
-    })
 })
 
 function OptionMenuInput(a,b){

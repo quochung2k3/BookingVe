@@ -169,7 +169,7 @@ section {
     background: white;
     display: flex;
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 17%;
     height: 100px;
     border-radius: 10px;
@@ -484,7 +484,7 @@ footer{
 /* ---------Route_Search------------ */
 /* ----------------------------------- */
 .route-row{
-    top: 30%;
+    top: 35%;
     position:absolute;
     display: flex;
     gap: 20px;

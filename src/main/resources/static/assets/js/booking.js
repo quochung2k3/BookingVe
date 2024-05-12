@@ -40,7 +40,14 @@ function Filter(){
         newContent.appendChild(bus);
     })
     console.log(newContent);
-
+    var antRadioWrappers = document.querySelectorAll('.ant-radio-wrapper');
+    antRadioWrappers.forEach(function(antRadioWrapper) {
+        antRadioWrapper.classList.remove('checked');
+        antRadioWrapper.querySelector('.ant-radio-input').classList.remove('checked');
+    });
+    var dfwrapper = document.querySelector('.ant-radio-wrapper');
+    dfwrapper.classList.add('checked');
+    dfwrapper.querySelector('.ant-radio-input').classList.add('checked');
 }
 
 
