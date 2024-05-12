@@ -25,7 +25,9 @@ public class Reservation implements Serializable {
     private String UserEmail;
     private String SDT;
     private String UserName;
-
+    @OneToOne
+    @JoinColumn(name = "BusId", referencedColumnName = "BusId")
+    private Bus bus;
     public Reservation(int reservationId, int busId,int pickUpId, int dropOffId, Timestamp createdDate, Boolean isConfirmed, String userEmail, String sDT, String userName) {
         ReservationId = reservationId;
         BusId = busId;
