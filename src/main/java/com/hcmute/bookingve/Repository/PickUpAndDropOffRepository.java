@@ -12,4 +12,7 @@ public interface PickUpAndDropOffRepository extends JpaRepository<PickUpAndDropO
 
     @Query("SELECT pu FROM PickUpAndDropOff pu WHERE pu.PlaceId = :placeEndId")
     List<PickUpAndDropOff> findByEndId(int placeEndId);
+
+    @Query("SELECT pu.PickUpAndDropName FROM PickUpAndDropOff pu WHERE pu.PickUpAndDropId = :id")
+    String findPlaceNameById(int id);
 }

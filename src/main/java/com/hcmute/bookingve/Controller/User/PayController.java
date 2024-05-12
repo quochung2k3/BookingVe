@@ -136,7 +136,7 @@ public class PayController {
                 }
                 invoiceService.saveAs(invoice);
                 responseData.put("success", true);
-                responseData.put("redirectUrl", "/");
+                responseData.put("redirectUrl", "/DetailBooking?cardNumber=" + cardNumber);
             }
         }
         return responseData;
