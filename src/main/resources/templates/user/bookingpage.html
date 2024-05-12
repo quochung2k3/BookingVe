@@ -3,6 +3,7 @@
 <head th:include="user/fragments/head::head">
 </head>
 <head>
+    <title>BookingPage</title>
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/bookingpage.css}">
 </head>
 
@@ -126,7 +127,7 @@
                         <div class="base-headline">Sắp xếp</div>
                         <div class="sort-choice-group">
                             <label class="ant-radio-wrapper checked">
-                                    <span class="ant-radio">
+                                    <span class="ant-radio" onclick="sortdf()">
                                         <input type="radio" class="ant-radio-input checked" value="" checked="">
                                         <span class="ant-radio-inner">
                                         </span>
@@ -141,7 +142,7 @@
                                         <span class="ant-radio-inner"></span>
                                     </span>
                                 <span>
-                                        <p class="option-label">Giờ đi sớm nhất</p>
+                                        <p class="option-label" onclick="sortAscTime()">Giờ đi sớm nhất</p>
                                     </span>
                             </label>
                             <label class="ant-radio-wrapper">
@@ -150,11 +151,11 @@
                                         <span class="ant-radio-inner"></span>
                                     </span>
                                 <span>
-                                        <p class="option-label">Giờ đi muộn nhất</p>
+                                        <p class="option-label" onclick="sortDescTime()">Giờ đi muộn nhất</p>
                                     </span>
                             </label>
-                            <label class="ant-radio-wrapper ant-radio-wrapper-checked">
-                                    <span class="ant-radio ant-radio-checked">
+                            <label class="ant-radio-wrapper">
+                                    <span class="ant-radio" onclick="sortAscPrice()">
                                         <input type="radio" class="ant-radio-input" value="" checked="">
                                         <span class="ant-radio-inner"></span>
                                     </span>
@@ -163,7 +164,7 @@
                                     </span>
                             </label>
                             <label class="ant-radio-wrapper">
-                                    <span class="ant-radio">
+                                    <span class="ant-radio" onclick="sortDescPrice()">
                                         <input type="radio" class="ant-radio-input" value="" checked="">
                                         <span class="ant-radio-inner"></span>
                                     </span>
@@ -177,7 +178,7 @@
                         <div class="filter-group">
                             <div class="filter-title">
                                 <div class="title">Lọc</div>
-                                <p class="btn-clear">Lọc</p>
+                                <p class="btn-clear" onclick="Filter()">Lọc</p>
                             </div>
                             <div class="filter-item">
                                 <div class="filter-times-container">
@@ -194,12 +195,14 @@
                                     <div class="filter-time-container">
                                         <div class="input-group">
                                             <div class="input-item">
-                                                <p class="base-caption">Từ</p><input type="text" value="00:00"
+                                                <p class="base-caption">Từ</p>
+                                                <input id="min_time" type="text" value="00:00"
                                                                                      class="ant-input">
                                             </div>
                                             <div class="divider"></div>
                                             <div class="input-item">
-                                                <p class="base-caption">Đến</p><input type="text" value="24:00"
+                                                <p class="base-caption">Đến</p>
+                                                <input id="max_time" type="text" value="24:00"
                                                                                       class="ant-input">
                                             </div>
                                         </div>
@@ -209,19 +212,19 @@
                                     <div class="header">
                                         <div class="labelStyle">Nhà xe</div>
                                         <div>
-                                            <div
-                                                    class="material-icons-wrapper md-24 color--medium-sub expand-icon ">
-                                                    <span class="material-symbols-outlined">
-                                                        expand_less
-                                                    </span></div>
+                                            <div class="material-icons-wrapper md-24 color--medium-sub expand-icon ">
+                                                <span class="material-symbols-outlined">
+                                                    expand_less
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="groupKind">
                                         <label class="checkBoxGroup ant-checkbox-wrapper"
                                                th:each="partner : ${partners}">
                                                 <span class="ant-checkbox">
-                                                    <span th:text="${partner.partnerName}"></span>
-                                                    <input type="checkbox" class="ant-checkbox-input" value="">
+                                                    <span class="name"th:text="${partner.partnerName}"></span>
+                                                    <input type="checkbox" class="ant-checkbox-input" value="" checked="">
                                                     <span class="checkmark"></span>
                                                 </span>
                                         </label>
@@ -244,12 +247,12 @@
                                             <div class="input-group">
                                                 <div class="input-item">
                                                     <p class="base-caption">Min</p>
-                                                    <input type="text" value="0" class="ant-input">
+                                                    <input id="min_price" type="text" value="0" class="ant-input">
                                                 </div>
                                                 <div class="divider"></div>
                                                 <div class="input-item">
-                                                    <p class="base-caption">Max</p><input type="text" value="2000000"
-                                                                                          class="ant-input">
+                                                    <p class="base-caption">Max</p>
+                                                    <input id="max_price" type="text" value="2000000" class="ant-input">
                                                 </div>
                                             </div>
                                         </div>
@@ -332,6 +335,7 @@
 </div>
 
 <footer th:include="user/fragments/footer::footer"></footer>
+<script th:src="@{/assets/js/booking.js}"></script>
 </body>
 
 </html>

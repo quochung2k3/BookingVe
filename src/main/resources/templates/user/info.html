@@ -24,7 +24,7 @@
                 <img class="avatar-img" th:src="@{/assets/img/avatar_df.png}">
             </div>
             <div class="base-descript">
-                <div class="name">Vi Vũ</div>
+                <div class="name" th:text="${user.FullName}"></div>
                 <div class="change-profile">
                     <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"
                          style="margin-right: 4px;">
@@ -42,8 +42,12 @@
                             <img src="https://down-vn.img.susercontent.com/file/ba61750a46794d8847c3f463c5e71cc4">
                         </div>
                         <div class="content">
-                            <span class="base-text blue">Hồ sơ</span>
-                        </div>
+                            <form class="option-form" th:action="@{/info}" method="get">
+                                <input type="hidden" th:value="${user.userId}" name="userId">
+                                <button type="submit" >
+                                    <span class="base-text blue">Hồ sơ</span>
+                                </button>
+                            </form></div>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,12 @@
                                 src="https://down-vn.img.susercontent.com/file/f0049e9df4e536bc3e7f140d071e9078">
                         </div>
                         <div class="content">
-                            <span class="base-text">Lịch sử</span></div>
+                            <form class="option-form" th:action="@{/history}" method="get">
+                                <input type="hidden" th:value="${user.userId}" name="userId">
+                                <button type="submit" >
+                                    <span class="base-text">Lịch sử</span>
+                                </button>
+                            </form></div>
                     </a>
                 </div>
             </div>
@@ -63,7 +72,13 @@
                     <a class="link voucher" href="/user/voucher-wallet">
                         <div class="img"><img src="https://down-vn.img.susercontent.com/file/84feaa363ce325071c0a66d3c9a88748">
                         </div>
-                        <div class="content"><span class="base-text">Kho Voucher</span></div>
+                        <div class="content">
+                            <form class="option-form" th:action="@{/voucher}" method="get">
+                            <input type="hidden" th:value="${user.userId}" name="userId">
+                            <button type="submit" >
+                                <span class="base-text">Kho voucher</span>
+                            </button>
+                        </form></div>
                     </a>
                 </div>
             </div>
@@ -84,7 +99,7 @@
                                     <tr>
                                         <td class="caption"><label>Tên:</label></td>
                                         <td class="input">
-                                            <div class="text-df">Vi Vũ
+                                            <div class="text-df" th:text="${user.FullName}">
                                             </div>
                                         </td>
                                     </tr>
@@ -98,8 +113,7 @@
                                     <tr>
                                         <td class="caption"><label>Số điện thoại:</label></td>
                                         <td class="input">
-                                            <div class="user-phone hidden-phone">
-                                                *********80
+                                            <div class="user-phone hidden-phone" th:text="${user.SDT}">
                                             </div>
                                         </td>
                                     </tr>
@@ -120,7 +134,7 @@
                                     <tr>
                                         <td class="caption"><label>Địa chỉ:</label></td>
                                         <td class="input">
-                                            <div class="text-df">Nha Trang
+                                            <div class="text-df" th:text="${user.address}">
                                             </div>
                                         </td>
                                     </tr>

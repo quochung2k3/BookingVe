@@ -15,4 +15,6 @@ public class InvoiceServiceImpl implements InvoiceService {
     public List<Invoice> findAll() {
         return invoiceRepository.findAll();
     }
+
+    public List<Invoice> findAllByUserId(int userId){ return invoiceRepository.findAllByUserId(userId);}
 }

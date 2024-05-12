@@ -3,6 +3,7 @@
 <head th:include="user/fragments/head::head">
 </head>
 <head>
+    <title>VoucherPage</title>
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/payment.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/info.css}">
 </head>
@@ -24,7 +25,7 @@
                 <img class="avatar-img" th:src="@{/assets/img/avatar_df.png}">
             </div>
             <div class="base-descript">
-                <div class="name">Vi Vũ</div>
+                <div class="name" th:text="${user.FullName}"></div>
                 <div class="change-profile">
                     <svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"
                          style="margin-right: 4px;">
@@ -42,8 +43,12 @@
                             <img src="https://down-vn.img.susercontent.com/file/ba61750a46794d8847c3f463c5e71cc4">
                         </div>
                         <div class="content">
-                            <span class="base-text">Hồ sơ</span>
-                        </div>
+                            <form class="option-form" th:action="@{/info}" method="get">
+                                <input type="hidden" th:value="${user.userId}" name="userId">
+                                <button type="submit" >
+                                    <span class="base-text">Hồ sơ</span>
+                                </button>
+                            </form></div>
                     </div>
                 </div>
             </div>
@@ -54,7 +59,12 @@
                                 src="https://down-vn.img.susercontent.com/file/f0049e9df4e536bc3e7f140d071e9078">
                         </div>
                         <div class="content">
-                            <span class="base-text ">Lịch sử</span></div>
+                            <form class="option-form" th:action="@{/history}" method="get">
+                                <input type="hidden" th:value="${user.userId}" name="userId">
+                                <button type="submit" >
+                                    <span class="base-text">Lịch sử</span>
+                                </button>
+                            </form></div>
                     </a>
                 </div>
             </div>
@@ -63,7 +73,13 @@
                     <a class="link voucher" href="/user/voucher-wallet">
                         <div class="img"><img src="https://down-vn.img.susercontent.com/file/84feaa363ce325071c0a66d3c9a88748">
                         </div>
-                        <div class="content"><span class="base-text blue">Kho Voucher</span></div>
+                        <div class="content">
+                            <form class="option-form" th:action="@{/voucher}" method="get">
+                                <input type="hidden" th:value="${user.userId}" name="userId">
+                                <button type="submit" >
+                                    <span class="base-text blue">Kho voucher</span>
+                                </button>
+                            </form></div>
                     </a>
                 </div>
             </div>
@@ -75,38 +91,23 @@
                 <div class="voucher-container">
                     <table class="table-view">
                         <tr>
-                            <th>STT</th>
-                            <th>Tên voucher</th>
                             <th>Mã voucher</th>
+                            <th>Tên voucher</th>
+                            <th>Phần trăm giảm</th>
                             <th>Số lượng</th>
                             <th>Ngày bắt đầu</th>
                             <th>Ngày kết thúc</th>
                         </tr>
+                        <div th:each = "voucher: ${vouchers}">
                         <tr>
-                            <td>1</td>
-                            <td>Vé tham quan</td>
-                            <td>ABC Travel</td>
-                            <td>2024-05-01</td>
-                            <td>10:00</td>
-                            <td><a href="#">Xem chi tiết</a></td>
+                            <td th:text="${voucher.voucherId}"></td>
+                            <td th:text="${voucher.voucherName}"></td>
+                            <td th:text="${voucher.decreasePercent}"></td>
+                            <td th:text="${voucher.quantity}"></td>
+                            <td th:text="${voucher.dayStart}"></td>
+                            <td th:text="${voucher.dayEnd}"></td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Vé phim</td>
-                            <td>XYZ Bus</td>
-                            <td>2024-05-05</td>
-                            <td>15:30</td>
-                            <td><a href="#">Xem chi tiết</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Vé sự kiện</td>
-                            <td>PQR Transport</td>
-                            <td>2024-05-08</td>
-                            <td>18:00</td>
-                            <td><a href="#">Xem chi tiết</a></td>
-                        </tr>
-                        <!-- Thêm các dòng tiếp theo tương ứng với các lịch sử đặt vé khác -->
+                        </div>
                     </table>
                 </div>
 

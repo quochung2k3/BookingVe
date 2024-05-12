@@ -137,8 +137,11 @@ html {
     font-weight: 500;
     margin-right: .3125rem;
     padding-left: 25px;
+    font-size: 24px;
+    border: none;
+    background: none;
+    padding-top: 5px;
 }
-
 .right {
     background: #fff;
     border-radius: .125rem;
