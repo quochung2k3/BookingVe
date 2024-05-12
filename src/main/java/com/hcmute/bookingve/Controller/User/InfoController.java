@@ -34,10 +34,10 @@ public class InfoController {
     @RequestMapping("/history")
     public String historyPage(Model model,
                               @RequestParam("userId") int userId){
-        List<Invoice> invoiceList = invoiceService.findAllByUserId(userId);
+//        List<Invoice> invoiceList = invoiceService.findAllByUserId(userId);
         User user = userService.findUserByUserId(userId);
         model.addAttribute("user",user);
-        model.addAttribute("invoices",invoiceList);
+//        model.addAttribute("invoices",invoiceList);
         return "user/history_view";
     }
 

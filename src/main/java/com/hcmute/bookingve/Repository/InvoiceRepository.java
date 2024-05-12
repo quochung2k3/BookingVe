@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
-    @Query("SELECT inv FROM Invoice inv WHERE inv.UserId = :userId")
-    List<Invoice> findAllByUserId(int userId);
+//    @Query("SELECT inv FROM Invoice inv WHERE inv.UserId = :userId")
+//    List<Invoice> findAllByUserId(int userId);
 
     @Query("SELECT inv FROM Invoice inv")
     List<Invoice> findAll();
