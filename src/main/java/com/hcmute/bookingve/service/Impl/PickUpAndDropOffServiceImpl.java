@@ -30,4 +30,9 @@ public class PickUpAndDropOffServiceImpl implements PickUpAndDropOffService {
     public PickUpAndDropOff findById(int id) {
         return pickUpAndDropOffRepository.findById(id).get();
     }
+
+    @Override
+    public String findPlaceNameById(int id) {
+        return pickUpAndDropOffRepository.findPlaceNameById(id);
+    }
 }

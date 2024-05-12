@@ -29,8 +29,8 @@
                 <div class="row">
                     <div class="col-xl-8">
                         <ul class="list-unstyled">
-                            <li class="text-muted">To: <span style="color:#5d9fc5 ;" th:text="${invoice.getReservation().getUserName()}"></span></li>
-                            <li th:text="${'SDT: ' + invoice.getReservation().getSDT()}" class="text-muted"><i class="fas fa-phone"></i></li>
+                            <li class="text-muted">To: <span style="color:#5d9fc5 ;" th:text="${reservation.getUserName()}"></span></li>
+                            <li th:text="${'SDT: ' + reservation.getSDT()}" class="text-muted"><i class="fas fa-phone"></i></li>
                         </ul>
                     </div>
                     <div class="col-xl-4">
@@ -58,7 +58,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td th:text="${invoice.getReservation().getBus().getVehicle().getVehicleName()}"></td>
+                            <td th:text="${bus.getVehicleName()}"></td>
                             <td th:text="${invoice.getTotalSeat()}"></td>
                             <td th:text="${invoice.getTotalPrice()/invoice.getTotalSeat() + ' VNĐ'}"></td>
                             <td th:text="${invoice.getListSeatName()}"></td>

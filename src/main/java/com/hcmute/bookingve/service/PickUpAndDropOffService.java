@@ -12,4 +12,6 @@ public interface PickUpAndDropOffService {
     List<PickUpAndDropOff> findByEndId(int placeEndId);
 
     PickUpAndDropOff findById(int dropOffId);
+
+    String findPlaceNameById(int dropOffId);
 }
