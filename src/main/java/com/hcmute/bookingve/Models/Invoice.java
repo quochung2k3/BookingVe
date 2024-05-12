@@ -25,7 +25,13 @@ public class Invoice implements Serializable {
     private int ReservationId;
     private String ListSeatId;
     private String CardNumber;
-
+    private int UserId;
+    @OneToOne
+    @JoinColumn(name = "UserId", referencedColumnName = "UserId")
+    private User user;
+    @OneToOne
+    @JoinColumn(name = "ReservationId", referencedColumnName = "ReservationId")
+    private  Reservation reservation;
     public Invoice(int invoiceId, int totalPrice, int totalSeat, String listSeatName, Boolean isPayed, int voucherId, int totalDiscount, int reservationId, String listSeatId, String cardNumber) {
         InvoiceId = invoiceId;
         TotalPrice = totalPrice;
