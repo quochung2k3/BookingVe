@@ -8,4 +8,6 @@ public interface InvoiceService {
     List<Invoice> findAll();
 
     void saveAs(Invoice invoice);
+
+    Invoice findByCardNumber(String cardNumber);
 }

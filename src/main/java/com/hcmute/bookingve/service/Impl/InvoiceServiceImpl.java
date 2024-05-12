@@ -20,4 +20,9 @@ public class InvoiceServiceImpl implements InvoiceService {
     public void saveAs(Invoice invoice) {
         invoiceRepository.save(invoice);
     }
+
+    @Override
+    public Invoice findByCardNumber(String cardNumber) {
+        return invoiceRepository.findByCardName(cardNumber);
+    }
 }

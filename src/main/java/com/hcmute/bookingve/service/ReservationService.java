@@ -10,4 +10,6 @@ public interface ReservationService {
     void saveAs(Reservation reservation);
 
     Reservation findByUserName(String userEmail);
+
+    Reservation findById(int reservationId);
 }

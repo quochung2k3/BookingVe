@@ -25,4 +25,9 @@ public class ReservationServiceImpl implements ReservationService {
     public Reservation findByUserName(String userEmail) {
         return reservationRepository.findByUserName(userEmail);
     }
+
+    @Override
+    public Reservation findById(int reservationId) {
+        return reservationRepository.findById(reservationId).get();
+    }
 }
