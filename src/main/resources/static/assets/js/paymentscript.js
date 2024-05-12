@@ -103,9 +103,23 @@ function changeRectColor(classList, money) {
     var totalPriceText = document.querySelector('.total-price-text').textContent;
     var total = totalPriceText.replace(/\D/g, '');
     var totalText = listSeat.length * parseInt(total);
-    document.getElementById('list-seat-name').innerHTML = "Số ghế: {" + listSeat.toString() + "}";
+    if(listSeat.length > 0) {
+        document.getElementById('list-seat-name').innerHTML = "Số ghế: {" + listSeat.toString() + "}";
+    }
+    else {
+        document.getElementById('list-seat-name').innerHTML = "";
+    }
     document.getElementById('list-seat-name-value').value = "{" + listSeat.toString() + "}";
     document.getElementById('list-seat-id-value').value = "{" + listSeatId.toString() + "}";
     document.getElementById('total').innerHTML = totalText + ' VNĐ';
     document.getElementById('totalCost').value = totalText + ' VNĐ';
+}
+
+function validateForm() {
+    var inputField = document.getElementById("list-seat-name");
+    if (inputField.textContent.trim() === "") {
+        alert("Bạn phải điền vào trường này trước khi tiếp tục!");
+        return false;
+    }
+    return true;
 }

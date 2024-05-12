@@ -10,7 +10,7 @@
 <body>
 <header th:replace="user/fragments/header::header"></header>
 <div class="clearfix"></div>
-<form th:action="@{/payPage}" method="get">
+<form th:action="@{/payPage}" method="get" onsubmit="return validateForm()">
     <div class="main">
         <div class="booking-body-container">
             <div class="booking-wrap-container">
@@ -376,7 +376,7 @@
                     </div>
                     <input hidden id="list-seat-name-value" name="listSeatName">
                     <input hidden id="list-seat-id-value" name="listSeatId">
-                    <span id="list-seat-name">Số ghế: </span>
+                    <span style="color: red" id="list-seat-name"></span>
                     <div class="total-money">
                         Tổng cộng:
                         <input hidden id="totalCost" name="totalCost">

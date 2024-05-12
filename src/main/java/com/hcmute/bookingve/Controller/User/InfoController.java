@@ -16,7 +16,6 @@ import java.util.List;
 
 @Controller
 public class InfoController {
-
     @Autowired
     UserService userService;
     @Autowired

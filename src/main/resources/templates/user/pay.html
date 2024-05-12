@@ -338,7 +338,6 @@
                 success: function (response) {
                     // Cập nhật dữ liệu của form
                     $('.coupon-discount-value').text(response.discount); // Giảm giá
-                    $('#total').text(response.totalAfterDiscount);
                     $('#total-discount').text(response.totalAfterDiscount);
                 },
                 error: function (xhr, status, error) {
