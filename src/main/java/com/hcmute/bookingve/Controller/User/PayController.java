@@ -25,6 +25,10 @@ public class PayController {
     PickUpAndDropOffService pickUpAndDropOffService;
     @Autowired
     VoucherService voucherService;
+    @Autowired
+    CardService cardService;
+    @Autowired
+    InvoiceService invoiceService;
     @GetMapping("/payPage")
     public String payPage(Model model,
                           @RequestParam("busId") int busId,
@@ -44,7 +48,7 @@ public class PayController {
         reservation.setSDT(sdt);
         reservation.setUserEmail(userEmail);
         reservation.setIsConfirmed(true);
-//        reservationService.saveAs(reservation);
+        reservationService.saveAs(reservation);
 
         // Lấy thông tin của chuyến đi theo busId
         Bus bus = busService.findById(busId);
@@ -91,8 +95,50 @@ public class PayController {
     }
 
     @PostMapping("/invoice")
-    public String invoice(@RequestParam("listSeatName") String listSeatName) {
-        System.out.println(listSeatName);
-        return "user/historyBooking";
+    @ResponseBody
+    public Map<String, Object> invoice(@RequestParam("userEmail") String userEmail,
+                                       @RequestParam("cardNumber") String cardNumber,
+                                       @RequestParam("expirationDate") String expirationDate,
+                                       @RequestParam("CVV") String CVV,
+                                       @RequestParam("totalCost") String totalCost,
+                                       @RequestParam("totalAfterDiscount") String totalAfterDiscount,
+                                       @RequestParam("listSeatName") String listSeatName,
+                                       @RequestParam("listSeatId") String listSeatId,
+                                       @RequestParam("voucherCode") String voucherCode) {
+        Map<String, Object> responseData = new HashMap<>();
+        Card card = cardService.findByCardNumber(cardNumber);
+        Reservation reservation = reservationService.findByUserName(userEmail);
+        System.out.println(listSeatId);
+        String count = listSeatName.replaceAll("[{}]", "");
+        String[] elements = count.split(",");
+        System.out.println(voucherCode);
+        int totalAfter = Integer.parseInt(totalAfterDiscount.replace(" VNĐ", ""));
+        int total = Integer.parseInt(totalCost.replace(" VNĐ", ""));
+        if(card == null || !CVV.equals(card.getCVV()) || !expirationDate.equals(card.getExpirationDate())) {
+            responseData.put("announcement", "Thẻ không hợp lệ");
+        }
+        else {
+            if(card.getTotal() < totalAfter) {
+                responseData.put("announcement", "Số tiền không đủ");
+            }
+            else {
+                Invoice invoice = new Invoice();
+                invoice.setTotalPrice(total);
+                invoice.setTotalDiscount(total - totalAfter);
+                invoice.setListSeatName(listSeatName);
+                invoice.setListSeatId(listSeatId);
+                invoice.setIsPayed(true);
+                invoice.setReservationId(reservation.getReservationId());
+                invoice.setTotalSeat(elements.length);
+                invoice.setCardNumber(cardNumber);
+                if(total != totalAfter) {
+                    invoice.setVoucherId(Integer.parseInt(voucherCode));
+                }
+                invoiceService.saveAs(invoice);
+                responseData.put("success", true);
+                responseData.put("redirectUrl", "/");
+            }
+        }
+        return responseData;
     }
 }

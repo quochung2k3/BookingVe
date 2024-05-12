@@ -35,6 +35,9 @@ public class Invoice implements Serializable {
     private  Reservation reservation;
 
     public Invoice(int invoiceId, int totalPrice, int totalSeat, String listSeatName, Boolean isPayed, int voucherId, int totalDiscount, int reservationId, String listSeatId,int userId) {
+    private String CardNumber;
+
+    public Invoice(int invoiceId, int totalPrice, int totalSeat, String listSeatName, Boolean isPayed, int voucherId, int totalDiscount, int reservationId, String listSeatId, String cardNumber) {
         InvoiceId = invoiceId;
         TotalPrice = totalPrice;
         TotalSeat = totalSeat;
@@ -45,6 +48,7 @@ public class Invoice implements Serializable {
         ReservationId = reservationId;
         ListSeatId = listSeatId;
         UserId = userId;
+        CardNumber = cardNumber;
     }
 
     public Invoice() {

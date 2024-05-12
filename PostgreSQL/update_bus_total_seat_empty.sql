@@ -1,3 +1,4 @@
+-- DROP TRIGGER update_total_seat_empty_trigger ON "Invoice";
 CREATE OR REPLACE FUNCTION update_bus_total_seat_empty()
 RETURNS TRIGGER AS $$
 DECLARE
@@ -16,7 +17,7 @@ BEGIN
         S."SeatName",
         CASE
             WHEN S."SeatId" IN (
-                SELECT UNNEST("ListSeatId")
+                SELECT UNNEST("ListSeatId"::INT[])
                 FROM "Invoice" I 
                 INNER JOIN "Reservation" R ON I."ReservationId" = R."ReservationId"
                 WHERE "IsPayed" = TRUE
@@ -36,6 +37,15 @@ BEGIN
 		UPDATE "Bus"
 		SET "TotalSeatEmpty" = v_total_seat_empty
 		WHERE "BusId" = v_bus_id;
+		
+		UPDATE "Voucher"
+		SET "Quantity" = "Quantity" - 1
+		WHERE "VoucherId" = NEW."VoucherId";
+		
+		UPDATE "Card"
+		SET "Total" = "Total" - NEW."TotalPrice" + NEW."TotalDiscount"
+		WHERE "CardNumber" = NEW."CardNumber";
+		
 		RETURN NULL;
 END;
 $$ LANGUAGE plpgsql;

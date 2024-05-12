@@ -8,4 +8,8 @@ public interface ReservationService {
     List<Reservation> findAll();
 
     void saveAs(Reservation reservation);
+
+    Reservation findByUserName(String userEmail);
+
+    Reservation findById(int reservationId);
 }

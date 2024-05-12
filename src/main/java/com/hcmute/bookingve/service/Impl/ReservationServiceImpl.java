@@ -20,4 +20,14 @@ public class ReservationServiceImpl implements ReservationService {
     public void saveAs(Reservation reservation) {
         reservationRepository.save(reservation);
     }
+
+    @Override
+    public Reservation findByUserName(String userEmail) {
+        return reservationRepository.findByUserName(userEmail);
+    }
+
+    @Override
+    public Reservation findById(int reservationId) {
+        return reservationRepository.findById(reservationId).get();
+    }
 }

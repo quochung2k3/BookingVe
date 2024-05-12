@@ -15,3 +15,6 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
     @Query("SELECT inv FROM Invoice inv")
     public List<Invoice> findAll();
 }
+    @Query("SELECT i FROM Invoice i WHERE i.CardNumber = :cardNumber ORDER BY i.InvoiceId DESC LIMIT 1")
+    Invoice findByCardName(String cardNumber);
+}
