@@ -17,8 +17,8 @@ public class Bus implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BusId;
+    @Column(insertable = false, updatable = false)
     private int VehicleId;
-    private String VehicleName;
     private Timestamp GoingDateTime;
     private int SeatsOfBusId;
     @Column(insertable = false, updatable = false)
@@ -31,17 +31,19 @@ public class Bus implements Serializable {
     private int SeatTypeId;
     private Timestamp ArrivalDateTime;
     private int TotalSeatEmpty;
+
     @ManyToOne
     @JoinColumn(name = "BusTypeId", referencedColumnName = "BusTypeId")
     private BusType BusType;
     @ManyToOne
     @JoinColumn(name = "SeatTypeId", referencedColumnName = "SeatTypeId")
     private SeatType SeatType;
-
-    public Bus(int busId, int vehicleId, String vehicleName, Timestamp goingDateTime, int seatsOfBusId, int busTypeId, int placeStartId, int placeEndId, String placeStartName, String placeEndName, int seatTypeId, Timestamp arrivalDateTime, int totalSeatEmpty) {
+    @ManyToOne
+    @JoinColumn(name = "VehicleId", referencedColumnName = "VehicleId")
+    private Vehicle vehicle;
+    public Bus(int busId, int vehicleId, Timestamp goingDateTime, int seatsOfBusId, int busTypeId, int placeStartId, int placeEndId, String placeStartName, String placeEndName, int seatTypeId, Timestamp arrivalDateTime, int totalSeatEmpty) {
         BusId = busId;
         VehicleId = vehicleId;
-        VehicleName = vehicleName;
         GoingDateTime = goingDateTime;
         SeatsOfBusId = seatsOfBusId;
         BusTypeId = busTypeId;
@@ -53,7 +55,6 @@ public class Bus implements Serializable {
         ArrivalDateTime = arrivalDateTime;
         TotalSeatEmpty = totalSeatEmpty;
     }
-
     public Bus() {
 
     }

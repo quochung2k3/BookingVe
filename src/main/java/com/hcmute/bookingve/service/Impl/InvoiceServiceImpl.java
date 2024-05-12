@@ -25,4 +25,5 @@ public class InvoiceServiceImpl implements InvoiceService {
     public Invoice findByCardNumber(String cardNumber) {
         return invoiceRepository.findByCardName(cardNumber);
     }
+    public List<Invoice> findAllByUserId(int userId){ return invoiceRepository.findAllByUserId(userId);}
 }
