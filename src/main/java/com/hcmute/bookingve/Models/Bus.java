@@ -17,6 +17,7 @@ public class Bus implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BusId;
+    @Column(insertable = false, updatable = false)
     private int VehicleId;
     private String VehicleName;
     private Timestamp GoingDateTime;
