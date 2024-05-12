@@ -15,4 +15,6 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
+    public User findUserByUserId(int id){return userRepository.findUserByUserId(id);}
 }

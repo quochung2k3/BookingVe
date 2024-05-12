@@ -22,11 +22,21 @@ public class Invoice implements Serializable {
     private Boolean IsPayed;
     private int VoucherId;
     private int TotalDiscount;
+    @Column(insertable = false, updatable = false)
     private int ReservationId;
     private String ListSeatId;
+    @Column(insertable = false, updatable = false)
+    private int UserId;
+    @OneToOne
+    @JoinColumn(name = "UserId", referencedColumnName = "UserId")
+    private User user;
+    @OneToOne
+    @JoinColumn(name = "ReservationId", referencedColumnName = "ReservationId")
+    private  Reservation reservation;
+
     private String CardNumber;
 
-    public Invoice(int invoiceId, int totalPrice, int totalSeat, String listSeatName, Boolean isPayed, int voucherId, int totalDiscount, int reservationId, String listSeatId, String cardNumber) {
+    public Invoice(int invoiceId, int totalPrice, int totalSeat, String listSeatName, Boolean isPayed, int voucherId, int totalDiscount, int reservationId, String listSeatId, String cardNumber,int userId) {
         InvoiceId = invoiceId;
         TotalPrice = totalPrice;
         TotalSeat = totalSeat;
@@ -36,6 +46,7 @@ public class Invoice implements Serializable {
         TotalDiscount = totalDiscount;
         ReservationId = reservationId;
         ListSeatId = listSeatId;
+        UserId = userId;
         CardNumber = cardNumber;
     }
 

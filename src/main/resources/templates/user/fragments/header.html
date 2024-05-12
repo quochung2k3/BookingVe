@@ -12,11 +12,31 @@
                     <img id="img_account" th:src="@{/assets/img/avatar_df.png}"  alt="Avatar">
                 </div>
                 <div class="name-account">
-                    <p id="fullname_account" value="">Phạm Quốc Hưng</p>
-                    <p id="sdt_account" value="">0944372456</p>
+                    <p id="fullname_account" th:text="${user.FullName}"></p>
+                    <p id="sdt_account" th:text="${user.SDT}"></p>
                 </div>
-
+                <div class="option-account hidden">
+                    <ul>
+                        <li>
+                            <form class="option-form" th:action="@{/info}" method="get">
+                                <input type="hidden" th:value="${user.userId}" name="userId">
+                                <button type="submit">
+                                    <span>Hồ sơ của tôi</span>
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="option-form" th:action="@{/history}" method="get">
+                                <input type="hidden" th:value="${user.userId}" name="userId">
+                                <button type="submit">
+                                    <span>Lịch sử đặt vé</span>
+                                </button>
+                            </form>
+                        </li>
+                        <li href="">Đăng xuất</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+        <script th:src="@{/assets/js/header.js}"></script>
 </header>
