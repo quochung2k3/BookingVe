@@ -17,6 +17,7 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ReservationId;
+    @Column(insertable = false, updatable = false)
     private int BusId;
     private int PickUpId;
     private int DropOffId;
