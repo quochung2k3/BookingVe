@@ -22,9 +22,11 @@ public class Invoice implements Serializable {
     private Boolean IsPayed;
     private int VoucherId;
     private int TotalDiscount;
+    @Column(insertable = false, updatable = false)
     private int ReservationId;
     private String ListSeatId;
     private String CardNumber;
+    @Column(insertable = false, updatable = false)
     private int UserId;
     @OneToOne
     @JoinColumn(name = "UserId", referencedColumnName = "UserId")
