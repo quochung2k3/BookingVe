@@ -118,7 +118,7 @@ function changeRectColor(classList, money) {
 function validateForm() {
     var inputField = document.getElementById("list-seat-name");
     if (inputField.textContent.trim() === "") {
-        alert("Bạn phải điền vào trường này trước khi tiếp tục!");
+        alert("Vui lòng chọn ghế trước khi tiếp tục!");
         return false;
     }
     return true;
