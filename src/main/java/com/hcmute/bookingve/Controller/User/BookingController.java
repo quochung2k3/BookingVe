@@ -30,14 +30,12 @@ public class BookingController {
     UserService userService;
     @RequestMapping("/bookingPage")
     public String bookingPage(Model model,
-                              @RequestParam("userId") int userId,
                               @RequestParam("placeStartName") String placeStartName,
                               @RequestParam("placeEndName") String placeEndName,
                               @RequestParam("goingDate") String goingDate) {
         List<Place> places = placeService.findAll();
         List<Bus> busList = busService.findAllByStartAndEnd(placeStartName, placeEndName, goingDate);
         List<Partner> partners = partnerService.findAllExcept();
-        User user = userService.findUserByUserId(userId);
         System.out.println(placeStartName);
         System.out.println(placeEndName);
         System.out.println(goingDate);
@@ -47,7 +45,6 @@ public class BookingController {
         model.addAttribute("places", places);
         model.addAttribute("busList", busList);
         model.addAttribute("partners", partners);
-        model.addAttribute("user",user);
         return "user/bookingpage";
     }
 }
